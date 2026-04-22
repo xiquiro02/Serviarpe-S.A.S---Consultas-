@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviarpe S.A.S - Dashboard</title>
+  <link rel="stylesheet" href="../asset/css/estilos_menuPrincipal.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== OVERLAY ===== -->
+  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
+      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+    </div>
+
+    <p class="sidebar-seccion">GENERAL</p>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active">
+        <span class="nav-icon">🏠</span> Inicio
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">👤</span> Buscar personal
+      </a>
+    </nav>
+
+    <p class="sidebar-seccion">LIBROS</p>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📘</span> Libro # 1
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📗</span> Libro # 2
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📙</span> Libro # 3
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📕</span> Libro # 4
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <span class="user-icon">👤</span>
+      <span class="user-nombre">Administrador</span>
+    </div>
+  </aside>
+
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <div class="main-wrapper">
+
+    <!-- TOPBAR: solo logo y título, SIN hamburguesa -->
+    <header class="topbar">
+      <div class="topbar-center">
+        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+      </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+      <!-- Botón hamburguesa AQUÍ, dentro del main -->
+      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Tarjetas de resumen -->
+      <div class="resumen">
+        <div class="card-resumen azul">
+          <span class="card-numero">5</span>
+          <span class="card-label">Total de Carpetas</span>
+        </div>
+        <div class="card-resumen verde">
+          <span class="card-numero">9</span>
+          <span class="card-label">Total de Cajas</span>
+        </div>
+        <div class="card-resumen naranja">
+          <span class="card-numero">2022 – 2025</span>
+          <span class="card-label">Años</span>
+        </div>
+      </div>
+
+      <!-- Grid de libros -->
+      <div class="libros-grid">
+        <div class="libro-card">
+          <img src="../asset/imagenes/libro_azul.png" alt="Libro 1" class="libro-img" />
+          <span class="libro-titulo">LIBRO # 1</span>
+        </div>
+        <div class="libro-card">
+          <img src="../asset/imagenes/libro_verde.png" alt="Libro 2" class="libro-img" />
+          <span class="libro-titulo">LIBRO # 2</span>
+        </div>
+        <div class="libro-card">
+          <img src="../asset/imagenes/libro_naranja.png" alt="Libro 3" class="libro-img" />
+          <span class="libro-titulo">LIBRO # 3</span>
+        </div>
+        <div class="libro-card">
+          <img src="../asset/imagenes/libro_azul.png" alt="Libro 4" class="libro-img" />
+          <span class="libro-titulo">LIBRO # 4</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../asset/js/menuPrincipal.js"></script>
+</body>
+</html>
