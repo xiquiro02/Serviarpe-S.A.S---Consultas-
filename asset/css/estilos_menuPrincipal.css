@@ -1,0 +1,337 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* OVERLAY */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 100;
+}
+
+.overlay.activo {
+  display: block;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 260px;
+  height: 100vh;
+  background: #1E3A5F;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+}
+
+.sidebar.abierto {
+  left: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 16px;
+  background: #1E3A5F;
+  border-bottom: 1px solid #2c3e50;
+}
+
+.sidebar-header img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #2ecc71;
+}
+
+.sidebar-nombre {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.sidebar-seccion {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #7f8c8d;
+  letter-spacing: 1px;
+  padding: 16px 16px 6px;
+  text-transform: uppercase;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 18px;
+  color: #bdc3c7;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover {
+  background: #243447;
+  color: #ffffff;
+  border-left-color: #1e90ff;
+}
+
+.nav-item.active {
+  background: #243447;
+  color: #ffffff;
+  border-left-color: #2ecc71;
+}
+
+.nav-icon {
+  font-size: 1rem;
+  width: 22px;
+  text-align: center;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  background: #0f1e2d;
+  border-top: 1px solid #2c3e50;
+}
+
+.user-icon {
+  font-size: 1.3rem;
+  background: #2c3e50;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-nombre {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #ecf0f1;
+}
+
+/* =============================================
+   MAIN WRAPPER
+   ============================================= */
+.main-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================================
+   TOPBAR — solo encabezado, sin hamburguesa
+   ============================================= */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* centrado porque ya no hay hamburguesa */
+  background: #ffffff;
+  padding: 0 20px;
+  height: 60px;
+  border-bottom: 3px solid #2ecc71;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.topbar-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #2ecc71;
+}
+
+.topbar-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2a3a;
+  letter-spacing: 0.5px;
+}
+
+/* =============================================
+   CONTENIDO PRINCIPAL
+   ============================================= */
+.contenido {
+  padding: 16px 20px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* =============================================
+   BOTÓN HAMBURGUESA — dentro del main
+   ============================================= */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: #1a2a3a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 8px;
+  margin-bottom: 18px;      /* espacio antes de las tarjetas */
+  transition: background 0.2s;
+}
+
+.hamburger:hover {
+  background: #243447;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animación X al abrir */
+.hamburger.activo span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.hamburger.activo span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.activo span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+/* =============================================
+   TARJETAS RESUMEN
+   ============================================= */
+.resumen {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.card-resumen {
+  flex: 1;
+  min-width: 120px;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card-resumen.azul    { background: #0088CE; }
+.card-resumen.verde   { background: #8FC240; }
+.card-resumen.naranja { background: #F76927; }
+
+.card-numero {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.card-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+/* =============================================
+   GRID DE LIBROS
+   ============================================= */
+.libros-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.libro-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 22px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #e8e8e8;
+}
+
+.libro-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.13);
+}
+
+.libro-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.libro-titulo {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a2a3a;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 500px) {
+  .libros-grid {
+    grid-template-columns: 1fr;
+  }
+  .topbar-title {
+    font-size: 0.82rem;
+  }
+  .resumen {
+    gap: 10px;
+  }
+  .card-numero {
+    font-size: 1.2rem;
+  }
+}

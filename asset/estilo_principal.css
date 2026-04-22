@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #1a1a2e;
+  position: relative;
+}
+
+/* Fondo con imagen */
+.fondo {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../asset/imagenes/Fondo_Serviarpe_S.A.S.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.45) saturate(0.8);
+  z-index: 0;
+}
+
+.login {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 680px;
+  min-height: 420px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+/* Panel izquierdo - Logo */
+.panel-logo {
+  width: 45%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 30px;
+}
+
+.logo-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Divisor vertical */
+.divider {
+  width: 2px;
+  background-color: #15600E;
+  margin: 30px 0;
+}
+
+/* Panel derecho - Formulario */
+.panel-form {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 36px;
+  background: #ffffff;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.form-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #15920a;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Formulario */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input-group {
+  width: 100%;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #007ABF;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: #333;
+  outline: none;
+  background: #fff;
+}
+
+.input-group input::placeholder {
+  color: #aaaaaa;
+}
+
+.input-group input:focus {
+  border-color: #0077e6;
+}
+
+/* ¿Olvidó su contraseña? */
+.forgot-password {
+  font-size: 0.78rem;
+  color: #7A7979;
+  text-align: left;
+  margin-top: 5px;
+}
+
+.forgot-password a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.forgot-password a:hover {
+  color: #0077e6;
+}
+
+/* Botón Ingresar */
+.btn-ingresar {
+  width: 100%;
+  padding: 13px;
+  background: #007ABF;
+  color: #ffffff;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-ingresar:hover {
+  background: #ffffff;
+  color: #007ABF;
+  border: 2px solid #007ABF;
+  box-shadow: 0 6px 20px rgba(30, 144, 255, 0.45);
+}
+
+/* ¿No tienes cuenta? */
+.register {
+  font-size: 0.8rem;
+  color: #555;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.register a {
+  color: #15920a;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.register a:hover {
+  color: #0059c1;
+}
+
+/*Responsive - Pantallas pequeñas */
+@media (max-width: 700px) {
+  .login {
+    flex-direction: column;
+    width: 95vw;
+    min-height: unset;
+  }
+
+  .panel-logo {
+    width: 100%;
+    padding: 30px 20px 20px;
+  }
+
+  .logo-circle {
+    width: 140px;
+    height: 140px;
+  }
+
+  .divider {
+    width: 80%;
+    height: 2px;
+    margin: 0 auto;
+  }
+
+  .panel-form {
+    width: 100%;
+    padding: 24px 28px 36px;
+  }
+}
