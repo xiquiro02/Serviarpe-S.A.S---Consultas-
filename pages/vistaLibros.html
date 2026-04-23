@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviarpe S.A.S 05 - Registros Libro</title>
+  <link rel="stylesheet" href="../asset/css/estilos_Libros.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== OVERLAY ===== -->
+  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
+      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+    </div>
+
+    <p class="sidebar-seccion">GENERAL</p>
+    <nav class="sidebar-nav">
+      <a href="menuPrincipal.html" class="nav-item">
+        <span class="nav-icon">🏠</span> Inicio
+      </a>
+      <a href="buscarPersonal.html" class="nav-item">
+        <span class="nav-icon">👤</span> Buscar personal
+      </a>
+    </nav>
+
+    <p class="sidebar-seccion">LIBROS</p>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active">
+        <span class="nav-icon">📘</span> Libro # 1
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📗</span> Libro # 2
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📙</span> Libro # 3
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📕</span> Libro # 4
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <span class="user-icon">👤</span>
+      <span class="user-nombre">Administrador</span>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-center">
+        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+      </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+      <!-- Botón hamburguesa -->
+      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Título de la página -->
+      <h2 class="pagina-titulo">Registros - LIBRO # 1</h2>
+
+      <!-- Buscador -->
+      <div class="buscador-wrapper">
+        <span class="buscador-icon">🔍</span>
+        <input type="text" class="buscador" id="buscador"
+               placeholder="Buscar por documento o nombre"
+               onkeyup="filtrarTabla()" />
+      </div>
+
+      <!-- Tabla -->
+      <div class="tabla-wrapper">
+        <table class="tabla" id="tablaRegistros">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Cédula</th>
+              <th>Cargo</th>
+              <th>Carpeta / Libro</th>
+              <th>Ver detalles</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge azul">1</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>1234567890</td>
+              <td>Conductor</td>
+              <td>Libro # 1 - Posición 1</td>
+              <td><button class="btn-editar">✏️ Editar</button></td>
+            </tr>
+            <tr>
+              <td><span class="badge azul">2</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>1234567890</td>
+              <td>Conductor</td>
+              <td>Libro # 1 - Posición 1</td>
+              <td><button class="btn-editar">✏️ Editar</button></td>
+            </tr>
+            <tr>
+              <td><span class="badge azul">3</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>1234567890</td>
+              <td>Conductor</td>
+              <td>Libro # 1 - Posición 1</td>
+              <td><button class="btn-editar">✏️ Editar</button></td>
+            </tr>
+            <tr>
+              <td><span class="badge azul">4</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>1234567890</td>
+              <td>Conductor</td>
+              <td>Libro # 1 - Posición 1</td>
+              <td><button class="btn-editar">✏️ Editar</button></td>
+            </tr>
+            <tr>
+              <td><span class="badge azul">5</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>1234567890</td>
+              <td>Conductor</td>
+              <td>Libro # 1 - Posición 1</td>
+              <td><button class="btn-editar">✏️ Editar</button></td>
+            </tr>
+            <tr>
+              <td><span class="badge azul">6</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>1234567890</td>
+              <td>Conductor</td>
+              <td>Libro # 1 - Posición 1</td>
+              <td><button class="btn-editar">✏️ Editar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="acciones">
+        <button class="btn-eliminar">🗑️ Eliminar</button>
+        <button class="btn-nuevo">➕ Nuevo registro</button>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../asset/js/menuPrincipal.js"></script>
+  <script>
+    function filtrarTabla() {
+      const input = document.getElementById('buscador').value.toLowerCase();
+      const filas = document.querySelectorAll('#tablaRegistros tbody tr');
+      filas.forEach(fila => {
+        const texto = fila.textContent.toLowerCase();
+        fila.style.display = texto.includes(input) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

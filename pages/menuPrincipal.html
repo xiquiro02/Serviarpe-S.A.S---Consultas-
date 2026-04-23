@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-
   <!-- ===== OVERLAY ===== -->
   <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
 
@@ -24,14 +23,14 @@
       <a href="#" class="nav-item active">
         <span class="nav-icon">🏠</span> Inicio
       </a>
-      <a href="#" class="nav-item">
+      <a href="buscarPersonal.html" class="nav-item">
         <span class="nav-icon">👤</span> Buscar personal
       </a>
     </nav>
 
     <p class="sidebar-seccion">LIBROS</p>
     <nav class="sidebar-nav">
-      <a href="#" class="nav-item">
+      <a href="vistaLibros.html" class="nav-item">
         <span class="nav-icon">📘</span> Libro # 1
       </a>
       <a href="#" class="nav-item">
@@ -52,9 +51,9 @@
   </aside>
 
   <!-- ===== CONTENIDO PRINCIPAL ===== -->
-  <div class="main-wrapper">
+  <div class="main">
 
-    <!-- TOPBAR: solo logo y título, SIN hamburguesa -->
+    <!-- Encabezado -->
     <header class="topbar">
       <div class="topbar-center">
         <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
@@ -90,10 +89,12 @@
 
       <!-- Grid de libros -->
       <div class="libros-grid">
-        <div class="libro-card">
-          <img src="../asset/imagenes/libro_azul.png" alt="Libro 1" class="libro-img" />
-          <span class="libro-titulo">LIBRO # 1</span>
-        </div>
+        <a href="vistaLibros.html">
+          <div class="libro-card">
+            <img src="../asset/imagenes/libro_azul.png" alt="Libro 1" class="libro-img" />
+            <span class="libro-titulo">LIBRO # 1</span>
+          </div>
+        </a>
         <div class="libro-card">
           <img src="../asset/imagenes/libro_verde.png" alt="Libro 2" class="libro-img" />
           <span class="libro-titulo">LIBRO # 2</span>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviarpe S.A.S 07 - Buscar Personal</title>
+  <link rel="stylesheet" href="../asset/css/estilos_buscarPersonal.css" />
+</head>
+<body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
+      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+    </div>
+
+    <p class="sidebar-seccion">GENERAL</p>
+    <nav class="sidebar-nav">
+      <a href="menuPrincipal.html" class="nav-item">
+        <span class="nav-icon">🏠</span> Inicio
+      </a>
+      <a href="#" class="nav-item active">
+        <span class="nav-icon">👤</span> Buscar personal
+      </a>
+    </nav>
+
+    <p class="sidebar-seccion">LIBROS</p>
+    <nav class="sidebar-nav">
+      <a href="vistaLibros.html" class="nav-item">
+        <span class="nav-icon">📘</span> Libro # 1
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📗</span> Libro # 2
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📙</span> Libro # 3
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📕</span> Libro # 4
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <span class="user-icon">👤</span>
+      <span class="user-nombre">Administrador</span>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-center">
+        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+      </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+      <!-- Botón hamburguesa -->
+      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Caja de búsqueda -->
+      <div class="busqueda-card">
+        <h2 class="busqueda-titulo">Buscar personal</h2>
+        <div class="buscador-wrapper">
+          <span class="buscador-icon">🔍</span>
+          <input
+            type="text"
+            class="buscador"
+            id="buscador"
+            placeholder="Buscar por documento o nombre"
+            onkeyup="filtrarTabla()"
+          />
+        </div>
+      </div>
+
+      <!-- Tabla -->
+      <div class="tabla-wrapper">
+        <table class="tabla" id="tablaPersonal">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Caja</th>
+              <th>Ubicación</th>
+              <th>Carpeta / Posición</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge">1</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>12#</td>
+              <td>Oficina / Estante 1</td>
+              <td>Libro # 1 - Posición 1</td>
+            </tr>
+            <tr>
+              <td><span class="badge">2</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>12#</td>
+              <td>Oficina / Estante 1</td>
+              <td>Libro # 1 - Posición 1</td>
+            </tr>
+            <tr>
+              <td><span class="badge">3</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>12#</td>
+              <td>Oficina / Estante 1</td>
+              <td>Libro # 1 - Posición 1</td>
+            </tr>
+            <tr>
+              <td><span class="badge">4</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>12#</td>
+              <td>Oficina / Estante 1</td>
+              <td>Libro # 1 - Posición 1</td>
+            </tr>
+            <tr>
+              <td><span class="badge">5</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>12#</td>
+              <td>Oficina / Estante 1</td>
+              <td>Libro # 1 - Posición 1</td>
+            </tr>
+            <tr>
+              <td><span class="badge">6</span></td>
+              <td>Fabian Ferney Duarte Martínez</td>
+              <td>12#</td>
+              <td>Oficina / Estante 1</td>
+              <td>Libro # 1 - Posición 1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../asset/js/menuPrincipal.js"></script>
+  <script>
+    function filtrarTabla() {
+      const input = document.getElementById('buscador').value.toLowerCase();
+      const filas = document.querySelectorAll('#tablaPersonal tbody tr');
+      filas.forEach(fila => {
+        fila.style.display = fila.textContent.toLowerCase().includes(input) ? '' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>

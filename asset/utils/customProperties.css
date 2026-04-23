@@ -1,0 +1,102 @@
+:root {
+    /* ===== COLORES ===== */
+
+    /* Marca / Primarios */
+    --color-azul-oscuro: #1A1A2E;
+    --color-azul-principal: #007ABF;
+    --color-azul-focus: #0077e6;
+    --color-azul-hover: #0059c1;
+    --color-azul-claro: #1e90ff;
+    --color-azul-gradiente: #0087CE;
+    --color-naranja: #F66F27;
+    --color-verde-principal: #15920a;
+    --color-verde-divisor: #15600E;
+    --color-verde-lima: #9CCA3D;
+    --color-blanco: #ffffff;
+    --color-login: #ffffff;
+
+    /* Textos */
+    --color-texto-oscuro: #1a1a1a;
+    --color-texto-input: #333333;
+    --color-texto-gris: #555555;
+    --color-texto-secundario: #7A7979;
+    --color-placeholder: #aaaaaa;
+
+    /* ===== GRADIENTES ===== */
+    --gradient-fondo-registro: linear-gradient(90deg, var(--color-naranja) 10%, var(--color-azul-gradiente) 90%);
+    --gradient-fondo-recuperar: linear-gradient(90deg, var(--color-verde-lima) 10%, var(--color-azul-gradiente) 90%);
+
+    /* ===== TIPOGRAFÍA ===== */
+    --texto-principal: Arial, Helvetica, sans-serif;
+    --font-size-titulo: 1rem;
+    --font-size-subtitulo: 1.1rem;
+    --font-size-titulo-registro: 1.15rem;
+    --font-size-boton: 0.95rem;
+    --font-size-boton-sm: 0.93rem;
+    --font-size-input: 0.9rem;
+    --font-size-input-sm: 0.88rem;
+    --font-size-small: 0.8rem;
+    --font-size-xsmall: 0.78rem;
+    --line-height-descripcion: 1.6;
+
+    /* ===== DIMENSIONES ===== */
+    /* Width */
+    --width-principal: 100%;
+    --width-login: 680px;
+    --width-registro: clamp(660px, 62vw, 920px);
+    --width-recuperar: 660px;
+    --width-panel-logo: 45%;
+    --width-panel-logo-registro: 50%;
+    --width-panel-form: 55%;
+    --width-panel-form-registro: 58%;
+
+    /* Height */
+    --height-principal: 100%;
+    --min-height-login: 420px;
+    --min-height-registro: 440px;
+    --min-height-recuperar: 380px;
+
+    /* Logo */
+    --size-logo-circle: 200px;
+    --size-logo-circle-registro: 300px;
+    --size-logo-circle-recuperar: 190px;
+    --size-logo-circle-mobile: 140px;
+    --size-logo-circle-mobile-sm: 130px;
+
+    /* ===== ESPACIADO ===== */
+    --padding-panel-v: 40px;
+    --padding-panel-h-logo: 30px;
+    --padding-panel-h-logo-registro: 24px;
+    --padding-panel-h-form: 36px;
+    --padding-panel-v-form-registro: 36px;
+    --padding-panel-h-form-registro: 32px;
+    --padding-input-v: 12px;
+    --padding-input-v-lg: 15px;
+    --padding-input-h: 20px;
+    --padding-boton: 13px;
+    --padding-boton-lg: 15px;
+    --margin-input: 5px;
+    --gap-form: 14px;
+    --gap-form-sm: 12px;
+    --gap-paneles: 24px;
+    --margin-divider: 30px;
+    --margin-divider-sm: 28px;
+
+    /* ===== BORDES ===== */
+    --border-width: 2px;
+    --border-radius-login: 16px;
+    --border-radius-panel-form: 15px;
+    --border-radius-input: 50px;
+
+    /* ===== SOMBRAS ===== */
+    --shadow-login: 0 24px 64px rgba(0, 0, 0, 0.5);
+    --shadow-boton: 0 4px 14px rgba(30, 144, 255, 0.35);
+    --shadow-boton-hover: 0 6px 20px rgba(30, 144, 255, 0.45);
+    --shadow-input-focus: 0 0 0 3px rgba(30, 144, 255, 0.15);
+
+    /* ===== FILTROS ===== */
+    --filter-fondo: brightness(0.45) saturate(0.8);
+
+    /* ===== IMÁGENES ===== */
+    --img-fondo-serviarpe: url("../asset/imagenes/Fondo_Serviarpe_S.A.S.png");
+}

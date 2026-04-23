@@ -1,31 +1,14 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-color: #1a1a2e;
-  position: relative;
-}
-
 /* Fondo con imagen */
 .fondo {
   position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../asset/imagenes/Fondo_Serviarpe_S.A.S.png");
+  width: var(--width-principal);
+  height: var(--height-principal);
+  background-image: var(--img-fondo-serviarpe);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.45) saturate(0.8);
+  filter: var(--filter-fondo);
   z-index: 0;
 }
 
@@ -34,164 +17,164 @@ body {
   z-index: 1;
   display: flex;
   flex-direction: row;
-  background: #ffffff;
-  border-radius: 16px;
+  background: var(--color-login);
+  border-radius: var(--border-radius-login);
   overflow: hidden;
-  width: 680px;
-  min-height: 420px;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  width: var(--width-login);
+  min-height: var(--min-height-login);
+  box-shadow: var(--shadow-login);
 }
 
 /* Panel izquierdo - Logo */
 .panel-logo {
-  width: 45%;
-  background: #ffffff;
+  width: var(--width-panel-logo);
+  background: var(--color-blanco);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 30px;
+  padding: var(--padding-panel-v) var(--padding-panel-h-logo);
 }
 
 .logo-circle {
-  width: 200px;
-  height: 200px;
+  width: var(--size-logo-circle);
+  height: var(--size-logo-circle);
   border-radius: 50%;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: var(--color-blanco);
 }
 
 .logo-img {
-  width: 100%;
-  height: 100%;
+  width: var(--width-principal);
+  height: var(--height-principal);
   object-fit: cover;
 }
 
 /* Divisor vertical */
 .divider {
-  width: 2px;
-  background-color: #15600E;
-  margin: 30px 0;
+  width: var(--width-divider);
+  background-color: var(--color-verde-divisor);
+  margin: var(--margin-divider) 0;
 }
 
 /* Panel derecho - Formulario */
 .panel-form {
-  width: 55%;
+  width: var(--width-panel-form);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 36px;
-  background: #ffffff;
+  padding: var(--padding-panel-v) var(--padding-panel-h-form);
+  background: var(--color-blanco);
 }
 
 .title {
-  font-size: 1rem;
+  font-size: var(--font-size-titulo);
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--color-texto-oscuro);
   text-align: center;
   margin-bottom: 20px;
   line-height: 1.4;
 }
 
 .form-title {
-  font-size: 1.1rem;
+  font-size: var(--font-size-subtitulo);
   font-weight: 700;
-  color: #15920a;
+  color: var(--color-verde-principal);
   text-align: center;
   margin-bottom: 24px;
 }
 
 /* Formulario */
 .login-form {
-  width: 100%;
+  width: var(--width-principal);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--gap-form);
 }
 
 .input-group {
-  width: 100%;
+  width: var(--width-principal);
 }
 
 .input-group input {
-  width: 100%;
-  padding: 12px 20px;
-  border: 2px solid #007ABF;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  color: #333;
+  width: var(--width-principal);
+  padding: var(--padding-input-v) var(--padding-input-h);
+  border: var(--border-width) solid var(--color-azul-principal);
+  border-radius: var(--border-radius-input);
+  font-size: var(--font-size-input);
+  color: var(--color-texto-input);
   outline: none;
-  background: #fff;
+  background: var(--color-blanco);
 }
 
 .input-group input::placeholder {
-  color: #aaaaaa;
+  color: var(--color-placeholder);
 }
 
 .input-group input:focus {
-  border-color: #0077e6;
+  border-color: var(--color-azul-focus);
 }
 
 /* ¿Olvidó su contraseña? */
 .forgot-password {
-  font-size: 0.78rem;
-  color: #7A7979;
+  font-size: var(--font-size-xsmall);
+  color: var(--color-texto-secundario);
   text-align: left;
   margin-top: 5px;
 }
 
 .forgot-password a {
-  color: #555;
+  color: var(--color-texto-gris);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .forgot-password a:hover {
-  color: #0077e6;
+  color: var(--color-azul-focus);
 }
 
 /* Botón Ingresar */
 .btn-ingresar {
-  width: 100%;
-  padding: 13px;
-  background: #007ABF;
-  color: #ffffff;
-  font-size: 0.95rem;
+  width: var(--width-principal);
+  padding: var(--padding-boton);
+  background: var(--color-azul-principal);
+  color: var(--color-blanco);
+  font-size: var(--font-size-boton);
   border: none;
-  border-radius: 50px;
+  border-radius: var(--border-radius-input);
   cursor: pointer;
 }
 
 .btn-ingresar:hover {
-  background: #ffffff;
-  color: #007ABF;
-  border: 2px solid #007ABF;
-  box-shadow: 0 6px 20px rgba(30, 144, 255, 0.45);
+  background: var(--color-blanco);
+  color: var(--color-azul-principal);
+  border: var(--border-width) solid var(--color-azul-principal);
+  box-shadow: var(--shadow-boton-hover);
 }
 
 /* ¿No tienes cuenta? */
 .register {
-  font-size: 0.8rem;
-  color: #555;
+  font-size: var(--font-size-small);
+  color: var(--color-texto-gris);
   text-align: center;
   margin-top: 4px;
 }
 
 .register a {
-  color: #15920a;
+  color: var(--color-verde-principal);
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .register a:hover {
-  color: #0059c1;
+  color: var(--color-azul-hover);
 }
 
-/*Responsive - Pantallas pequeñas */
+/* Responsive - Pantallas pequeñas */
 @media (max-width: 700px) {
   .login {
     flex-direction: column;
@@ -200,23 +183,23 @@ body {
   }
 
   .panel-logo {
-    width: 100%;
+    width: var(--width-principal);
     padding: 30px 20px 20px;
   }
 
   .logo-circle {
-    width: 140px;
-    height: 140px;
+    width: var(--size-logo-circle-mobile);
+    height: var(--size-logo-circle-mobile);
   }
 
   .divider {
     width: 80%;
-    height: 2px;
+    height: var(--border-width);
     margin: 0 auto;
   }
 
   .panel-form {
-    width: 100%;
+    width: var(--width-principal);
     padding: 24px 28px 36px;
   }
 }
