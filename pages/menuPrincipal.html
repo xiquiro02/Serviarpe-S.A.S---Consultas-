@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Serviarpe S.A.S - Dashboard</title>
   <link rel="stylesheet" href="../asset/css/estilos_menuPrincipal.css" />
+  <link rel="stylesheet" href="../asset/utils/customProperties.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="general">
   <!-- ===== OVERLAY ===== -->
   <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
 
@@ -44,10 +45,10 @@
       </a>
     </nav>
 
-    <div class="sidebar-footer">
+    <a href="perfil.html" class="sidebar-footer">
       <span class="user-icon">👤</span>
       <span class="user-nombre">Administrador</span>
-    </div>
+    </a>
   </aside>
 
   <!-- ===== CONTENIDO PRINCIPAL ===== -->
@@ -89,24 +90,30 @@
 
       <!-- Grid de libros -->
       <div class="libros-grid">
-        <a href="vistaLibros.html">
+        <a href="vistaLibros.html" class="link-libros">
           <div class="libro-card">
             <img src="../asset/imagenes/libro_azul.png" alt="Libro 1" class="libro-img" />
             <span class="libro-titulo">LIBRO # 1</span>
           </div>
         </a>
-        <div class="libro-card">
-          <img src="../asset/imagenes/libro_verde.png" alt="Libro 2" class="libro-img" />
-          <span class="libro-titulo">LIBRO # 2</span>
-        </div>
-        <div class="libro-card">
-          <img src="../asset/imagenes/libro_naranja.png" alt="Libro 3" class="libro-img" />
-          <span class="libro-titulo">LIBRO # 3</span>
-        </div>
-        <div class="libro-card">
-          <img src="../asset/imagenes/libro_azul.png" alt="Libro 4" class="libro-img" />
-          <span class="libro-titulo">LIBRO # 4</span>
-        </div>
+        <a href="#" class="link-libros">
+          <div class="libro-card">
+            <img src="../asset/imagenes/libro_verde.png" alt="Libro 2" class="libro-img" />
+            <span class="libro-titulo">LIBRO # 2</span>
+          </div>
+        </a>
+        <a href="#" class="link-libros">
+          <div class="libro-card">
+            <img src="../asset/imagenes/libro_naranja.png" alt="Libro 3" class="libro-img" />
+            <span class="libro-titulo">LIBRO # 3</span>
+          </div>
+        </a>
+        <a href="#" class="link-libros">
+          <div class="libro-card">
+            <img src="../asset/imagenes/libro_azul.png" alt="Libro 4" class="libro-img" />
+            <span class="libro-titulo">LIBRO # 4</span>
+          </div>
+        </a>
       </div>
 
     </main>

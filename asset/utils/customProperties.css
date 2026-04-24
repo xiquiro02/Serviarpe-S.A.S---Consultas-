@@ -49,6 +49,7 @@
     --width-panel-logo-registro: 50%;
     --width-panel-form: 55%;
     --width-panel-form-registro: 58%;
+    --width-divider: 2px;
 
     /* Height */
     --height-principal: 100%;
@@ -99,4 +100,72 @@
 
     /* ===== IMÁGENES ===== */
     --img-fondo-serviarpe: url("../asset/imagenes/Fondo_Serviarpe_S.A.S.png");
+
+    /* ===== MENU PRINCIPAL ===== */
+
+    /* Sidebar */
+    --color-sidebar-bg: #0e270b;
+    --color-sidebar-border: #9cde89;
+    --color-sidebar-seccion: #a7a8a8;
+    --color-nav-hover-bg: #fcfcfd;
+    --color-nav-hover-texto: #030000;
+    --color-verde-hover: #349628;
+    --color-nav-activo-bg: #15630e;
+    --color-verde-activo: #2ecc71;
+    --color-sidebar-footer-texto: #ecf0f1;
+
+    /* Cards resumen */
+    --color-card-azul: #0088CE;
+    --color-card-verde: #8FC240;
+    --color-card-naranja: #F76927;
+
+    /* General */
+    --color-overlay: rgba(0, 0, 0, 0.45);
+    --color-borde-card: #e8e8e8;
+    --color-negro: #000000;
+
+    /* Sombras menu */
+    --shadow-topbar: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.08);
+    --shadow-card-hover: 0 6px 20px rgba(0, 0, 0, 0.13);
+    --shadow-card-resumen: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    /* Dimensiones menu */
+    --width-sidebar: 260px;
+    --height-topbar: 60px;
+
+    /* ===== LIBROS / TABLA ===== */
+
+    /* Buscador */
+    --color-borde-buscador: #d0d0d0;
+    --color-icono-buscador: #888888;
+    --shadow-buscador: 0 1px 4px rgba(0, 0, 0, 0.06);
+
+    /* Tabla */
+    --color-borde-tabla: #eeeeee;
+    --color-tabla-hover: #f0f7ff;
+
+    /* Botones de acción */
+    --color-btn-editar-hover: #006aad;
+    --color-btn-eliminar: #e74c3c;
+    --color-btn-eliminar-hover: #c0392b;
+    --shadow-btn-eliminar: 0 3px 10px rgba(231, 76, 60, 0.3);
+    --color-btn-nuevo: #27ae60;
+    --color-btn-nuevo-hover: #1e8449;
+    --shadow-btn-nuevo: 0 3px 10px rgba(39, 174, 96, 0.3);
+
+    /* ===== BUSCAR PERSONAL ===== */
+    --shadow-suave: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --color-borde-input: #c0c0c0;
+    --color-tabla-fila: #fdf3ee;
+    --color-tabla-hover-salmon: #f5e6dc;
+
+    /* ===== PERFIL ===== */
+    --shadow-perfil: 0 4px 16px rgba(0, 0, 0, 0.10);
+    --color-btn-logout-hover: #d4561e;
+
+    /* ===== EDITAR ===== */
+    --color-btn-cancelar: #6c757d;
+    --color-btn-cancelar-hover: #5a6268;
+    --shadow-btn-cancelar: 0 3px 10px rgba(108, 117, 125, 0.3);
 }

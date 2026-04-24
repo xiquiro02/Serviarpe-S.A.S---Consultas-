@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviarpe S.A.S - Editar Registro</title>
+  <link rel="stylesheet" href="../asset/css/estilos_editar.css" />
+  <link rel="stylesheet" href="../asset/utils/customProperties.css" />
+</head>
+<body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="../asset/imagenes/Logo_Serviarpe.png" alt="Logo" />
+      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+    </div>
+
+    <p class="sidebar-seccion">GENERAL</p>
+    <nav class="sidebar-nav">
+      <a href="menuPrincipal.html" class="nav-item">
+        <span class="nav-icon">🏠</span> Inicio
+      </a>
+      <a href="buscarPersonal.html" class="nav-item">
+        <span class="nav-icon">👤</span> Buscar personal
+      </a>
+    </nav>
+
+    <p class="sidebar-seccion">LIBROS</p>
+    <nav class="sidebar-nav">
+      <a href="vistaLibros.html" class="nav-item active">
+        <span class="nav-icon">📘</span> Libro # 1
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📗</span> Libro # 2
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📙</span> Libro # 3
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📕</span> Libro # 4
+      </a>
+    </nav>
+
+    <a href="perfil.html" class="sidebar-footer">
+      <span class="user-icon">👤</span>
+      <span class="user-nombre">Administrador</span>
+    </a>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-center">
+        <img src="../asset/imagenes/Logo_Serviarpe.png" alt="Logo" class="topbar-logo" />
+        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+      </div>
+    </header>
+
+    <main class="contenido">
+
+      <!-- Botón hamburguesa -->
+      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Encabezado de edición -->
+      <div class="editar-header">
+        <div class="editar-header-info">
+          <span class="editar-badge">1</span>
+          <div>
+            <p class="editar-subtitulo">Editando registro</p>
+            <h2 class="editar-nombre">Fabian Ferney Duarte Martínez</h2>
+          </div>
+        </div>
+        <a href="vistaLibros.html" class="btn-volver">&#8592; Volver</a>
+      </div>
+
+      <!-- Formulario de edición -->
+      <div class="editar-card">
+        <h3 class="editar-titulo">Información del usuario</h3>
+        <form class="editar-form" onsubmit="guardarEdicion(event)">
+
+          <div class="editar-grid">
+            <div class="form-grupo">
+              <label class="form-label" for="inputNombre">Nombre completo</label>
+              <input type="text" id="inputNombre" class="form-input"
+                     value="Fabian Ferney Duarte Martínez"
+                     placeholder="Nombre completo" />
+            </div>
+            <div class="form-grupo">
+              <label class="form-label" for="inputCedula">Cédula</label>
+              <input type="text" id="inputCedula" class="form-input"
+                     value="1234567890"
+                     placeholder="Número de cédula" />
+            </div>
+            <div class="form-grupo">
+              <label class="form-label" for="inputCargo">Cargo</label>
+              <input type="text" id="inputCargo" class="form-input"
+                     value="Conductor"
+                     placeholder="Cargo del empleado" />
+            </div>
+            <div class="form-grupo">
+              <label class="form-label" for="inputLibro">Carpeta / Libro</label>
+              <input type="text" id="inputLibro" class="form-input"
+                     value="Libro # 1 - Posición 1"
+                     placeholder="Ej: Libro # 1 - Posición 1" />
+            </div>
+          </div>
+
+          <div class="editar-acciones">
+            <a href="vistaLibros.html" class="btn-cancelar">Cancelar</a>
+            <button type="submit" class="btn-guardar-editar">Guardar cambios</button>
+          </div>
+
+        </form>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../asset/js/editar.js"></script>
+</body>
+</html>

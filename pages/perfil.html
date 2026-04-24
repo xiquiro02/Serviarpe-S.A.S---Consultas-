@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviarpe S.A.S - Perfil</title>
+  <link rel="stylesheet" href="../asset/css/estilos_perfil.css" />
+  <link rel="stylesheet" href="../asset/utils/customProperties.css" />
+</head>
+<body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="../asset/imagenes/Logo_Serviarpe.png" alt="Logo" />
+      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+    </div>
+
+    <p class="sidebar-seccion">GENERAL</p>
+    <nav class="sidebar-nav">
+      <a href="menuPrincipal.html" class="nav-item">
+        <span class="nav-icon">🏠</span> Inicio
+      </a>
+      <a href="buscarPersonal.html" class="nav-item">
+        <span class="nav-icon">👤</span> Buscar personal
+      </a>
+    </nav>
+
+    <p class="sidebar-seccion">LIBROS</p>
+    <nav class="sidebar-nav">
+      <a href="vistaLibros.html" class="nav-item">
+        <span class="nav-icon">📘</span> Libro # 1
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📗</span> Libro # 2
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📙</span> Libro # 3
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📕</span> Libro # 4
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="perfil.html" class="user-icon" style="text-decoration:none;">👤</a>
+      <span class="user-nombre">Administrador</span>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-center">
+        <img src="../asset/imagenes/Logo_Serviarpe.png" alt="Logo" class="topbar-logo" />
+        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+      </div>
+    </header>
+
+    <main class="contenido">
+
+      <!-- Botón hamburguesa -->
+      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- CARD: Foto de perfil -->
+      <div class="perfil-card">
+        <div class="perfil-cabecera"></div>
+        <div class="perfil-avatar-wrapper">
+          <div class="perfil-avatar">
+            <img
+              src="../asset/imagenes/Logo_Serviarpe.png"
+              alt="Foto de perfil"
+              class="perfil-foto"
+              id="fotoPreview"
+            />
+            <label class="btn-cambiar-foto" for="inputFoto" title="Cambiar foto">+</label>
+            <input type="file" id="inputFoto" accept="image/*" hidden />
+          </div>
+          <h2 class="perfil-nombre">Administrador</h2>
+        </div>
+      </div>
+
+      <!-- CARD: Datos personales -->
+      <div class="datos-card">
+        <h3 class="datos-titulo">Datos Personales</h3>
+        <form class="datos-form" onsubmit="guardarDatos(event)">
+          <div class="form-grupo">
+            <label class="form-label" for="inputNombre">Nombre completo</label>
+            <input
+              type="text"
+              id="inputNombre"
+              class="form-input"
+              value="Administrador"
+              placeholder="Nombre completo"
+            />
+          </div>
+          <div class="form-grupo">
+            <label class="form-label" for="inputEmail">Correo electrónico</label>
+            <input
+              type="email"
+              id="inputEmail"
+              class="form-input"
+              value=""
+              placeholder="correo@ejemplo.com"
+            />
+          </div>
+          <button type="submit" class="btn-guardar">Guardar cambios</button>
+        </form>
+      </div>
+
+      <!-- CARD: Cambiar contraseña -->
+      <div class="datos-card">
+        <h3 class="contrasena-titulo">Cambiar Contraseña</h3>
+        <form class="datos-form" onsubmit="cambiarContrasena(event)">
+          <div class="form-grupo">
+            <label class="form-label" for="inputPassActual">Contraseña actual</label>
+            <div class="pass-wrapper">
+              <input type="password" id="inputPassActual" class="form-input" placeholder="Ingresa tu contraseña actual" />
+              <button type="button" class="btn-ver-pass" onclick="togglePass('inputPassActual', this)"></button>
+            </div>
+          </div>
+          <div class="form-grupo">
+            <label class="form-label" for="inputPassNueva">Nueva contraseña</label>
+            <div class="pass-wrapper">
+              <input type="password" id="inputPassNueva" class="form-input" placeholder="Mínimo 6 caracteres" />
+              <button type="button" class="btn-ver-pass" onclick="togglePass('inputPassNueva', this)"></button>
+            </div>
+          </div>
+          <div class="form-grupo">
+            <label class="form-label" for="inputPassConfirmar">Confirmar nueva contraseña</label>
+            <div class="pass-wrapper">
+              <input type="password" id="inputPassConfirmar" class="form-input" placeholder="Repite la nueva contraseña" />
+              <button type="button" class="btn-ver-pass" onclick="togglePass('inputPassConfirmar', this)"></button>
+            </div>
+          </div>
+          <button type="submit" class="btn-cambiar-pass">Cambiar contraseña</button>
+        </form>
+      </div>
+
+      <!-- CARD: Cerrar sesión -->
+      <div class="sesion-card">
+        <div class="sesion-contenido">
+          <span class="sesion-icono">🔒</span>
+          <div>
+            <p class="sesion-titulo">Cerrar sesión</p>
+            <p class="sesion-desc">Se cerrará la sesión actual del sistema</p>
+          </div>
+        </div>
+        <button class="btn-logout" onclick="cerrarSesion()">Cerrar sesión</button>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../asset/js/perfil.js"></script>
+</body>
+</html>
