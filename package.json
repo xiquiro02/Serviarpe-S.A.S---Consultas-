@@ -1,0 +1,27 @@
+{
+  "name": "proyecto-serviarpe-s.a.s",
+  "version": "1.0.0",
+  "description": "Aplicación de escritorio para la consulta y localización de archivos de la empresa Serviarpe S.A.S, diseñada para facilitar la búsqueda eficiente de documentos",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiquiro02/Serviarpe-S.A.S---Consultas-.git"
+  },
+  "keywords": [],
+  "author": "Serviarpe S.A.S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiquiro02/Serviarpe-S.A.S---Consultas-/issues"
+  },
+  "homepage": "https://github.com/xiquiro02/Serviarpe-S.A.S---Consultas-#readme",
+  "devDependencies": {
+    "electron": "^41.3.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.9.0"
+  }
+}

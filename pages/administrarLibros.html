@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviarpe S.A.S - Administrar Libros</title>
+  <link rel="stylesheet" href="../asset/css/estilos_administrarLibros.css" />
+  <link rel="stylesheet" href="../asset/utils/customProperties.css" />
+</head>
+<body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
+      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+    </div>
+
+    <p class="sidebar-seccion">GENERAL</p>
+    <nav class="sidebar-nav">
+      <a href="menuPrincipal.html" class="nav-item">
+        <span class="nav-icon">🏠</span> Inicio
+      </a>
+      <a href="buscarPersonal.html" class="nav-item">
+        <span class="nav-icon">👤</span> Buscar personal
+      </a>
+    </nav>
+
+    <p class="sidebar-seccion">ADMINISTRACIÓN</p>
+    <nav class="sidebar-nav">
+      <a href="administrarLibros.html" class="nav-item active">
+        <span class="nav-icon">📚</span> Libros
+      </a>
+      <a href="administrarCajas.html" class="nav-item">
+        <span class="nav-icon">📦</span> Cajas
+      </a>
+      <a href="administrarYears.html" class="nav-item">
+        <span class="nav-icon">📅</span> Años
+      </a>
+    </nav>
+
+    <p class="sidebar-seccion">LIBROS</p>
+    <nav class="sidebar-nav">
+      <a href="vistaLibros.html" class="nav-item">
+        <span class="nav-icon">📘</span> Libro # 1
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📗</span> Libro # 2
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📙</span> Libro # 3
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📕</span> Libro # 4
+      </a>
+    </nav>
+
+    <a href="perfil.html" class="sidebar-footer">
+      <span class="user-icon">👤</span>
+      <span class="user-nombre">Administrador</span>
+    </a>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-center">
+        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+      </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+      <!-- Botón hamburguesa -->
+      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
+
+      <!-- CARD PRINCIPAL -->
+      <div class="admin-card">
+
+        <!-- Encabezado de la card -->
+        <div class="card-header">
+          <div class="card-header-izq">
+            <span class="card-icono">📚</span>
+            <h2 class="card-titulo">Libros</h2>
+          </div>
+          <button class="btn-nuevo" onclick="abrirModalNuevo()">
+            <span class="btn-nuevo-icono">+</span> Nuevo libro
+          </button>
+        </div>
+
+        <!-- Lista de libros -->
+        <ul class="lista" id="listaLibros">
+          <li class="lista-item">
+            <div class="item-izq">
+              <span class="item-icono">📘</span>
+              <span class="item-nombre">Libro # 1</span>
+            </div>
+            <div class="item-acciones">
+              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+            </div>
+          </li>
+          <li class="lista-item">
+            <div class="item-izq">
+              <span class="item-icono">📗</span>
+              <span class="item-nombre">Libro # 2</span>
+            </div>
+            <div class="item-acciones">
+              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+            </div>
+          </li>
+          <li class="lista-item">
+            <div class="item-izq">
+              <span class="item-icono">📙</span>
+              <span class="item-nombre">Libro # 3</span>
+            </div>
+            <div class="item-acciones">
+              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+            </div>
+          </li>
+          <li class="lista-item">
+            <div class="item-izq">
+              <span class="item-icono">📕</span>
+              <span class="item-nombre">Libro # 4</span>
+            </div>
+            <div class="item-acciones">
+              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL NUEVO / EDITAR -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-titulo" id="modalTitulo">Nuevo libro</h3>
+        <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="form-label">Nombre del libro</label>
+        <input type="text" class="form-input" id="inputNombreLibro" placeholder="Ej: Libro # 5" />
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+        <button class="btn-guardar" id="btnGuardar" onclick="guardarLibro()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../asset/js/menuPrincipal.js"></script>
+  <script>
+    const iconos = ['📘','📗','📙','📕','📓','📒','📔'];
+    let itemEditando = null;
+
+    function abrirModalNuevo() {
+      itemEditando = null;
+      document.getElementById('modalTitulo').textContent = 'Nuevo libro';
+      document.getElementById('inputNombreLibro').value = '';
+      document.getElementById('btnGuardar').textContent = 'Guardar';
+      document.getElementById('modalOverlay').classList.add('activo');
+    }
+
+    function abrirModalEditar(btn) {
+      itemEditando = btn.closest('.lista-item');
+      const nombre = itemEditando.querySelector('.item-nombre').textContent;
+      document.getElementById('modalTitulo').textContent = 'Editar libro';
+      document.getElementById('inputNombreLibro').value = nombre;
+      document.getElementById('btnGuardar').textContent = 'Actualizar';
+      document.getElementById('modalOverlay').classList.add('activo');
+    }
+
+    function cerrarModal() {
+      document.getElementById('modalOverlay').classList.remove('activo');
+      itemEditando = null;
+    }
+
+    function guardarLibro() {
+      const nombre = document.getElementById('inputNombreLibro').value.trim();
+      if (!nombre) return;
+
+      if (itemEditando) {
+        itemEditando.querySelector('.item-nombre').textContent = nombre;
+      } else {
+        const lista = document.getElementById('listaLibros');
+        const icono = iconos[lista.children.length % iconos.length];
+        const li = document.createElement('li');
+        li.className = 'lista-item';
+        li.innerHTML = `
+          <div class="item-izq">
+            <span class="item-icono">${icono}</span>
+            <span class="item-nombre">${nombre}</span>
+          </div>
+          <div class="item-acciones">
+            <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+            <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+          </div>`;
+        lista.appendChild(li);
+      }
+      cerrarModal();
+    }
+
+    function confirmarEliminar(btn) {
+      if (confirm('¿Eliminar este libro?')) {
+        btn.closest('.lista-item').remove();
+      }
+    }
+
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+      if (e.target === this) cerrarModal();
+    });
+  </script>
+
+</body>
+</html>

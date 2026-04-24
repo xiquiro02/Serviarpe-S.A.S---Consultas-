@@ -285,6 +285,25 @@ body {
   background: var(--color-card-azul);
 }
 
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background: var(--color-btn-nuevo);
+  color: var(--color-blanco);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-family: var(--texto-principal);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  box-shadow: var(--shadow-btn-nuevo);
+}
+.btn-volver:hover { background: var(--color-btn-nuevo-hover); }
+
+
 /* RESPONSIVE */
 @media (max-width: 600px) {
   .contenido { padding: 16px 14px 24px; }

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviarpe S.A.S - Administrar Cajas</title>
+  <link rel="stylesheet" href="../asset/css/estilos_administrarCajas.css" />
+  <link rel="stylesheet" href="../asset/utils/customProperties.css" />
+</head>
+<body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
+      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+    </div>
+
+    <p class="sidebar-seccion">GENERAL</p>
+    <nav class="sidebar-nav">
+      <a href="menuPrincipal.html" class="nav-item">
+        <span class="nav-icon">🏠</span> Inicio
+      </a>
+      <a href="buscarPersonal.html" class="nav-item">
+        <span class="nav-icon">👤</span> Buscar personal
+      </a>
+    </nav>
+
+    <p class="sidebar-seccion">ADMINISTRACIÓN</p>
+    <nav class="sidebar-nav">
+      <a href="administrarLibros.html" class="nav-item">
+        <span class="nav-icon">📚</span> Libros
+      </a>
+      <a href="administrarCajas.html" class="nav-item active">
+        <span class="nav-icon">📦</span> Cajas
+      </a>
+      <a href="administrarYears.html" class="nav-item">
+        <span class="nav-icon">📅</span> Años
+      </a>
+    </nav>
+
+    <p class="sidebar-seccion">LIBROS</p>
+    <nav class="sidebar-nav">
+      <a href="vistaLibros.html" class="nav-item">
+        <span class="nav-icon">📘</span> Libro # 1
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📗</span> Libro # 2
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📙</span> Libro # 3
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📕</span> Libro # 4
+      </a>
+    </nav>
+
+    <a href="perfil.html" class="sidebar-footer">
+      <span class="user-icon">👤</span>
+      <span class="user-nombre">Administrador</span>
+    </a>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-center">
+        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+      </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+      <!-- Botón hamburguesa -->
+      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
+
+      <!-- CARD PRINCIPAL -->
+      <div class="admin-card">
+
+        <!-- Encabezado -->
+        <div class="card-header">
+          <div class="card-header-izq">
+            <span class="card-icono">📦</span>
+            <h2 class="card-titulo">Cajas</h2>
+          </div>
+          <button class="btn-nuevo" onclick="abrirModalNuevo()">
+            <span class="btn-nuevo-icono">+</span> Nueva caja
+          </button>
+        </div>
+
+        <!-- Tabla de cajas -->
+        <div class="tabla-wrapper">
+          <table class="tabla" id="tablaCajas">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Número</th>
+                <th>Ubicación</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge">1</span></td>
+                <td>Caja 1</td>
+                <td>Estante 1</td>
+                <td class="acciones-td">
+                  <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+                  <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="badge">2</span></td>
+                <td>Caja 2</td>
+                <td>Estante 2</td>
+                <td class="acciones-td">
+                  <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+                  <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="badge">3</span></td>
+                <td>Caja 3</td>
+                <td>Estante 3</td>
+                <td class="acciones-td">
+                  <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+                  <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL NUEVO / EDITAR -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-titulo" id="modalTitulo">Nueva caja</h3>
+        <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="form-label">Número de caja</label>
+        <input type="text" class="form-input" id="inputNumero" placeholder="Ej: Caja 4" />
+        <label class="form-label" style="margin-top:14px;">Ubicación</label>
+        <input type="text" class="form-input" id="inputUbicacion" placeholder="Ej: Estante 4" />
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+        <button class="btn-guardar" id="btnGuardar" onclick="guardarCaja()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../asset/js/menuPrincipal.js"></script>
+  <script>
+    let filaEditando = null;
+    let contadorId = 4;
+
+    function abrirModalNuevo() {
+      filaEditando = null;
+      document.getElementById('modalTitulo').textContent = 'Nueva caja';
+      document.getElementById('inputNumero').value = '';
+      document.getElementById('inputUbicacion').value = '';
+      document.getElementById('btnGuardar').textContent = 'Guardar';
+      document.getElementById('modalOverlay').classList.add('activo');
+    }
+
+    function abrirModalEditar(btn) {
+      filaEditando = btn.closest('tr');
+      const celdas = filaEditando.querySelectorAll('td');
+      document.getElementById('modalTitulo').textContent = 'Editar caja';
+      document.getElementById('inputNumero').value = celdas[1].textContent.trim();
+      document.getElementById('inputUbicacion').value = celdas[2].textContent.trim();
+      document.getElementById('btnGuardar').textContent = 'Actualizar';
+      document.getElementById('modalOverlay').classList.add('activo');
+    }
+
+    function cerrarModal() {
+      document.getElementById('modalOverlay').classList.remove('activo');
+      filaEditando = null;
+    }
+
+    function guardarCaja() {
+      const numero = document.getElementById('inputNumero').value.trim();
+      const ubicacion = document.getElementById('inputUbicacion').value.trim();
+      if (!numero || !ubicacion) return;
+
+      if (filaEditando) {
+        const celdas = filaEditando.querySelectorAll('td');
+        celdas[1].textContent = numero;
+        celdas[2].textContent = ubicacion;
+      } else {
+        const tbody = document.querySelector('#tablaCajas tbody');
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="badge">${contadorId}</span></td>
+          <td>${numero}</td>
+          <td>${ubicacion}</td>
+          <td class="acciones-td">
+            <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+            <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+          </td>`;
+        tbody.appendChild(tr);
+        contadorId++;
+      }
+      cerrarModal();
+    }
+
+    function confirmarEliminar(btn) {
+      if (confirm('¿Eliminar esta caja?')) {
+        btn.closest('tr').remove();
+      }
+    }
+
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+      if (e.target === this) cerrarModal();
+    });
+  </script>
+
+</body>
+</html>

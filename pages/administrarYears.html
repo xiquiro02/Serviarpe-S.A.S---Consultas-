@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviarpe S.A.S - Administrar Años</title>
+  <link rel="stylesheet" href="../asset/css/estilos_administrarYears.css" />
+  <link rel="stylesheet" href="../asset/utils/customProperties.css" />
+</head>
+<body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
+      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+    </div>
+
+    <p class="sidebar-seccion">GENERAL</p>
+    <nav class="sidebar-nav">
+      <a href="menuPrincipal.html" class="nav-item">
+        <span class="nav-icon">🏠</span> Inicio
+      </a>
+      <a href="buscarPersonal.html" class="nav-item">
+        <span class="nav-icon">👤</span> Buscar personal
+      </a>
+    </nav>
+
+    <p class="sidebar-seccion">ADMINISTRACIÓN</p>
+    <nav class="sidebar-nav">
+      <a href="administrarLibros.html" class="nav-item">
+        <span class="nav-icon">📚</span> Libros
+      </a>
+      <a href="administrarCajas.html" class="nav-item">
+        <span class="nav-icon">📦</span> Cajas
+      </a>
+      <a href="administrarYears.html" class="nav-item active">
+        <span class="nav-icon">📅</span> Años
+      </a>
+    </nav>
+
+    <p class="sidebar-seccion">LIBROS</p>
+    <nav class="sidebar-nav">
+      <a href="vistaLibros.html" class="nav-item">
+        <span class="nav-icon">📘</span> Libro # 1
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📗</span> Libro # 2
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📙</span> Libro # 3
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📕</span> Libro # 4
+      </a>
+    </nav>
+
+    <a href="perfil.html" class="sidebar-footer">
+      <span class="user-icon">👤</span>
+      <span class="user-nombre">Administrador</span>
+    </a>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-center">
+        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+      </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+
+      <!-- Botón hamburguesa -->
+      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a href="menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
+
+      <!-- CARD PRINCIPAL -->
+      <div class="admin-card">
+
+        <!-- Encabezado -->
+        <div class="card-header">
+          <div class="card-header-izq">
+            <span class="card-icono">📅</span>
+            <h2 class="card-titulo">Años</h2>
+          </div>
+          <button class="btn-nuevo" onclick="abrirModalNuevo()">
+            <span class="btn-nuevo-icono">+</span> Nuevo año
+          </button>
+        </div>
+
+        <!-- Grid de años -->
+        <div class="years-grid" id="yearsGrid">
+          <div class="year-item">
+            <div class="year-izq">
+              <span class="year-icono">📅</span>
+              <span class="year-valor">2022</span>
+            </div>
+            <div class="year-acciones">
+              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+            </div>
+          </div>
+          <div class="year-item">
+            <div class="year-izq">
+              <span class="year-icono">📅</span>
+              <span class="year-valor">2023</span>
+            </div>
+            <div class="year-acciones">
+              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+            </div>
+          </div>
+          <div class="year-item">
+            <div class="year-izq">
+              <span class="year-icono">📅</span>
+              <span class="year-valor">2024</span>
+            </div>
+            <div class="year-acciones">
+              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+            </div>
+          </div>
+          <div class="year-item">
+            <div class="year-izq">
+              <span class="year-icono">📅</span>
+              <span class="year-valor">2025</span>
+            </div>
+            <div class="year-acciones">
+              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL NUEVO / EDITAR -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-titulo" id="modalTitulo">Nuevo año</h3>
+        <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="form-label">Año</label>
+        <input type="number" class="form-input" id="inputYear" placeholder="Ej: 2026" min="1900" max="2099" />
+      </div>
+      <div class="modal-footer">
+        <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+        <button class="btn-guardar" id="btnGuardar" onclick="guardarYear()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../asset/js/menuPrincipal.js"></script>
+  <script>
+    let itemEditando = null;
+
+    function abrirModalNuevo() {
+      itemEditando = null;
+      document.getElementById('modalTitulo').textContent = 'Nuevo año';
+      document.getElementById('inputYear').value = '';
+      document.getElementById('btnGuardar').textContent = 'Guardar';
+      document.getElementById('modalOverlay').classList.add('activo');
+    }
+
+    function abrirModalEditar(btn) {
+      itemEditando = btn.closest('.year-item');
+      const valor = itemEditando.querySelector('.year-valor').textContent;
+      document.getElementById('modalTitulo').textContent = 'Editar año';
+      document.getElementById('inputYear').value = valor;
+      document.getElementById('btnGuardar').textContent = 'Actualizar';
+      document.getElementById('modalOverlay').classList.add('activo');
+    }
+
+    function cerrarModal() {
+      document.getElementById('modalOverlay').classList.remove('activo');
+      itemEditando = null;
+    }
+
+    function guardarYear() {
+      const valor = document.getElementById('inputYear').value.trim();
+      if (!valor) return;
+
+      if (itemEditando) {
+        itemEditando.querySelector('.year-valor').textContent = valor;
+      } else {
+        const grid = document.getElementById('yearsGrid');
+        const div = document.createElement('div');
+        div.className = 'year-item';
+        div.innerHTML = `
+          <div class="year-izq">
+            <span class="year-icono">📅</span>
+            <span class="year-valor">${valor}</span>
+          </div>
+          <div class="year-acciones">
+            <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
+            <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+          </div>`;
+        grid.appendChild(div);
+      }
+      cerrarModal();
+    }
+
+    function confirmarEliminar(btn) {
+      if (confirm('¿Eliminar este año?')) {
+        btn.closest('.year-item').remove();
+      }
+    }
+
+    document.getElementById('modalOverlay').addEventListener('click', function(e) {
+      if (e.target === this) cerrarModal();
+    });
+  </script>
+
+</body>
+</html>
