@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviarpe S.A.S - Administrar Cajas</title>
-  <link rel="stylesheet" href="../asset/css/estilos_administrarCajas.css" />
+  <title>Serviarpe S.A.S - Administrar Usuarios</title>
+  <link rel="stylesheet" href="../asset/css/estilos_administrarUsuarios.css" />
   <link rel="stylesheet" href="../asset/utils/customProperties.css" />
 </head>
 <body>
-  
 
   <!-- OVERLAY -->
   <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
@@ -32,13 +31,13 @@
 
     <p class="sidebar-seccion">ADMINISTRAR</p>
     <nav class="sidebar-nav">
-      <a href="administrarUsuarios.html" class="nav-item">
+      <a href="administrarUsuarios.html" class="nav-item active">
         <span class="nav-icon">👥</span> Usuarios
       </a>
       <a href="administrarLibros.html" class="nav-item">
         <span class="nav-icon">📚</span> Libros
       </a>
-      <a href="administrarCajas.html" class="nav-item active">
+      <a href="administrarCajas.html" class="nav-item">
         <span class="nav-icon">📦</span> Cajas
       </a>
       <a href="administrarYears.html" class="nav-item">
@@ -97,51 +96,73 @@
         <!-- Encabezado -->
         <div class="card-header">
           <div class="card-header-izq">
-            <span class="card-icono">📦</span>
-            <h2 class="card-titulo">Cajas</h2>
+            <span class="card-icono">👥</span>
+            <h2 class="card-titulo">Usuarios</h2>
           </div>
           <button class="btn-nuevo" onclick="abrirModalNuevo()">
-            <span class="btn-nuevo-icono">+</span> Nueva caja
+            <span class="btn-nuevo-icono">+</span> Nuevo usuario
           </button>
         </div>
 
-        <!-- Tabla de cajas -->
+        <!-- Tabla de usuarios -->
         <div class="tabla-wrapper">
-          <table class="tabla" id="tablaCajas">
+          <table class="tabla" id="tablaUsuarios">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Número</th>
-                <th>Ubicación</th>
+                <th>Usuario</th>
+                <th>Correo</th>
+                <th>Rol</th>
                 <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><span class="badge">1</span></td>
-                <td>Caja 1</td>
-                <td>Estante 1</td>
+                <td>
+                  <div class="user-cell">
+                    <span class="avatar-icon">👤</span>
+                    <span class="nombre-usuario">Ximena Quiros</span>
+                  </div>
+                </td>
+                <td>ximenaquiro02@gmail.com</td>
+                <td><span class="rol-badge rol-administrativo" data-rol="administrativo">Administrativo</span></td>
                 <td class="acciones-td">
-                  <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-                  <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+                  <button class="btn-editar"   title="Editar"      onclick="abrirModalEditar(this)">✏️</button>
+                  <button class="btn-rol"      title="Cambiar rol" onclick="cambiarRol(this)">🔄</button>
+                  <button class="btn-eliminar" title="Eliminar"    onclick="confirmarEliminar(this)">🗑️</button>
                 </td>
               </tr>
               <tr>
                 <td><span class="badge">2</span></td>
-                <td>Caja 2</td>
-                <td>Estante 2</td>
+                <td>
+                  <div class="user-cell">
+                    <span class="avatar-icon">👤</span>
+                    <span class="nombre-usuario">Juan Pérez</span>
+                  </div>
+                </td>
+                <td>juan.perez@serviarpe.com</td>
+                <td><span class="rol-badge rol-empleado" data-rol="empleado">Empleado</span></td>
                 <td class="acciones-td">
-                  <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-                  <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+                  <button class="btn-editar"   title="Editar"      onclick="abrirModalEditar(this)">✏️</button>
+                  <button class="btn-rol"      title="Cambiar rol" onclick="cambiarRol(this)">🔄</button>
+                  <button class="btn-eliminar" title="Eliminar"    onclick="confirmarEliminar(this)">🗑️</button>
                 </td>
               </tr>
               <tr>
                 <td><span class="badge">3</span></td>
-                <td>Caja 3</td>
-                <td>Estante 3</td>
+                <td>
+                  <div class="user-cell">
+                    <span class="avatar-icon">👤</span>
+                    <span class="nombre-usuario">María García</span>
+                  </div>
+                </td>
+                <td>maria.garcia@serviarpe.com</td>
+                <td><span class="rol-badge rol-empleado" data-rol="empleado">Empleado</span></td>
                 <td class="acciones-td">
-                  <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-                  <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
+                  <button class="btn-editar"   title="Editar"      onclick="abrirModalEditar(this)">✏️</button>
+                  <button class="btn-rol"      title="Cambiar rol" onclick="cambiarRol(this)">🔄</button>
+                  <button class="btn-eliminar" title="Eliminar"    onclick="confirmarEliminar(this)">🗑️</button>
                 </td>
               </tr>
             </tbody>
@@ -156,25 +177,36 @@
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
       <div class="modal-header">
-        <h3 class="modal-titulo" id="modalTitulo">Nueva caja</h3>
+        <h3 class="modal-titulo" id="modalTitulo">Nuevo usuario</h3>
         <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
       </div>
       <div class="modal-body">
-        <label class="form-label">Número de caja</label>
-        <input type="text" class="form-input" id="inputNumero" placeholder="Ej: Caja 4" />
-        <label class="form-label" style="margin-top:14px;">Ubicación</label>
-        <input type="text" class="form-input" id="inputUbicacion" placeholder="Ej: Estante 4" />
+        <div class="form-group">
+          <label class="form-label">Nombre completo</label>
+          <input type="text" class="form-input" id="inputNombre" placeholder="Ej: Juan Pérez" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Correo electrónico</label>
+          <input type="email" class="form-input" id="inputCorreo" placeholder="Ej: usuario@serviarpe.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Rol</label>
+          <select class="form-select" id="inputRol">
+            <option value="administrativo">Administrativo</option>
+            <option value="empleado">Empleado</option>
+          </select>
+        </div>
       </div>
       <div class="modal-footer">
         <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
-        <button class="btn-guardar" id="btnGuardar" onclick="guardarCaja()">Guardar</button>
+        <button class="btn-guardar" id="btnGuardar" onclick="guardarUsuario()">Guardar</button>
       </div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../asset/js/menuPrincipal.js"></script>
-  <script src="../asset/js/administrarCajas.js"></script>
+  <script src="../asset/js/administrarUsuarios.js"></script>
 
 </body>
 </html>

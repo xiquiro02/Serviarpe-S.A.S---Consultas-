@@ -29,8 +29,11 @@
       </a>
     </nav>
 
-    <p class="sidebar-seccion">ADMINISTRACIÓN</p>
+    <p class="sidebar-seccion">ADMINISTRAR</p>
     <nav class="sidebar-nav">
+      <a href="administrarUsuarios.html" class="nav-item">
+        <span class="nav-icon">👥</span> Usuarios
+      </a>
       <a href="administrarLibros.html" class="nav-item">
         <span class="nav-icon">📚</span> Libros
       </a>
@@ -167,66 +170,9 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../asset/js/menuPrincipal.js"></script>
-  <script>
-    let itemEditando = null;
-
-    function abrirModalNuevo() {
-      itemEditando = null;
-      document.getElementById('modalTitulo').textContent = 'Nuevo año';
-      document.getElementById('inputYear').value = '';
-      document.getElementById('btnGuardar').textContent = 'Guardar';
-      document.getElementById('modalOverlay').classList.add('activo');
-    }
-
-    function abrirModalEditar(btn) {
-      itemEditando = btn.closest('.year-item');
-      const valor = itemEditando.querySelector('.year-valor').textContent;
-      document.getElementById('modalTitulo').textContent = 'Editar año';
-      document.getElementById('inputYear').value = valor;
-      document.getElementById('btnGuardar').textContent = 'Actualizar';
-      document.getElementById('modalOverlay').classList.add('activo');
-    }
-
-    function cerrarModal() {
-      document.getElementById('modalOverlay').classList.remove('activo');
-      itemEditando = null;
-    }
-
-    function guardarYear() {
-      const valor = document.getElementById('inputYear').value.trim();
-      if (!valor) return;
-
-      if (itemEditando) {
-        itemEditando.querySelector('.year-valor').textContent = valor;
-      } else {
-        const grid = document.getElementById('yearsGrid');
-        const div = document.createElement('div');
-        div.className = 'year-item';
-        div.innerHTML = `
-          <div class="year-izq">
-            <span class="year-icono">📅</span>
-            <span class="year-valor">${valor}</span>
-          </div>
-          <div class="year-acciones">
-            <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-            <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
-          </div>`;
-        grid.appendChild(div);
-      }
-      cerrarModal();
-    }
-
-    function confirmarEliminar(btn) {
-      if (confirm('¿Eliminar este año?')) {
-        btn.closest('.year-item').remove();
-      }
-    }
-
-    document.getElementById('modalOverlay').addEventListener('click', function(e) {
-      if (e.target === this) cerrarModal();
-    });
-  </script>
+  <script src="../asset/js/administrarYears.js"></script>
 
 </body>
 </html>

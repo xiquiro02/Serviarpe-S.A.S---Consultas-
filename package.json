@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/xiquiro02/Serviarpe-S.A.S---Consultas-#readme",
   "devDependencies": {
-    "electron": "^41.3.0"
+    "electron": "^41.3.0",
+    "electron-rebuild": "^3.2.9"
   },
   "dependencies": {
     "better-sqlite3": "^12.9.0"
