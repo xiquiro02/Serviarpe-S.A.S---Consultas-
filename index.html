@@ -1,60 +1,64 @@
 <!DOCTYPE html>
-<html lang="es">
+
+<html lang="es"> <!-- Define el idioma de la página como español -->
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviarpe S.A.S</title>
-  <link rel="stylesheet" href="asset/estilo_principal.css" />
-  <link rel="stylesheet" href="asset/utils/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" /> <!-- Permite usar caracteres especiales como tildes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Hace que la página sea responsive (se adapte a celulares y pantallas pequeñas) -->
+  <title>Serviarpe S.A.S</title> <!-- Título que aparece en la pestaña del navegador -->
+  <link rel="stylesheet" href="asset/estilo_principal.css" /> <!-- Conecta el CSS principal para los estilos generales -->
+  <link rel="stylesheet" href="asset/utils/styles.css"> <!-- Conecta otro archivo CSS (estilos reutilizables) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" /> <!-- Importa la fuente Montserrat desde Google Fonts -->
 </head>
+
 <body>
 
   <!-- Fondo con imagen -->
-  <div class="fondo"></div>
+  <div class="fondo"></div> 
 
   <!-- Contenedor principal -->
-  <div class="login">
+  <div class="login"> <!-- Contenedor general que agrupa todo el login -->
 
     <!-- Panel izquierdo: Logo -->
     <div class="panel-logo">
       <div class="logo-circle">
-        <img src="asset/imagenes/Logo_Serviarpe.png" alt="Serviarpe S.A.S ESP" class="logo-img" />
+        <img src="asset/imagenes/Logo_Serviarpe.png" alt="Serviarpe S.A.S ESP" class="logo-img" />  <!-- Muestra el logo de la empresa -->
       </div>
     </div>
 
     <!-- Divisor vertical -->
-    <div class="divider"></div>
+    <div class="divider"></div> <!-- Línea divisoria entre el logo y el formulario -->
 
     <!-- Panel derecho: Formulario -->
     <div class="panel-form">
-      <h2 class="title">Bienvenidos a Serviarpe S.A.S</h2>
-      <h3 class="form-title">Iniciar Sesión</h3>
+      
+      <h2 class="title">Bienvenidos a Serviarpe S.A.S</h2>  <!-- Título principal -->
 
-      <form class="login-form">
+      <h3 class="form-title">Iniciar Sesión</h3>  <!-- Subtítulo del formulario -->
+
+      <form class="login-form"> <!-- Formulario de inicio de sesión -->
         <div class="input-group">
-          <input type="text" id="usuario" placeholder="Usuario" autocomplete="off" />
+          <input type="text" id="usuario" placeholder="Usuario" autocomplete="off" /> <!-- Campo para escribir el usuario -->
         </div>
 
         <div class="input-group">
-          <input type="password" id="contrasena" placeholder="Contraseña" autocomplete="off" />
+          <input type="password" id="contrasena" placeholder="Contraseña" autocomplete="off" /> <!-- Campo para escribir la contraseña (oculta) -->
         </div>
 
         <p class="forgot-password">
-          <a href="pages/recuperarPassword.html">¿Olvidó su contraseña?</a>
+          <a href="pages/recuperarPassword.html">¿Olvidó su contraseña?</a> <!-- Enlace para recuperar la contraseña -->
         </p>
 
-        <a href="pages/menuPrincipal.html">
-          <button type="button" class="btn-ingresar">Ingresar</button>
-        </a>
+        <button onclick="iniciarSesion()" class="btn-ingresar"> Ingresar </button>  <!-- Botón que ejecuta la función iniciarSesion() al hacer clic -->
 
         <p class="register">
-          No tienes cuenta? <a href="pages/registrarse.html">Regístrate</a>
+          No tienes cuenta? <a href="pages/registrarse.html">Regístrate</a> <!-- Enlace para ir al registro -->
         </p>
       </form>
     </div>
-
   </div>
+
+  <script src="asset/js/login.js"></script>
+  <!-- Conecta el archivo JavaScript donde está la lógica del login -->
 
 </body>
 </html>

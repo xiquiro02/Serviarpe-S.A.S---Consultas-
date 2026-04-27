@@ -80,39 +80,19 @@
   gap: 16px;
 }
 
-.form-grupo {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
+/* Overrides de formulario */
 .form-label {
   font-size: var(--font-size-small);
-  font-weight: 700;
-  color: var(--color-texto-gris);
   letter-spacing: 0.3px;
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
-.form-input {
-  font-family: var(--texto-principal);
-  font-size: var(--font-size-input-sm);
-  color: var(--color-texto-input);
-  background: var(--color-blanco);
-  border: 1.5px solid var(--color-borde-input);
-  border-radius: 8px;
-  padding: 11px 14px;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  width: 100%;
-}
+.form-input { padding: 11px 14px; }
 .form-input:focus {
   border-color: var(--color-card-azul);
   box-shadow: 0 0 0 3px rgba(0, 136, 206, 0.12);
 }
-.form-input::placeholder { color: var(--color-placeholder); }
 
 /* ===== BOTONES ===== */
 .nuevo-acciones {
@@ -123,19 +103,16 @@
   padding-top: 4px;
 }
 
+/* btn-cancelar actúa como "volver" — color verde */
 .btn-cancelar {
   background: var(--color-btn-nuevo);
   color: var(--color-blanco);
-  border: none;
-  border-radius: 8px;
   padding: 11px 24px;
-  font-family: var(--texto-principal);
   font-size: var(--font-size-boton-sm);
   font-weight: 700;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  transition: background 0.2s;
   box-shadow: var(--shadow-btn-nuevo);
 }
 .btn-cancelar:hover { background: var(--color-btn-nuevo-hover); }

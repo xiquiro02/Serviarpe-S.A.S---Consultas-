@@ -115,35 +115,13 @@
   gap: 14px;
 }
 
-.form-grupo {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.form-label {
-  font-size: var(--font-size-small);
-  font-weight: 700;
-  color: var(--color-texto-gris);
-  letter-spacing: 0.3px;
-}
-
-.form-input {
-  font-family: var(--texto-principal);
-  font-size: var(--font-size-input-sm);
-  color: var(--color-texto-input);
-  background: var(--color-blanco);
-  border: 1.5px solid var(--color-borde-input);
-  border-radius: 8px;
-  padding: 10px 14px;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
+/* Overrides de formulario */
+.form-grupo { gap: 5px; }
+.form-label { font-size: var(--font-size-small); letter-spacing: 0.3px; }
 .form-input:focus {
   border-color: var(--color-card-azul);
   box-shadow: 0 0 0 3px rgba(0, 136, 206, 0.12);
 }
-.form-input::placeholder { color: var(--color-placeholder); }
 
 /* Wrapper contraseña */
 .pass-wrapper {
@@ -174,7 +152,6 @@
 }
 .btn-ver-pass:hover { color: var(--color-texto-oscuro); }
 
-/* Ojo abierto (estado por defecto) */
 .btn-ver-pass::before {
   content: '';
   display: block;
@@ -192,7 +169,6 @@
   border-radius: 50%;
 }
 
-/* Ojo tachado cuando está visible */
 .btn-ver-pass.visible::before {
   background: linear-gradient(
     to bottom right,

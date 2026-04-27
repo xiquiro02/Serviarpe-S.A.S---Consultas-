@@ -18,77 +18,22 @@
   margin-bottom: 14px;
 }
 
-.buscador-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--color-blanco);
-  border: 1px solid var(--color-borde-input);
-  border-radius: 8px;
-  padding: 10px 16px;
-  max-width: 100%;
-}
-.buscador-icon { font-size: 1rem; color: var(--color-icono-buscador); }
-.buscador {
-  border: none;
-  outline: none;
-  font-family: var(--texto-principal);
-  font-size: var(--font-size-input-sm);
-  color: var(--color-texto-input);
-  width: 100%;
-  background: transparent;
-}
-.buscador::placeholder { color: var(--color-placeholder); }
+/* Buscador: borde diferente al base de components */
+.buscador-wrapper { border-color: var(--color-borde-input); }
 
 /* TABLA */
 .tabla-wrapper {
-  width: 100%;
-  overflow-x: auto;
   border-radius: 10px;
   border: 1px solid var(--color-borde-buscador);
   box-shadow: var(--shadow-suave);
 }
-
-.tabla {
-  width: 100%;
-  border-collapse: collapse;
-  background: var(--color-blanco);
-  font-size: 0.85rem;
-}
-
-.tabla thead tr { background: var(--color-card-azul); color: var(--color-blanco); }
-.tabla thead th {
-  padding: 14px 18px;
-  text-align: left;
-  font-weight: 700;
-  font-size: 0.85rem;
-  white-space: nowrap;
-}
-
-.tabla tbody tr { border-bottom: 1px solid var(--color-borde-card); }
+.tabla thead tr { background: var(--color-card-azul); }
 .tabla tbody tr:nth-child(odd)  { background: var(--color-tabla-fila); }
 .tabla tbody tr:nth-child(even) { background: var(--color-tabla-fila); }
 .tabla tbody tr:hover { background: var(--color-tabla-hover-salmon); }
 
-.tabla tbody td {
-  padding: 13px 18px;
-  color: var(--color-texto-input);
-  vertical-align: middle;
-}
-
-/* Badge ID */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--color-blanco);
-  background: var(--color-card-azul);
-}
+/* Badge — azul */
+.badge { background: var(--color-card-azul); }
 
 /* RESPONSIVE */
 @media (max-width: 600px) {
