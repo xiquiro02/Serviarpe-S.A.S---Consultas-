@@ -14,7 +14,7 @@
 <body class="general"> <!-- Clase general para estilos globales -->
 
   <!-- ===== OVERLAY ===== -->
-  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div> <!-- Fondo oscuro que aparece cuando el menú está abierto en móvil -->
+  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div> <!-- Fondo oscuro que aparece cuando el menú está abierto -->
 
   <!-- ===== SIDEBAR (MENÚ LATERAL) ===== -->
   <aside class="sidebar" id="sidebar">
@@ -37,23 +37,7 @@
     </nav>
     <!-- Sección LIBROS -->
     <p class="sidebar-seccion">LIBROS</p>
-    <nav class="sidebar-nav">
-
-      <a href="vistaLibros.html" class="nav-item">
-        <span class="nav-icon">📘</span> Libro # 1
-      </a>
-
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📗</span> Libro # 2
-      </a>
-
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📙</span> Libro # 3
-      </a>
-
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📕</span> Libro # 4
-      </a>
+    <nav class="sidebar-nav" id="sidebarLibros">
     </nav>
     <!-- Sección ADMINISTRAR -->
     <p class="sidebar-seccion">ADMINISTRAR</p>
@@ -113,64 +97,32 @@
 
         <!-- Tarjeta azul -->
         <div class="card-resumen azul">
-          <span class="card-numero">5</span> <!-- Número -->
-          <span class="card-label">Total de Carpetas</span> <!-- Texto -->
+          <span class="card-numero" id="numCarpetas">—</span>
+          <span class="card-label">Total de Carpetas</span>
         </div>
 
         <!-- Tarjeta verde -->
         <div class="card-resumen verde">
-          <span class="card-numero">9</span>
+          <span class="card-numero" id="numCajas">—</span>
           <span class="card-label">Total de Cajas</span>
         </div>
 
         <!-- Tarjeta naranja -->
         <div class="card-resumen naranja">
-          <span class="card-numero">2022 – 2025</span>
+          <span class="card-numero" id="rangoAnios">—</span>
           <span class="card-label">Años</span>
         </div>
       </div>
 
       <!-- Grid de libros -->
-      <div class="libros-grid">
-
-        <!-- Libro 1 -->
-        <a href="vistaLibros.html" class="link-libros">
-          <div class="libro-card">
-            <img src="../asset/imagenes/libro_azul.png" alt="Libro 1" class="libro-img" />
-            <span class="libro-titulo">LIBRO # 1</span>
-          </div>
-        </a>
-
-        <!-- Libro 2 -->
-        <a href="#" class="link-libros">
-          <div class="libro-card">
-            <img src="../asset/imagenes/libro_verde.png" alt="Libro 2" class="libro-img" />
-            <span class="libro-titulo">LIBRO # 2</span>
-          </div>
-        </a>
-
-        <!-- Libro 3 -->
-        <a href="#" class="link-libros">
-          <div class="libro-card">
-            <img src="../asset/imagenes/libro_naranja.png" alt="Libro 3" class="libro-img" />
-            <span class="libro-titulo">LIBRO # 3</span>
-          </div>
-        </a>
-
-        <!-- Libro 4 -->
-        <a href="#" class="link-libros">
-          <div class="libro-card">
-            <img src="../asset/imagenes/libro_azul.png" alt="Libro 4" class="libro-img" />
-            <span class="libro-titulo">LIBRO # 4</span>
-          </div>
-        </a>
-
+      <div class="libros-grid" id="librosGrid">
       </div>
 
     </main>
   </div>
 
-  <script src="../asset/js/menuPrincipal.js"></script>    <!-- Archivo JS que controla el menú -->
+  <script src="../asset/js/hamburger.js"></script>
+  <script src="../asset/js/menuPrincipal.js"></script>
 
 </body>
 </html>

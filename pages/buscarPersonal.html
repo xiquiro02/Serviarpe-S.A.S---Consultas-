@@ -1,73 +1,90 @@
 <!DOCTYPE html>
-<html lang="es">
+
+<html lang="es"> <!-- Define el idioma en español -->
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviarpe S.A.S 07 - Buscar Personal</title>
-  <link rel="stylesheet" href="../asset/utils/customProperties.css" />
-  <link rel="stylesheet" href="../asset/layout/sidebar.css" />
-  <link rel="stylesheet" href="../asset/layout/components.css" />
-  <link rel="stylesheet" href="../asset/css/estilos_buscarPersonal.css" />
+  <meta charset="UTF-8" /> <!-- Permite caracteres especiales -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Hace que la página sea responsive -->
+  <title>Serviarpe S.A.S 07 - Buscar Personal</title> <!-- Título -->
+  <link rel="stylesheet" href="../asset/utils/customProperties.css" />  <!-- Variables globales de estilos (colores, tamaños, etc.) -->
+  <link rel="stylesheet" href="../asset/layout/sidebar.css" /> <!-- Estilos del menú lateral -->
+  <link rel="stylesheet" href="../asset/layout/components.css" /> <!-- Componentes reutilizables -->
+  <link rel="stylesheet" href="../asset/css/estilos_buscarPersonal.css" /> <!-- Estilos específicos de esta página -->
 </head>
+
 <body>
 
-  <!-- OVERLAY -->
+  <!-- OVERLAY (fondo oscuro al abrir menú) -->
   <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
 
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
+    <!-- Header del sidebar -->
     <div class="sidebar-header">
       <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
       <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
     </div>
-
+    <!-- Sección GENERAL -->
     <p class="sidebar-seccion">GENERAL</p>
     <nav class="sidebar-nav">
+      <!-- Ir al dashboard -->
       <a href="menuPrincipal.html" class="nav-item">
         <span class="nav-icon">🏠</span> Inicio
       </a>
+      <!-- Página actual (activa) -->
       <a href="#" class="nav-item active">
         <span class="nav-icon">👤</span> Buscar personal
       </a>
     </nav>
 
+    <!-- Sección LIBROS -->
     <p class="sidebar-seccion">LIBROS</p>
     <nav class="sidebar-nav">
+
       <a href="vistaLibros.html" class="nav-item">
         <span class="nav-icon">📘</span> Libro # 1
       </a>
+
       <a href="#" class="nav-item">
         <span class="nav-icon">📗</span> Libro # 2
       </a>
+
       <a href="#" class="nav-item">
         <span class="nav-icon">📙</span> Libro # 3
       </a>
+
       <a href="#" class="nav-item">
         <span class="nav-icon">📕</span> Libro # 4
       </a>
     </nav>
 
+    <!-- Sección ADMIN -->
     <p class="sidebar-seccion">ADMINISTRAR</p>
     <nav class="sidebar-nav">
+
       <a href="administrarUsuarios.html" class="nav-item">
         <span class="nav-icon">👥</span> Usuarios
       </a>
+
       <a href="administrarLibros.html" class="nav-item">
         <span class="nav-icon">📚</span> Libros
       </a>
+
       <a href="administrarCajas.html" class="nav-item">
         <span class="nav-icon">📦</span> Cajas
       </a>
+
       <a href="administrarYears.html" class="nav-item">
         <span class="nav-icon">📅</span> Años
       </a>
     </nav>
 
+    <!-- Perfil -->
     <a href="perfil.html" class="sidebar-footer">
       <span class="user-icon">👤</span>
       <span class="user-nombre">Administrador</span>
     </a>
   </aside>
+
 
   <!-- MAIN -->
   <div class="main">
@@ -75,8 +92,8 @@
     <!-- TOPBAR -->
     <header class="topbar">
       <div class="topbar-center">
-        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
-        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1> <!-- Título -->
+        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" /> <!-- Logo -->
       </div>
     </header>
 
@@ -90,26 +107,36 @@
         <span></span>
       </button>
 
-      <a href="../pages/menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
+      <!-- Botón volver -->
+      <a href="../pages/menuPrincipal.html" class="btn-volver">
+        &#8592; Volver
+      </a>
 
       <!-- Caja de búsqueda -->
       <div class="busqueda-card">
+
+        <!-- Título -->
         <h2 class="busqueda-titulo">Buscar personal</h2>
+
+        <!-- Input con icono -->
         <div class="buscador-wrapper">
           <span class="buscador-icon">🔍</span>
+
+          <!-- Input de búsqueda -->
           <input
             type="text"
             class="buscador"
             id="buscador"
             placeholder="Buscar por documento o nombre"
-            onkeyup="filtrarTabla()"
-          />
+            onkeyup="filtrarTabla()" /> <!-- Evento que se ejecuta al escribir -->
         </div>
       </div>
 
-      <!-- Tabla -->
+      <!-- TABLA -->
       <div class="tabla-wrapper">
         <table class="tabla" id="tablaPersonal">
+
+          <!-- Encabezados -->
           <thead>
             <tr>
               <th>ID</th>
@@ -119,7 +146,11 @@
               <th>Carpeta / Posición</th>
             </tr>
           </thead>
+
+          <!-- Cuerpo de la tabla -->
           <tbody>
+
+            <!-- Fila ejemplo -->
             <tr>
               <td><span class="badge">1</span></td>
               <td>Fabian Ferney Duarte Martínez</td>
@@ -127,41 +158,7 @@
               <td>Oficina / Estante 1</td>
               <td>Libro # 1 - Posición 1</td>
             </tr>
-            <tr>
-              <td><span class="badge">2</span></td>
-              <td>Fabian Ferney Duarte Martínez</td>
-              <td>12#</td>
-              <td>Oficina / Estante 1</td>
-              <td>Libro # 1 - Posición 1</td>
-            </tr>
-            <tr>
-              <td><span class="badge">3</span></td>
-              <td>Fabian Ferney Duarte Martínez</td>
-              <td>12#</td>
-              <td>Oficina / Estante 1</td>
-              <td>Libro # 1 - Posición 1</td>
-            </tr>
-            <tr>
-              <td><span class="badge">4</span></td>
-              <td>Fabian Ferney Duarte Martínez</td>
-              <td>12#</td>
-              <td>Oficina / Estante 1</td>
-              <td>Libro # 1 - Posición 1</td>
-            </tr>
-            <tr>
-              <td><span class="badge">5</span></td>
-              <td>Fabian Ferney Duarte Martínez</td>
-              <td>12#</td>
-              <td>Oficina / Estante 1</td>
-              <td>Libro # 1 - Posición 1</td>
-            </tr>
-            <tr>
-              <td><span class="badge">6</span></td>
-              <td>Fabian Ferney Duarte Martínez</td>
-              <td>12#</td>
-              <td>Oficina / Estante 1</td>
-              <td>Libro # 1 - Posición 1</td>
-            </tr>
+
           </tbody>
         </table>
       </div>
@@ -169,15 +166,33 @@
     </main>
   </div>
 
-  <script src="../asset/js/menuPrincipal.js"></script>
+
+  <!-- JS del menú -->
+  <script src="../asset/js/hamburger.js"></script>
+
+
+  <!-- SCRIPT DE BÚSQUEDA -->
   <script>
+
+    // Función que filtra la tabla en tiempo real
     function filtrarTabla() {
+
+      // Obtiene el texto del input y lo pasa a minúsculas
       const input = document.getElementById('buscador').value.toLowerCase();
+
+      // Selecciona todas las filas del tbody
       const filas = document.querySelectorAll('#tablaPersonal tbody tr');
+
+      // Recorre cada fila
       filas.forEach(fila => {
-        fila.style.display = fila.textContent.toLowerCase().includes(input) ? '' : 'none';
+
+        // Muestra u oculta la fila según si contiene el texto buscado
+        fila.style.display = fila.textContent.toLowerCase().includes(input)
+          ? ''   // mostrar
+          : 'none'; // ocultar
       });
     }
+
   </script>
 
 </body>
