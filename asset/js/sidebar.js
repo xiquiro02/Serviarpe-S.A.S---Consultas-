@@ -1,78 +1,42 @@
+// Carga dinámica del sidebar: nombre de usuario y libros desde la BD
 (function () {
-  const pagina = window.location.pathname.split('/').pop();
+  var db;
+  try {
+    var path = require('path');
+    db = require(path.join(process.cwd(), 'database'));
+  } catch (e) { console.error('sidebar.js - error BD:', e); return; }
 
-  const activos = {
-    'menuPrincipal.html':       'inicio',
-    'buscarPersonal.html':      'buscar',
-    'vistaLibros.html':         'libro1',
-    'nuevoRegistro.html':       'libro1',
-    'editar.html':              'libro1',
-    'administrarUsuarios.html': 'usuarios',
-    'administrarLibros.html':   'libros',
-    'administrarCajas.html':    'cajas',
-    'administrarYears.html':    'anios',
-  };
+  var ICONOS = ['📘', '📗', '📙', '📕', '📓', '📒', '📔'];
 
-  const activo = activos[pagina] || '';
-  const a = function (id) { return id === activo ? ' active' : ''; };
+  // Nombre del usuario desde localStorage
+  try {
+    var u = JSON.parse(localStorage.getItem('usuario') || '{}');
+    document.querySelectorAll('.user-nombre').forEach(function (el) {
+      if (u.nombre) el.textContent = u.nombre;
+    });
+  } catch (e) {}
 
-  document.body.insertAdjacentHTML('afterbegin',
-    '<div class="overlay" id="overlay" onclick="cerrarMenu()"></div>' +
-    '<aside class="sidebar" id="sidebar">' +
-      '<div class="sidebar-header">' +
-        '<img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />' +
-        '<span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>' +
-      '</div>' +
-      '<p class="sidebar-seccion">GENERAL</p>' +
-      '<nav class="sidebar-nav">' +
-        '<a href="menuPrincipal.html" class="nav-item' + a('inicio') + '">' +
-          '<span class="nav-icon">🏠</span> Inicio' +
-        '</a>' +
-        '<a href="buscarPersonal.html" class="nav-item' + a('buscar') + '">' +
-          '<span class="nav-icon">👤</span> Buscar personal' +
-        '</a>' +
-      '</nav>' +
-      '<p class="sidebar-seccion">LIBROS</p>' +
-      '<nav class="sidebar-nav">' +
-        '<a href="vistaLibros.html" class="nav-item' + a('libro1') + '">' +
-          '<span class="nav-icon">📘</span> Libro # 1' +
-        '</a>' +
-        '<a href="#" class="nav-item"><span class="nav-icon">📗</span> Libro # 2</a>' +
-        '<a href="#" class="nav-item"><span class="nav-icon">📙</span> Libro # 3</a>' +
-        '<a href="#" class="nav-item"><span class="nav-icon">📕</span> Libro # 4</a>' +
-      '</nav>' +
-      '<p class="sidebar-seccion">ADMINISTRAR</p>' +
-      '<nav class="sidebar-nav">' +
-        '<a href="administrarUsuarios.html" class="nav-item' + a('usuarios') + '">' +
-          '<span class="nav-icon">👥</span> Usuarios' +
-        '</a>' +
-        '<a href="administrarLibros.html" class="nav-item' + a('libros') + '">' +
-          '<span class="nav-icon">📚</span> Libros' +
-        '</a>' +
-        '<a href="administrarCajas.html" class="nav-item' + a('cajas') + '">' +
-          '<span class="nav-icon">📦</span> Cajas' +
-        '</a>' +
-        '<a href="administrarYears.html" class="nav-item' + a('anios') + '">' +
-          '<span class="nav-icon">📅</span> Años' +
-        '</a>' +
-      '</nav>' +
-      '<a href="perfil.html" class="sidebar-footer">' +
-        '<span class="user-icon">👤</span>' +
-        '<span class="user-nombre">Administrador</span>' +
-      '</a>' +
-    '</aside>'
-  );
+  // Sección LIBROS dinámica
+  var navLibros = document.getElementById('sidebarLibros');
+  if (!navLibros) return;
 
-  var main = document.querySelector('.main');
-  if (main) {
-    main.insertAdjacentHTML('afterbegin',
-      '<header class="topbar">' +
-        '<div class="topbar-center">' +
-          '<img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />' +
-          '<h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>' +
-        '</div>' +
-      '</header>'
-    );
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var libroIdActivo = params.get('libro_id');
+
+    var libros = db.prepare('SELECT * FROM libros ORDER BY id').all();
+    navLibros.innerHTML = '';
+
+    libros.forEach(function (libro, i) {
+      var icono = ICONOS[i % ICONOS.length];
+      var a = document.createElement('a');
+      a.href = 'vistaLibros.html?libro_id=' + libro.id;
+      a.className = 'nav-item' + (String(libro.id) === libroIdActivo ? ' active' : '');
+      a.innerHTML = '<span class="nav-icon">' + icono + '</span> ' + libro.nombre;
+      navLibros.appendChild(a);
+    });
+  } catch (e) {
+    console.error('Error cargando libros en sidebar:', e);
   }
 })();
 

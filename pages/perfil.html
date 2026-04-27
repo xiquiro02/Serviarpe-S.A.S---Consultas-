@@ -32,20 +32,7 @@
     </nav>
 
     <p class="sidebar-seccion">LIBROS</p>
-    <nav class="sidebar-nav">
-      <a href="vistaLibros.html" class="nav-item">
-        <span class="nav-icon">📘</span> Libro # 1
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📗</span> Libro # 2
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📙</span> Libro # 3
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📕</span> Libro # 4
-      </a>
-    </nav>
+    <nav class="sidebar-nav" id="sidebarLibros"></nav>
 
     <p class="sidebar-seccion">ADMINISTRAR</p>
     <nav class="sidebar-nav">
@@ -72,7 +59,6 @@
   <!-- CONTENIDO PRINCIPAL -->
   <div class="main">
 
-    <!-- Topbar -->
     <header class="topbar">
       <div class="topbar-center">
         <img src="../asset/imagenes/Logo_Serviarpe.png" alt="Logo" class="topbar-logo" />
@@ -82,14 +68,11 @@
 
     <main class="contenido">
 
-      <!-- Botón hamburguesa -->
       <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
 
-      <!-- CARD: Foto de perfil -->
+      <!-- Foto de perfil -->
       <div class="perfil-card">
         <div class="perfil-cabecera"></div>
         <div class="perfil-avatar-wrapper">
@@ -107,37 +90,25 @@
         </div>
       </div>
 
-      <a href="../pages/menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
+      <a href="menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
 
-      <!-- CARD: Datos personales -->
+      <!-- Datos personales -->
       <div class="datos-card">
         <h3 class="datos-titulo">Datos Personales</h3>
         <form class="datos-form" onsubmit="guardarDatos(event)">
           <div class="form-grupo">
             <label class="form-label" for="inputNombre">Nombre completo</label>
-            <input
-              type="text"
-              id="inputNombre"
-              class="form-input"
-              value="Administrador"
-              placeholder="Nombre completo"
-            />
+            <input type="text" id="inputNombre" class="form-input" placeholder="Nombre completo" />
           </div>
           <div class="form-grupo">
             <label class="form-label" for="inputEmail">Correo electrónico</label>
-            <input
-              type="email"
-              id="inputEmail"
-              class="form-input"
-              value=""
-              placeholder="correo@ejemplo.com"
-            />
+            <input type="email" id="inputEmail" class="form-input" placeholder="correo@ejemplo.com" />
           </div>
           <button type="submit" class="btn-guardar">Guardar cambios</button>
         </form>
       </div>
 
-      <!-- CARD: Cambiar contraseña -->
+      <!-- Cambiar contraseña -->
       <div class="datos-card">
         <h3 class="contrasena-titulo">Cambiar Contraseña</h3>
         <form class="datos-form" onsubmit="cambiarContrasena(event)">
@@ -166,7 +137,7 @@
         </form>
       </div>
 
-      <!-- CARD: Cerrar sesión -->
+      <!-- Cerrar sesión -->
       <div class="sesion-card">
         <div class="sesion-contenido">
           <span class="sesion-icono">🔒</span>
@@ -183,6 +154,8 @@
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../asset/js/hamburger.js"></script>
+  <script src="../asset/js/sidebar.js"></script>
   <script src="../asset/js/perfil.js"></script>
+
 </body>
 </html>

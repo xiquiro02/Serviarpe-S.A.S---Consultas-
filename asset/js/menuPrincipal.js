@@ -1,10 +1,5 @@
-// ================================
-// BASE DE DATOS
-// ================================
-
-const db = require('../../database');
-
-const ICONOS_LIBROS = ['📘', '📗', '📙', '📕', '📓', '📒', '📔'];
+const path = require('path');
+const db = require(path.join(process.cwd(), 'database'));
 const IMAGENES_LIBROS = ['libro_azul.png', 'libro_verde.png', 'libro_naranja.png'];
 
 function cargarDashboard() {
@@ -22,24 +17,22 @@ function cargarDashboard() {
   if (rangoAnios.min && rangoAnios.max) {
     spanAnios.textContent = rangoAnios.min === rangoAnios.max
       ? rangoAnios.min
-      : `${rangoAnios.min} – ${rangoAnios.max}`;
+      : rangoAnios.min + ' – ' + rangoAnios.max;
   } else {
     spanAnios.textContent = '—';
   }
 
-  // Lista de libros
-  const libros = db.prepare('SELECT * FROM libros ORDER BY id').all();
-
   // Grid de libros (contenido principal)
+  const libros = db.prepare('SELECT * FROM libros ORDER BY id').all();
   const grid = document.getElementById('librosGrid');
   grid.innerHTML = '';
   if (libros.length === 0) {
     grid.innerHTML = '<p style="color:#888;grid-column:1/-1;text-align:center;">No hay libros registrados.</p>';
   } else {
-    libros.forEach((libro, i) => {
+    libros.forEach(function (libro, i) {
       const img = IMAGENES_LIBROS[i % IMAGENES_LIBROS.length];
       const a = document.createElement('a');
-      a.href = 'vistaLibros.html';
+      a.href = 'vistaLibros.html?libro_id=' + libro.id;
       a.className = 'link-libros';
       a.innerHTML =
         '<div class="libro-card">' +
@@ -49,18 +42,6 @@ function cargarDashboard() {
       grid.appendChild(a);
     });
   }
-
-  // Sección LIBROS del sidebar
-  const sidebarLibros = document.getElementById('sidebarLibros');
-  sidebarLibros.innerHTML = '';
-  libros.forEach((libro, i) => {
-    const icono = ICONOS_LIBROS[i % ICONOS_LIBROS.length];
-    const a = document.createElement('a');
-    a.href = 'vistaLibros.html';
-    a.className = 'nav-item';
-    a.innerHTML = '<span class="nav-icon">' + icono + '</span> ' + libro.nombre;
-    sidebarLibros.appendChild(a);
-  });
 }
 
 cargarDashboard();

@@ -48,20 +48,7 @@
     </nav>
 
     <p class="sidebar-seccion">LIBROS</p>
-    <nav class="sidebar-nav">
-      <a href="vistaLibros.html" class="nav-item">
-        <span class="nav-icon">📘</span> Libro # 1
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📗</span> Libro # 2
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📙</span> Libro # 3
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📕</span> Libro # 4
-      </a>
-    </nav>
+    <nav class="sidebar-nav" id="sidebarLibros"></nav>
 
     <a href="perfil.html" class="sidebar-footer">
       <span class="user-icon">👤</span>
@@ -72,7 +59,6 @@
   <!-- MAIN -->
   <div class="main">
 
-    <!-- TOPBAR -->
     <header class="topbar">
       <div class="topbar-center">
         <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
@@ -80,22 +66,15 @@
       </div>
     </header>
 
-    <!-- CONTENIDO -->
     <main class="contenido">
 
-      <!-- Botón hamburguesa -->
       <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
 
       <a href="menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
 
-      <!-- CARD PRINCIPAL -->
       <div class="admin-card">
-
-        <!-- Encabezado -->
         <div class="card-header">
           <div class="card-header-izq">
             <span class="card-icono">📅</span>
@@ -106,55 +85,12 @@
           </button>
         </div>
 
-        <!-- Grid de años -->
-        <div class="years-grid" id="yearsGrid">
-          <div class="year-item">
-            <div class="year-izq">
-              <span class="year-icono">📅</span>
-              <span class="year-valor">2022</span>
-            </div>
-            <div class="year-acciones">
-              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
-            </div>
-          </div>
-          <div class="year-item">
-            <div class="year-izq">
-              <span class="year-icono">📅</span>
-              <span class="year-valor">2023</span>
-            </div>
-            <div class="year-acciones">
-              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
-            </div>
-          </div>
-          <div class="year-item">
-            <div class="year-izq">
-              <span class="year-icono">📅</span>
-              <span class="year-valor">2024</span>
-            </div>
-            <div class="year-acciones">
-              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
-            </div>
-          </div>
-          <div class="year-item">
-            <div class="year-izq">
-              <span class="year-icono">📅</span>
-              <span class="year-valor">2025</span>
-            </div>
-            <div class="year-acciones">
-              <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-              <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
-            </div>
-          </div>
-        </div>
-
+        <div class="years-grid" id="yearsGrid"></div>
       </div>
     </main>
   </div>
 
-  <!-- MODAL NUEVO / EDITAR -->
+  <!-- MODAL -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
       <div class="modal-header">
@@ -174,6 +110,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../asset/js/hamburger.js"></script>
+  <script src="../asset/js/sidebar.js"></script>
   <script src="../asset/js/administrarYears.js"></script>
 
 </body>

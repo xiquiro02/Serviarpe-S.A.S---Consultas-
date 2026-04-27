@@ -1,7 +1,30 @@
-let itemEditando = null;
+const path = require('path');
+const db = require(path.join(process.cwd(), 'database'));
+let anioEditandoId = null;
+
+function cargarAnios() {
+  const anios = db.prepare('SELECT * FROM anios ORDER BY anio').all();
+  const grid = document.getElementById('yearsGrid');
+  grid.innerHTML = '';
+  anios.forEach(function (anio) {
+    const div = document.createElement('div');
+    div.className = 'year-item';
+    div.dataset.id = anio.id;
+    div.innerHTML =
+      '<div class="year-izq">' +
+        '<span class="year-icono">📅</span>' +
+        '<span class="year-valor">' + anio.anio + '</span>' +
+      '</div>' +
+      '<div class="year-acciones">' +
+        '<button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>' +
+        '<button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>' +
+      '</div>';
+    grid.appendChild(div);
+  });
+}
 
 function abrirModalNuevo() {
-  itemEditando = null;
+  anioEditandoId = null;
   document.getElementById('modalTitulo').textContent = 'Nuevo año';
   document.getElementById('inputYear').value = '';
   document.getElementById('btnGuardar').textContent = 'Guardar';
@@ -9,8 +32,9 @@ function abrirModalNuevo() {
 }
 
 function abrirModalEditar(btn) {
-  itemEditando = btn.closest('.year-item');
-  const valor = itemEditando.querySelector('.year-valor').textContent;
+  const item = btn.closest('.year-item');
+  anioEditandoId = parseInt(item.dataset.id);
+  const valor = item.querySelector('.year-valor').textContent;
   document.getElementById('modalTitulo').textContent = 'Editar año';
   document.getElementById('inputYear').value = valor;
   document.getElementById('btnGuardar').textContent = 'Actualizar';
@@ -19,7 +43,7 @@ function abrirModalEditar(btn) {
 
 function cerrarModal() {
   document.getElementById('modalOverlay').classList.remove('activo');
-  itemEditando = null;
+  anioEditandoId = null;
 }
 
 function guardarYear() {
@@ -28,29 +52,20 @@ function guardarYear() {
     Swal.fire({ icon: 'warning', title: 'Campo requerido', text: 'Por favor ingresa un año válido.', confirmButtonColor: '#007ABF' });
     return;
   }
-  const esEdicion = itemEditando !== null;
-  if (itemEditando) {
-    itemEditando.querySelector('.year-valor').textContent = valor;
+  const esEdicion = anioEditandoId !== null;
+  if (esEdicion) {
+    db.prepare('UPDATE anios SET anio = ? WHERE id = ?').run(valor, anioEditandoId);
   } else {
-    const grid = document.getElementById('yearsGrid');
-    const div = document.createElement('div');
-    div.className = 'year-item';
-    div.innerHTML = `
-      <div class="year-izq">
-        <span class="year-icono">📅</span>
-        <span class="year-valor">${valor}</span>
-      </div>
-      <div class="year-acciones">
-        <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-        <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
-      </div>`;
-    grid.appendChild(div);
+    db.prepare('INSERT INTO anios (anio) VALUES (?)').run(valor);
   }
   cerrarModal();
+  cargarAnios();
   Swal.fire({ icon: 'success', title: esEdicion ? 'Año actualizado' : 'Año agregado', timer: 1400, showConfirmButton: false });
 }
 
 function confirmarEliminar(btn) {
+  const item = btn.closest('.year-item');
+  const id = parseInt(item.dataset.id);
   Swal.fire({
     title: '¿Eliminar este año?',
     text: 'Esta acción no se puede deshacer.',
@@ -62,12 +77,15 @@ function confirmarEliminar(btn) {
     cancelButtonText: 'Cancelar'
   }).then(result => {
     if (result.isConfirmed) {
-      btn.closest('.year-item').remove();
+      db.prepare('DELETE FROM anios WHERE id = ?').run(id);
+      cargarAnios();
       Swal.fire({ icon: 'success', title: 'Año eliminado', timer: 1400, showConfirmButton: false });
     }
   });
 }
 
-document.getElementById('modalOverlay').addEventListener('click', function(e) {
+document.getElementById('modalOverlay').addEventListener('click', function (e) {
   if (e.target === this) cerrarModal();
 });
+
+cargarAnios();

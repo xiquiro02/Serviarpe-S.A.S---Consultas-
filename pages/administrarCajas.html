@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="../asset/css/estilos_administrarCajas.css" />
 </head>
 <body>
-  
 
   <!-- OVERLAY -->
   <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
@@ -49,20 +48,7 @@
     </nav>
 
     <p class="sidebar-seccion">LIBROS</p>
-    <nav class="sidebar-nav">
-      <a href="vistaLibros.html" class="nav-item">
-        <span class="nav-icon">📘</span> Libro # 1
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📗</span> Libro # 2
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📙</span> Libro # 3
-      </a>
-      <a href="#" class="nav-item">
-        <span class="nav-icon">📕</span> Libro # 4
-      </a>
-    </nav>
+    <nav class="sidebar-nav" id="sidebarLibros"></nav>
 
     <a href="perfil.html" class="sidebar-footer">
       <span class="user-icon">👤</span>
@@ -73,7 +59,6 @@
   <!-- MAIN -->
   <div class="main">
 
-    <!-- TOPBAR -->
     <header class="topbar">
       <div class="topbar-center">
         <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
@@ -81,22 +66,15 @@
       </div>
     </header>
 
-    <!-- CONTENIDO -->
     <main class="contenido">
 
-      <!-- Botón hamburguesa -->
       <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
 
       <a href="menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
 
-      <!-- CARD PRINCIPAL -->
       <div class="admin-card">
-
-        <!-- Encabezado -->
         <div class="card-header">
           <div class="card-header-izq">
             <span class="card-icono">📦</span>
@@ -107,7 +85,6 @@
           </button>
         </div>
 
-        <!-- Tabla de cajas -->
         <div class="tabla-wrapper">
           <table class="tabla" id="tablaCajas">
             <thead>
@@ -118,43 +95,14 @@
                 <th>Acciones</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td><span class="badge">1</span></td>
-                <td>Caja 1</td>
-                <td>Estante 1</td>
-                <td class="acciones-td">
-                  <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-                  <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
-                </td>
-              </tr>
-              <tr>
-                <td><span class="badge">2</span></td>
-                <td>Caja 2</td>
-                <td>Estante 2</td>
-                <td class="acciones-td">
-                  <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-                  <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
-                </td>
-              </tr>
-              <tr>
-                <td><span class="badge">3</span></td>
-                <td>Caja 3</td>
-                <td>Estante 3</td>
-                <td class="acciones-td">
-                  <button class="btn-editar" title="Editar" onclick="abrirModalEditar(this)">✏️</button>
-                  <button class="btn-eliminar" title="Eliminar" onclick="confirmarEliminar(this)">🗑️</button>
-                </td>
-              </tr>
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
-
       </div>
     </main>
   </div>
 
-  <!-- MODAL NUEVO / EDITAR -->
+  <!-- MODAL -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
       <div class="modal-header">
@@ -176,6 +124,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../asset/js/hamburger.js"></script>
+  <script src="../asset/js/sidebar.js"></script>
   <script src="../asset/js/administrarCajas.js"></script>
 
 </body>
