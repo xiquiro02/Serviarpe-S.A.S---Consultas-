@@ -34,8 +34,8 @@
     <p class="sidebar-seccion">LIBROS</p>
     <nav class="sidebar-nav" id="sidebarLibros"></nav>
 
-    <p class="sidebar-seccion">ADMINISTRAR</p>
-    <nav class="sidebar-nav">
+    <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
+    <nav class="sidebar-nav admin-only">
       <a href="administrarUsuarios.html" class="nav-item">
         <span class="nav-icon">👥</span> Usuarios
       </a>
@@ -125,7 +125,8 @@
     </main>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script>if (typeof Swal === 'undefined') { var _s = require('sweetalert2'); window.Swal = _s.default || _s; }</script>
   <script src="../asset/js/hamburger.js"></script>
   <script src="../asset/js/sidebar.js"></script>
   <script src="../asset/js/editar.js"></script>

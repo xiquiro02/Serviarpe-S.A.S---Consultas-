@@ -1,6 +1,15 @@
 const path = require('path');
 const db = require(path.join(process.cwd(), 'database'));
 const iconos = ['📘', '📗', '📙', '📕', '📓', '📒', '📔'];
+
+// Solo administradores pueden acceder
+(function () {
+  try {
+    var u = JSON.parse(localStorage.getItem('usuario') || '{}');
+    if (u.rol !== 'administrador') window.location.href = 'menuPrincipal.html';
+  } catch (e) { window.location.href = 'menuPrincipal.html'; }
+})();
+
 let libroEditandoId = null;
 
 function cargarLibros() {

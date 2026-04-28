@@ -61,3 +61,15 @@ function cerrarMenu() {
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') cerrarMenu();
 });
+
+// Oculta la sección ADMINISTRAR para usuarios con rol 'empleado'
+(function () {
+  try {
+    var u = JSON.parse(localStorage.getItem('usuario') || '{}');
+    if (u.rol !== 'administrador') {
+      document.querySelectorAll('.admin-only').forEach(function (el) {
+        el.style.display = 'none';
+      });
+    }
+  } catch (e) {}
+})();

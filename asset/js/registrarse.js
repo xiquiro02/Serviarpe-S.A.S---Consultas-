@@ -9,19 +9,19 @@ function registrarse(e) {
   const confirmar = document.getElementById('inputConfirmar').value;
 
   if (!nombre || !usuario || !correo || !password || !confirmar) {
-    alert('Por favor completa todos los campos.');
+    Swal.fire({ icon: 'warning', title: 'Campos incompletos', text: 'Por favor completa todos los campos.', confirmButtonColor: '#007ABF' });
     return;
   }
   if (!correo.includes('@')) {
-    alert('Ingresa un correo electrónico válido.');
+    Swal.fire({ icon: 'warning', title: 'Correo inválido', text: 'Ingresa un correo electrónico válido.', confirmButtonColor: '#007ABF' });
     return;
   }
   if (password.length < 6) {
-    alert('La contraseña debe tener al menos 6 caracteres.');
+    Swal.fire({ icon: 'warning', title: 'Contraseña muy corta', text: 'La contraseña debe tener al menos 6 caracteres.', confirmButtonColor: '#007ABF' });
     return;
   }
   if (password !== confirmar) {
-    alert('Las contraseñas no coinciden.');
+    Swal.fire({ icon: 'warning', title: 'No coinciden', text: 'Las contraseñas no coinciden.', confirmButtonColor: '#007ABF' });
     return;
   }
 
@@ -30,9 +30,9 @@ function registrarse(e) {
 
 ipcRenderer.on('registro-respuesta', (event, respuesta) => {
   if (respuesta.exito) {
-    alert('Cuenta creada correctamente. Ahora inicia sesión.');
-    window.location.href = '../index.html';
+    Swal.fire({ icon: 'success', title: '¡Cuenta creada!', text: 'Ahora puedes iniciar sesión.', confirmButtonColor: '#007ABF' })
+      .then(() => { window.location.href = '../index.html'; });
   } else {
-    alert(respuesta.mensaje);
+    Swal.fire({ icon: 'error', title: 'Error al registrar', text: respuesta.mensaje, confirmButtonColor: '#007ABF' });
   }
 });

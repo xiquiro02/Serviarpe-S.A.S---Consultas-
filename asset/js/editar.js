@@ -48,9 +48,11 @@ const registroId  = parseInt(params.get('id'));
     selectAnio.appendChild(opt);
   });
 
-  // Botón volver al libro correspondiente
+  // Botones volver y cancelar al libro correspondiente
   const btnVolver = document.querySelector('.btn-volver');
   if (btnVolver && p.libro_id) btnVolver.href = 'vistaLibros.html?libro_id=' + p.libro_id;
+  const btnCancelar = document.querySelector('.btn-cancelar');
+  if (btnCancelar) btnCancelar.href = p.libro_id ? 'vistaLibros.html?libro_id=' + p.libro_id : 'vistaLibros.html';
 })();
 
 function guardarEdicion(e) {

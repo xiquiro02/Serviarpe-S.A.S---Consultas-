@@ -14,8 +14,8 @@ function iniciarSesion() {    // Función que se ejecuta cuando el usuario hace 
 
   // Valida si alguno de los campos está vacío
   if (!usuario || !password) {
-    alert('Por favor llena todos los campos')  // Muestra un mensaje al usuario
-    return  // Detiene la ejecución de la función
+    Swal.fire({ icon: 'warning', title: 'Campos vacíos', text: 'Por favor llena todos los campos.', confirmButtonColor: '#007ABF' })
+    return
   }
 
   // Envía un mensaje al proceso principal de Electron
@@ -35,7 +35,6 @@ ipcRenderer.on('login-respuesta', (event, respuesta) => {
     window.location.href = 'pages/menuPrincipal.html'  // Redirige al usuario a la página principal (dashboard)
 
   } else {
-    // Si el login falla, muestra el mensaje enviado desde el backend
-    alert(respuesta.mensaje)
+    Swal.fire({ icon: 'error', title: 'Acceso denegado', text: respuesta.mensaje, confirmButtonColor: '#007ABF' })
   }
 })

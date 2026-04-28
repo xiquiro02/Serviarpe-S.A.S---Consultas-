@@ -7,6 +7,7 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')  // Importa path para manejar rutas
 const db = require('./database')  // Importa la base de datos (al requerirlo, ya se ejecuta y crea tablas)
 const auth = require('./backend/login_registro')  // Importa el módulo de autenticación (login y registro)
+const recuperarPass = require('./backend/recuperarPassword')
 
 let mainWindow  // Variable global para la ventana principal
 
@@ -17,6 +18,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1200,   // ancho de la ventana
     height: 800,   // alto de la ventana
+    autoHideMenuBar: true,
 
     webPreferences: {
       nodeIntegration: true,   // permite usar require() en el frontend
@@ -53,10 +55,23 @@ ipcMain.on('login', (event, datos) => {
 // ================================
 // REGISTRO
 // ================================
-// Escucha el evento 'registrar-usuario'
 ipcMain.on('registrar-usuario', (event, datos) => {
-  // Llama a la función registrar del backend
   const respuesta = auth.registrar(datos)
-  // Envía la respuesta al frontend
   event.reply('registro-respuesta', respuesta)
+})
+
+// ================================
+// RECUPERAR CONTRASEÑA - Paso 1: enviar código
+// ================================
+ipcMain.on('enviar-codigo-reset', async (event, datos) => {
+  const respuesta = await recuperarPass.enviarCodigo(datos.correo)
+  event.reply('codigo-reset-respuesta', respuesta)
+})
+
+// ================================
+// RECUPERAR CONTRASEÑA - Paso 2: verificar código y cambiar password
+// ================================
+ipcMain.on('cambiar-password', (event, datos) => {
+  const respuesta = recuperarPass.cambiarPassword(datos.correo, datos.codigo, datos.nuevaPassword)
+  event.reply('cambiar-password-respuesta', respuesta)
 })

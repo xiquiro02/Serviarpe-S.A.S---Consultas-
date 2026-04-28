@@ -120,10 +120,22 @@ db.exec(`
   CREATE TRIGGER IF NOT EXISTS actualizar_personal
   AFTER UPDATE ON personal
   BEGIN
-    UPDATE personal 
+    UPDATE personal
     SET updated_at = datetime('now')
     WHERE id = NEW.id;
   END;
+
+
+  -- ============================
+  -- TABLA TOKENS RECUPERACIÓN
+  -- ============================
+  CREATE TABLE IF NOT EXISTS reset_tokens (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    correo     TEXT NOT NULL,
+    token      TEXT NOT NULL,
+    expira_en  TEXT NOT NULL,
+    usado      INTEGER DEFAULT 0
+  );
 
 `)
 
