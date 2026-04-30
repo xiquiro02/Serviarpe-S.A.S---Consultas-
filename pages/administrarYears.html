@@ -1,118 +1,180 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviarpe S.A.S - Administrar Años</title>
-  <link rel="stylesheet" href="../asset/utils/customProperties.css" />
-  <link rel="stylesheet" href="../asset/layout/sidebar.css" />
-  <link rel="stylesheet" href="../asset/layout/components.css" />
-  <link rel="stylesheet" href="../asset/css/estilos_administrarYears.css" />
-</head>
-<body>
 
-  <!-- OVERLAY -->
-  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+  <html lang="es"> <!-- Documento HTML5 en español -->
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
-      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
-    </div>
+    <head>
+      <!-- Configuración de caracteres (permite tildes, ñ, etc.) -->
+      <meta charset="UTF-8" />
 
-    <p class="sidebar-seccion">GENERAL</p>
-    <nav class="sidebar-nav">
-      <a href="menuPrincipal.html" class="nav-item">
-        <span class="nav-icon">🏠</span> Inicio
-      </a>
-      <a href="buscarPersonal.html" class="nav-item">
-        <span class="nav-icon">👤</span> Buscar personal
-      </a>
-    </nav>
+      <!-- Hace que el diseño sea adaptable a dispositivos móviles -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
-    <nav class="sidebar-nav admin-only">
-      <a href="administrarUsuarios.html" class="nav-item">
-        <span class="nav-icon">👥</span> Usuarios
-      </a>
-      <a href="administrarLibros.html" class="nav-item">
-        <span class="nav-icon">📚</span> Libros
-      </a>
-      <a href="administrarCajas.html" class="nav-item">
-        <span class="nav-icon">📦</span> Cajas
-      </a>
-      <a href="administrarYears.html" class="nav-item active">
-        <span class="nav-icon">📅</span> Años
-      </a>
-    </nav>
+      <!-- Título -->
+      <title>Serviarpe S.A.S - Administrar Años</title>
 
-    <p class="sidebar-seccion">LIBROS</p>
-    <nav class="sidebar-nav" id="sidebarLibros"></nav>
+      <!-- ================= ESTILOS ================= -->
+      <link rel="stylesheet" href="../asset/utils/customProperties.css" />
+      <link rel="stylesheet" href="../asset/layout/sidebar.css" />
+      <link rel="stylesheet" href="../asset/layout/components.css" />
+      <link rel="stylesheet" href="../asset/css/estilos_administrarYears.css" />
+    </head>
 
-    <a href="perfil.html" class="sidebar-footer">
-      <span class="user-icon">👤</span>
-      <span class="user-nombre">Administrador</span>
-    </a>
-  </aside>
+    <body>
 
-  <!-- MAIN -->
-  <div class="main">
+      <!-- ================= OVERLAY ================= -->
+      <!-- Fondo oscuro para cerrar el menú lateral -->
+      <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
 
-    <header class="topbar">
-      <div class="topbar-center">
-        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
-        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
-      </div>
-    </header>
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar" id="sidebar">
 
-    <main class="contenido">
-
-      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
-
-      <a href="menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
-
-      <div class="admin-card">
-        <div class="card-header">
-          <div class="card-header-izq">
-            <span class="card-icono">📅</span>
-            <h2 class="card-titulo">Años</h2>
-          </div>
-          <button class="btn-nuevo" onclick="abrirModalNuevo()">
-            <span class="btn-nuevo-icono">+</span> Nuevo año
-          </button>
+        <!-- Logo -->
+        <div class="sidebar-header">
+          <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
+          <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
         </div>
 
-        <div class="years-grid" id="yearsGrid"></div>
-      </div>
-    </main>
-  </div>
+        <!-- GENERAL -->
+        <p class="sidebar-seccion">GENERAL</p>
+        <nav class="sidebar-nav">
+          <a href="menuPrincipal.html" class="nav-item">
+            <span class="nav-icon">🏠</span> Inicio
+          </a>
+          <a href="buscarPersonal.html" class="nav-item">
+            <span class="nav-icon">👤</span> Buscar personal
+          </a>
+        </nav>
 
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-titulo" id="modalTitulo">Nuevo año</h3>
-        <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
-      </div>
-      <div class="modal-body">
-        <label class="form-label">Año</label>
-        <input type="number" class="form-input" id="inputYear" placeholder="Ej: 2026" min="1900" max="2099" />
-      </div>
-      <div class="modal-footer">
-        <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
-        <button class="btn-guardar" id="btnGuardar" onclick="guardarYear()">Guardar</button>
-      </div>
-    </div>
-  </div>
+        <!-- ADMINISTRAR -->
+        <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
+        <nav class="sidebar-nav admin-only">
 
-  <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-  <script>if (typeof Swal === 'undefined') { var _s = require('sweetalert2'); window.Swal = _s.default || _s; }</script>
-  <script src="../asset/js/hamburger.js"></script>
-  <script src="../asset/js/sidebar.js"></script>
-  <script src="../asset/js/administrarYears.js"></script>
+          <a href="administrarUsuarios.html" class="nav-item">
+            <span class="nav-icon">👥</span> Usuarios
+          </a>
 
-</body>
-</html>
+          <a href="administrarLibros.html" class="nav-item">
+            <span class="nav-icon">📚</span> Libros
+          </a>
+
+          <a href="administrarCajas.html" class="nav-item">
+            <span class="nav-icon">📦</span> Cajas
+          </a>
+
+          <!-- Página actual -->
+          <a href="administrarYears.html" class="nav-item active">
+            <span class="nav-icon">📅</span> Años
+          </a>
+
+        </nav>
+
+        <!-- LIBROS dinámicos -->
+        <p class="sidebar-seccion">LIBROS</p>
+        <nav class="sidebar-nav" id="sidebarLibros"></nav>
+
+        <!-- Perfil -->
+        <a href="perfil.html" class="sidebar-footer">
+          <span class="user-icon">👤</span>
+          <span class="user-nombre">Administrador</span>
+        </a>
+
+      </aside>
+
+      <!-- ================= CONTENIDO PRINCIPAL ================= -->
+      <div class="main">
+
+        <!-- Barra superior -->
+        <header class="topbar">
+          <div class="topbar-center">
+            <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+            <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+          </div>
+        </header>
+
+        <main class="contenido">
+
+          <!-- Botón menú -->
+          <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+          </button>
+
+          <!-- Navegación -->
+          <a href="menuPrincipal.html" class="btn-volver">
+            &#8592; Volver
+          </a>
+
+          <!-- ====================== TARJETA PRINCIPAL =========================== -->
+          <div class="admin-card">
+
+            <!-- Header -->
+            <div class="card-header">
+
+              <div class="card-header-izq">
+                <span class="card-icono">📅</span>
+                <h2 class="card-titulo">Años</h2>
+              </div>
+
+              <!-- Botón abrir modal -->
+              <button class="btn-nuevo" onclick="abrirModalNuevo()">
+                <span class="btn-nuevo-icono">+</span> Nuevo año
+              </button>
+
+            </div>
+
+            <!-- Grid dinámico -->
+            <div class="years-grid" id="yearsGrid">
+              <!-- Se llena desde JS -->
+            </div>
+
+          </div>
+
+        </main>
+      </div>
+
+      <!-- Formulario emergente para registrar un nuevo año -->
+      <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal">
+
+          <!-- Header del modal -->
+          <div class="modal-header">
+            <h3 class="modal-titulo" id="modalTitulo">Nuevo año</h3>
+            <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+          </div>
+
+          <!-- Contenido -->
+          <div class="modal-body">
+
+            <label class="form-label">Año</label>
+
+            <!-- Input con validación HTML -->
+            <input 
+              type="number" 
+              class="form-input" 
+              id="inputYear" 
+              placeholder="Ej: 2026"
+              min="1900"
+              max="2099"
+            />
+
+          </div>
+
+          <!-- Acciones -->
+          <div class="modal-footer">
+            <button class="btn-cancelar" onclick="cerrarModal()"> Cancelar </button>
+            <button class="btn-guardar" id="btnGuardar" onclick="guardarYear()"> Guardar</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================= SCRIPTS ================= -->
+      <!-- Alertas -->
+      <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+      <!-- Scripts de comportamiento -->
+      <script src="../asset/js/hamburger.js"></script>
+      <script src="../asset/js/sidebar.js"></script>
+      <script src="../asset/js/administrarYears.js"></script>
+
+    </body>
+  </html>

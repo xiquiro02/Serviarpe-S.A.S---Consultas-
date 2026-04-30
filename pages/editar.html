@@ -1,135 +1,217 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviarpe S.A.S - Editar Registro</title>
-  <link rel="stylesheet" href="../asset/utils/customProperties.css" />
-  <link rel="stylesheet" href="../asset/layout/sidebar.css" />
-  <link rel="stylesheet" href="../asset/layout/components.css" />
-  <link rel="stylesheet" href="../asset/css/estilos_editar.css" />
-</head>
-<body>
 
-  <!-- OVERLAY -->
-  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+  <html lang="es">  <!-- Documento HTML5 en español -->
+    <head>
+      <!-- Configuración de caracteres (permite tildes, ñ, etc.) -->
+      <meta charset="UTF-8" />
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <img src="../asset/imagenes/Logo_Serviarpe.png" alt="Logo" />
-      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
-    </div>
+      <!-- Hace que el diseño sea adaptable a dispositivos móviles -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <p class="sidebar-seccion">GENERAL</p>
-    <nav class="sidebar-nav">
-      <a href="menuPrincipal.html" class="nav-item">
-        <span class="nav-icon">🏠</span> Inicio
-      </a>
-      <a href="buscarPersonal.html" class="nav-item">
-        <span class="nav-icon">👤</span> Buscar personal
-      </a>
-    </nav>
+      <!-- Título -->
+      <title>Serviarpe S.A.S - Editar Registro</title>
 
-    <p class="sidebar-seccion">LIBROS</p>
-    <nav class="sidebar-nav" id="sidebarLibros"></nav>
+      <!-- ================= ESTILOS ================= -->
+      <!-- Variables globales -->
+      <link rel="stylesheet" href="../asset/utils/customProperties.css" />
 
-    <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
-    <nav class="sidebar-nav admin-only">
-      <a href="administrarUsuarios.html" class="nav-item">
-        <span class="nav-icon">👥</span> Usuarios
-      </a>
-      <a href="administrarLibros.html" class="nav-item">
-        <span class="nav-icon">📚</span> Libros
-      </a>
-      <a href="administrarCajas.html" class="nav-item">
-        <span class="nav-icon">📦</span> Cajas
-      </a>
-      <a href="administrarYears.html" class="nav-item">
-        <span class="nav-icon">📅</span> Años
-      </a>
-    </nav>
+      <!-- Layout del sidebar -->
+      <link rel="stylesheet" href="../asset/layout/sidebar.css" />
 
-    <a href="perfil.html" class="sidebar-footer">
-      <span class="user-icon">👤</span>
-      <span class="user-nombre">Administrador</span>
-    </a>
-  </aside>
+      <!-- Componentes reutilizables -->
+      <link rel="stylesheet" href="../asset/layout/components.css" />
 
-  <!-- CONTENIDO PRINCIPAL -->
-  <div class="main">
+      <!-- Estilos específicos de esta vista -->
+      <link rel="stylesheet" href="../asset/css/estilos_editar.css" />
+    </head>
 
-    <header class="topbar">
-      <div class="topbar-center">
-        <img src="../asset/imagenes/Logo_Serviarpe.png" alt="Logo" class="topbar-logo" />
-        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
-      </div>
-    </header>
+    <body>
 
-    <main class="contenido">
+      <!-- ================= OVERLAY ================= --> 
+      <!-- Fondo oscuro para cerrar el menú lateral en móviles. -->
+      <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
 
-      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
+      <!-- ================= SIDEBAR ================= --> 
+      <!-- Navegación principal del sistema. -->
+      <aside class="sidebar" id="sidebar">
 
-      <div class="editar-header">
-        <div class="editar-header-info">
-          <span class="editar-badge">—</span>
-          <div>
-            <p class="editar-subtitulo">Editando registro</p>
-            <h2 class="editar-nombre">—</h2>
-          </div>
+        <div class="sidebar-header">
+          <img src="../asset/imagenes/Logo_Serviarpe.png" alt="Logo" />
+          <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
         </div>
-        <a href="vistaLibros.html" class="btn-volver">&#8592; Volver</a>
-      </div>
 
-      <div class="editar-card">
-        <h3 class="editar-titulo">Información del empleado</h3>
-        <form class="editar-form" onsubmit="guardarEdicion(event)">
+        <!-- Navegación general -->
+        <p class="sidebar-seccion">GENERAL</p>
+        <nav class="sidebar-nav">
+          <a href="menuPrincipal.html" class="nav-item">
+            <span class="nav-icon">🏠</span> Inicio
+          </a>
+          <a href="buscarPersonal.html" class="nav-item">
+            <span class="nav-icon">👤</span> Buscar personal
+          </a>
+        </nav>
 
-          <div class="editar-grid">
-            <div class="form-grupo">
-              <label class="form-label" for="inputNombre">Nombre completo</label>
-              <input type="text" id="inputNombre" class="form-input" placeholder="Nombre completo" />
+        <!-- Libros dinámicos -->
+        <p class="sidebar-seccion">LIBROS</p>
+        <nav class="sidebar-nav" id="sidebarLibros"></nav>
+
+        <!-- Administración -->
+        <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
+        <nav class="sidebar-nav admin-only">
+          <a href="administrarUsuarios.html" class="nav-item">
+            <span class="nav-icon">👥</span> Usuarios
+          </a>
+          <a href="administrarLibros.html" class="nav-item">
+            <span class="nav-icon">📚</span> Libros
+          </a>
+          <a href="administrarCajas.html" class="nav-item">
+            <span class="nav-icon">📦</span> Cajas
+          </a>
+          <a href="administrarYears.html" class="nav-item">
+            <span class="nav-icon">📅</span> Años
+          </a>
+        </nav>
+
+        <!-- Perfil -->
+        <a href="perfil.html" class="sidebar-footer">
+          <span class="user-icon">👤</span>
+          <span class="user-nombre">Administrador</span>
+        </a>
+      </aside>
+
+      <!-- ================= CONTENIDO PRINCIPAL ================= -->
+      <div class="main">
+
+        <!-- Barra superior -->
+        <header class="topbar">
+          <div class="topbar-center">
+            <img src="../asset/imagenes/Logo_Serviarpe.png" alt="Logo" class="topbar-logo" />
+            <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+          </div>
+        </header>
+
+        <main class="contenido">
+
+          <!-- Botón hamburguesa -->
+          <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+          </button>
+
+          <!-- ====================== HEADER DE EDICIÓN =========================== -->
+          <div class="editar-header">
+
+            <div class="editar-header-info">
+              <!-- Identificador visual (puede ser ID o código) -->
+              <span class="editar-badge">—</span>
+
+              <div>
+                <p class="editar-subtitulo">Editando registro</p>
+                <!-- Nombre dinámico del registro -->
+                <h2 class="editar-nombre">—</h2>
+              </div>
             </div>
-            <div class="form-grupo">
-              <label class="form-label" for="inputCedula">Cédula</label>
-              <input type="text" id="inputCedula" class="form-input" placeholder="Número de cédula" />
-            </div>
-            <div class="form-grupo">
-              <label class="form-label" for="inputCargo">Cargo</label>
-              <input type="text" id="inputCargo" class="form-input" placeholder="Cargo del empleado" />
-            </div>
-            <div class="form-grupo">
-              <label class="form-label" for="inputPosicion">Posición en el libro</label>
-              <input type="text" id="inputPosicion" class="form-input" placeholder="Ej: Posición 5" />
-            </div>
-            <div class="form-grupo">
-              <label class="form-label" for="selectCaja">Caja</label>
-              <select id="selectCaja" class="form-input"></select>
-            </div>
-            <div class="form-grupo">
-              <label class="form-label" for="selectAnio">Año</label>
-              <select id="selectAnio" class="form-input"></select>
-            </div>
+
+            <!-- Navegación -->
+            <a href="vistaLibros.html" class="btn-volver"> &#8592; Volver </a>
+
           </div>
 
-          <div class="editar-acciones">
-            <a href="vistaLibros.html" class="btn-cancelar">Cancelar</a>
-            <button type="submit" class="btn-guardar-editar">Guardar cambios</button>
-          </div>
+          <!-- ======================= FORMULARIO DE EDICIÓN ========================== -->
+          <div class="editar-card">
 
-        </form>
+            <h3 class="editar-titulo">Información del empleado</h3>
+
+            <!-- Formulario reutilizable (similar a "nuevo registro") pero cargado con datos existentes. -->
+            <form class="editar-form" onsubmit="guardarEdicion(event)">
+
+              <!-- Grid de campos -->
+              <div class="editar-grid">
+
+                <!-- Nombre -->
+                <div class="form-grupo">
+                  <label class="form-label" for="inputNombre">Nombre completo</label>
+                  <input 
+                    type="text" 
+                    id="inputNombre" 
+                    class="form-input" 
+                    placeholder="Nombre completo" 
+                    required
+                  />
+                </div>
+
+                <!-- Cédula -->
+                <div class="form-grupo">
+                  <label class="form-label" for="inputCedula">Cédula</label>
+                  <input 
+                    type="number" 
+                    id="inputCedula" 
+                    class="form-input" 
+                    placeholder="Número de cédula"
+                    required 
+                  />
+                </div>
+
+                <!-- Cargo -->
+                <div class="form-grupo">
+                  <label class="form-label" for="inputCargo">Cargo</label>
+                  <input 
+                    type="text" 
+                    id="inputCargo" 
+                    class="form-input" 
+                    placeholder="Cargo del empleado"
+                    required
+                  />
+                </div>
+
+                <!-- Posición -->
+                <div class="form-grupo">
+                  <label class="form-label" for="inputPosicion">Posición en el libro</label>
+                  <input 
+                    type="text" 
+                    id="inputPosicion" 
+                    class="form-input" 
+                    placeholder="Ej: Posición 5" 
+                  />
+                </div>
+
+                <!-- Caja (dinámico) -->
+                <div class="form-grupo">
+                  <label class="form-label" for="selectCaja">Caja</label>
+                  <select id="selectCaja" class="form-input">
+                    <!-- Se llena desde JS -->
+                  </select>
+                </div>
+
+                <!-- Año (dinámico) -->
+                <div class="form-grupo">
+                  <label class="form-label" for="selectAnio">Año</label>
+                  <select id="selectAnio" class="form-input">
+                    <!-- Se llena desde JS -->
+                  </select>
+                </div>
+
+              </div>
+
+              <!-- Acciones -->
+              <div class="editar-acciones">
+                <!-- Cancelar -->
+                <a href="vistaLibros.html" class="btn-cancelar"> Cancelar </a>
+                <!-- Guardar -->
+                <button type="submit" class="btn-guardar-editar"> Guardar cambios </button>
+              </div>
+
+            </form>
+          </div>
+        </main>
       </div>
 
-    </main>
-  </div>
+      <!-- ================= SCRIPTS ================= -->
+      <!-- Librería de alertas -->
+      <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+      <!-- Scripts -->
+      <script src="../asset/js/hamburger.js"></script>
+      <script src="../asset/js/sidebar.js"></script>
+      <script src="../asset/js/editar.js"></script>
 
-  <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-  <script>if (typeof Swal === 'undefined') { var _s = require('sweetalert2'); window.Swal = _s.default || _s; }</script>
-  <script src="../asset/js/hamburger.js"></script>
-  <script src="../asset/js/sidebar.js"></script>
-  <script src="../asset/js/editar.js"></script>
-
-</body>
-</html>
+    </body>
+  </html>

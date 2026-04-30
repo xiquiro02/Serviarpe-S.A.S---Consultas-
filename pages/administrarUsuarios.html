@@ -1,152 +1,207 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviarpe S.A.S - Administrar Usuarios</title>
-  <link rel="stylesheet" href="../asset/utils/customProperties.css" />
-  <link rel="stylesheet" href="../asset/layout/sidebar.css" />
-  <link rel="stylesheet" href="../asset/layout/components.css" />
-  <link rel="stylesheet" href="../asset/css/estilos_administrarUsuarios.css" />
-</head>
-<body>
 
-  <!-- OVERLAY -->
-  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+  <html lang="es"> <!-- Documento HTML5 en español -->
+    <head>
+      <!-- Configuración de caracteres (permite tildes, ñ, etc.) -->
+      <meta charset="UTF-8" />
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
-      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
-    </div>
+      <!-- Hace que el diseño sea adaptable a dispositivos móviles -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <p class="sidebar-seccion">GENERAL</p>
-    <nav class="sidebar-nav">
-      <a href="menuPrincipal.html" class="nav-item">
-        <span class="nav-icon">🏠</span> Inicio
-      </a>
-      <a href="buscarPersonal.html" class="nav-item">
-        <span class="nav-icon">👤</span> Buscar personal
-      </a>
-    </nav>
+      <!-- Título -->
+      <title>Serviarpe S.A.S - Administrar Usuarios</title>
 
-    <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
-    <nav class="sidebar-nav admin-only">
-      <a href="administrarUsuarios.html" class="nav-item active">
-        <span class="nav-icon">👥</span> Usuarios
-      </a>
-      <a href="administrarLibros.html" class="nav-item">
-        <span class="nav-icon">📚</span> Libros
-      </a>
-      <a href="administrarCajas.html" class="nav-item">
-        <span class="nav-icon">📦</span> Cajas
-      </a>
-      <a href="administrarYears.html" class="nav-item">
-        <span class="nav-icon">📅</span> Años
-      </a>
-    </nav>
+      <!-- ================= ESTILOS ================= -->
+      <link rel="stylesheet" href="../asset/utils/customProperties.css" />
+      <link rel="stylesheet" href="../asset/layout/sidebar.css" />
+      <link rel="stylesheet" href="../asset/layout/components.css" />
+      <link rel="stylesheet" href="../asset/css/estilos_administrarUsuarios.css" />
+    </head>
 
-    <p class="sidebar-seccion">LIBROS</p>
-    <nav class="sidebar-nav" id="sidebarLibros"></nav>
+    <body>
 
-    <a href="perfil.html" class="sidebar-footer">
-      <span class="user-icon">👤</span>
-      <span class="user-nombre">Administrador</span>
-    </a>
-  </aside>
+      <!-- Fondo oscuro que aparece al abrir el menú lateral -->
+      <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
 
-  <!-- MAIN -->
-  <div class="main">
+      <!-- ================= MENÚ LATERAL ================= -->
+      <aside class="sidebar" id="sidebar">
 
-    <header class="topbar">
-      <div class="topbar-center">
-        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
-        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
-      </div>
-    </header>
+        <!-- Logo y nombre de la empresa -->
+        <div class="sidebar-header">
+          <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
+          <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+        </div>
 
-    <main class="contenido">
+        <!-- Sección general -->
+        <p class="sidebar-seccion">GENERAL</p>
+        <nav class="sidebar-nav">
+          <a href="menuPrincipal.html" class="nav-item">
+            <span class="nav-icon">🏠</span> Inicio
+          </a>
+          <a href="buscarPersonal.html" class="nav-item">
+            <span class="nav-icon">👤</span> Buscar personal
+          </a>
+        </nav>
 
-      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
+        <!-- Sección administrativa -->
+        <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
+        <nav class="sidebar-nav admin-only">
 
-      <a href="menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
+          <!-- Página actual -->
+          <a href="administrarUsuarios.html" class="nav-item active">
+            <span class="nav-icon">👥</span> Usuarios
+          </a>
 
-      <div class="admin-card">
-        <div class="card-header">
-          <div class="card-header-izq">
-            <span class="card-icono">👥</span>
-            <h2 class="card-titulo">Usuarios</h2>
+          <a href="administrarLibros.html" class="nav-item">
+            <span class="nav-icon">📚</span> Libros
+          </a>
+
+          <a href="administrarCajas.html" class="nav-item">
+            <span class="nav-icon">📦</span> Cajas
+          </a>
+
+          <a href="administrarYears.html" class="nav-item">
+            <span class="nav-icon">📅</span> Años
+          </a>
+        </nav>
+
+        <!-- Libros dinámicos -->
+        <p class="sidebar-seccion">LIBROS</p>
+        <nav class="sidebar-nav" id="sidebarLibros"></nav>
+
+        <!-- Perfil del usuario -->
+        <a href="perfil.html" class="sidebar-footer">
+          <span class="user-icon">👤</span>
+          <span class="user-nombre">Administrador</span>
+        </a>
+      </aside>
+
+      <!-- ================= CONTENIDO PRINCIPAL ================= -->
+      <div class="main">
+
+        <!-- Barra superior -->
+        <header class="topbar">
+          <div class="topbar-center">
+            <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+            <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
           </div>
-          <button class="btn-nuevo" onclick="abrirModalNuevo()">
-            <span class="btn-nuevo-icono">+</span> Nuevo usuario
+        </header>
+
+        <main class="contenido">
+
+          <!-- Botón para abrir/cerrar menú -->
+          <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
           </button>
-        </div>
 
-        <div class="tabla-wrapper">
-          <table class="tabla" id="tablaUsuarios">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Usuario</th>
-                <th>Correo</th>
-                <th>Rol</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+          <!-- Botón de navegación -->
+          <a href="menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
+
+          <!-- ================= TARJETA PRINCIPAL ================= -->
+          <div class="admin-card">
+
+            <!-- Encabezado -->
+            <div class="card-header">
+              <div class="card-header-izq">
+                <span class="card-icono">👥</span>
+                <h2 class="card-titulo">Usuarios</h2>
+              </div>
+
+              <!-- Botón para abrir formulario emergente -->
+              <button class="btn-nuevo" onclick="abrirModalNuevo()">
+                <span class="btn-nuevo-icono">+</span> Nuevo usuario
+              </button>
+            </div>
+
+            <!-- Tabla de usuarios -->
+            <div class="tabla-wrapper">
+              <table class="tabla" id="tablaUsuarios">
+
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+
+                <!-- Datos dinámicos -->
+                <tbody></tbody>
+
+              </table>
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+      <!-- ======================= VENTANA EMERGENTE PARA CREAR O EDITAR USUARIOS ========================== -->
+      <div class="modal-overlay" id="modalOverlay">
+
+        <div class="modal">
+
+          <!-- Encabezado -->
+          <div class="modal-header">
+            <h3 class="modal-titulo" id="modalTitulo">Nuevo usuario</h3>
+            <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
+          </div>
+
+          <!-- Formulario -->
+          <div class="modal-body">
+
+            <!-- Nombre completo -->
+            <div class="form-group">
+              <label class="form-label">Nombre completo</label>
+              <input type="text" class="form-input" id="inputNombre" placeholder="Ej: Juan Pérez" required/>
+            </div>
+
+            <!-- Usuario -->
+            <div class="form-group">
+              <label class="form-label">Nombre de usuario</label>
+              <input type="text" class="form-input" id="inputUsuario" placeholder="Ej: jperez" />
+            </div>
+
+            <!-- Correo -->
+            <div class="form-group">
+              <label class="form-label">Correo electrónico</label>
+              <input type="email" class="form-input" id="inputCorreo" placeholder="Ej: usuario@serviarpe.com" />
+            </div>
+
+            <!-- Rol -->
+            <div class="form-group">
+              <label class="form-label">Rol</label>
+              <select class="form-select" id="inputRol" required>
+                <option value="administrador">Administrativo</option>
+                <option value="empleado">Empleado</option>
+              </select>
+            </div>
+
+            <!-- Contraseña (solo en creación o cambio) -->
+            <div class="form-group" id="grupoPassword">
+              <label class="form-label">Contraseña</label>
+              <input type="password" class="form-input" id="inputPassword" placeholder="Mínimo 6 caracteres" required />
+            </div>
+
+          </div>
+
+          <!-- Acciones -->
+          <div class="modal-footer">
+            <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+            <button class="btn-guardar" id="btnGuardar" onclick="guardarUsuario()">Guardar</button>
+          </div>
+
         </div>
       </div>
-    </main>
-  </div>
 
-  <!-- MODAL NUEVO / EDITAR -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-titulo" id="modalTitulo">Nuevo usuario</h3>
-        <button class="modal-cerrar" onclick="cerrarModal()">✕</button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label class="form-label">Nombre completo</label>
-          <input type="text" class="form-input" id="inputNombre" placeholder="Ej: Juan Pérez" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Nombre de usuario</label>
-          <input type="text" class="form-input" id="inputUsuario" placeholder="Ej: jperez" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Correo electrónico</label>
-          <input type="email" class="form-input" id="inputCorreo" placeholder="Ej: usuario@serviarpe.com" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Rol</label>
-          <select class="form-select" id="inputRol">
-            <option value="administrador">Administrativo</option>
-            <option value="empleado">Empleado</option>
-          </select>
-        </div>
-        <div class="form-group" id="grupoPassword">
-          <label class="form-label">Contraseña</label>
-          <input type="password" class="form-input" id="inputPassword" placeholder="Mínimo 6 caracteres" />
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
-        <button class="btn-guardar" id="btnGuardar" onclick="guardarUsuario()">Guardar</button>
-      </div>
-    </div>
-  </div>
+      <!-- ================= SCRIPTS ================= -->
+      <!-- Alertas -->
+      <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+      <!-- Scripts de comportamiento -->
+      <script src="../asset/js/hamburger.js"></script>
+      <script src="../asset/js/sidebar.js"></script>
+      <script src="../asset/js/administrarUsuarios.js"></script>
 
-  <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-  <script>if (typeof Swal === 'undefined') { var _s = require('sweetalert2'); window.Swal = _s.default || _s; }</script>
-  <script src="../asset/js/hamburger.js"></script>
-  <script src="../asset/js/sidebar.js"></script>
-  <script src="../asset/js/administrarUsuarios.js"></script>
-
-</body>
-</html>
+    </body>
+  </html>

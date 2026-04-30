@@ -1,14 +1,22 @@
-/* Ancho específico para esta vista */
-.contenido { padding: 16px 20px 40px; max-width: 900px; }
+/* ===== CONFIGURACIÓN GENERAL DE LA VISTA ===== */
+/* Ajusta el ancho del contenido principal para esta página específica */
+.contenido {
+  padding: 16px 20px 40px;    /* Espaciado interno */
+  max-width: 900px;           /* Ancho máximo del contenido */
+}
 
-/* Card header — gradiente azul oscuro */
-.card-header { background: linear-gradient(135deg, var(--color-azul-principal) 0%, #004d8a 100%); }
+/* ===== ENCABEZADO DE TARJETA ===== */
+/* Aplica un fondo con degradado azul oscuro al header de las tarjetas */
+.card-header {
+  background: linear-gradient(135deg, var(--color-azul-principal) 0%, #004d8a 100%);
+}
 
-/* Botón nuevo — blanco sobre azul (diseño invertido) */
+/* ===== BOTÓN "NUEVO" ===== */
+/* Botón con diseño invertido (fondo blanco, texto azul) */
 .btn-nuevo {
-  display: inline-flex;
+  display: inline-flex;                     /* Permite alinear icono + texto */
   align-items: center;
-  gap: 6px;
+  gap: 6px;                                 /* Espacio entre icono y texto */
   background: var(--color-blanco);
   color: var(--color-azul-principal);
   border: 2px solid var(--color-blanco);
@@ -20,27 +28,68 @@
   cursor: pointer;
   transition: background 0.2s;
 }
-.btn-nuevo:hover { background: rgba(255,255,255,0.85); }
-.btn-nuevo-icono { font-size: 1.1rem; font-weight: 900; }
 
-/* Badge — azul */
-.badge { background: var(--color-azul-principal); }
+/* Efecto hover: hace el botón ligeramente transparente */
+.btn-nuevo:hover {
+  background: rgba(255,255,255,0.85);
+}
 
-/* Tabla — encabezado azul y filas */
-.tabla thead tr { background: var(--color-azul-principal); }
-.tabla thead th { padding: 14px 20px; }
-.tabla tbody tr:last-child { border-bottom: none; }
-.tabla tbody tr:nth-child(odd)  { background: #f0f7ff; }
-.tabla tbody tr:nth-child(even) { background: var(--color-blanco); }
-.tabla tbody tr:hover { background: #ddeeff; }
-.tabla tbody td { padding: 13px 20px; }
+/* Icono dentro del botón */
+.btn-nuevo-icono {
+  font-size: 1.1rem;
+  font-weight: 900;
+}
 
-/* Celda de usuario */
+/* ===== BADGES ===== */
+/* Badge general con color azul */
+.badge {
+  background: var(--color-azul-principal);
+}
+
+/* ===== TABLA ===== */
+/* Encabezado de tabla en azul */
+.tabla thead tr {
+  background: var(--color-azul-principal);
+}
+
+/* Espaciado de celdas en encabezado */
+.tabla thead th {
+  padding: 14px 20px;
+}
+
+/* Elimina borde inferior en la última fila */
+.tabla tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Filas alternadas (efecto zebra) */
+.tabla tbody tr:nth-child(odd) {
+  background: #f0f7ff;
+}
+
+.tabla tbody tr:nth-child(even) {
+  background: var(--color-blanco);
+}
+
+/* Hover en filas */
+.tabla tbody tr:hover {
+  background: #ddeeff;
+}
+
+/* Espaciado en celdas */
+.tabla tbody td {
+  padding: 13px 20px;
+}
+
+/* ===== CELDA DE USUARIO ===== */
+/* Contenedor para avatar + nombre */
 .user-cell {
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
+/* Icono/avatar del usuario */
 .avatar-icon {
   font-size: 1.1rem;
   background: #e8f4ff;
@@ -50,10 +99,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Evita que se reduzca */
 }
 
-/* Badges de rol */
+/* ===== BADGES DE ROL ===== */
+/* Estilo base para badges de rol */
 .rol-badge {
   display: inline-flex;
   align-items: center;
@@ -63,18 +113,23 @@
   font-weight: 700;
   white-space: nowrap;
 }
+
+/* Rol administrativo (azul) */
 .rol-administrativo {
   background: #e8f4ff;
   color: #007ABF;
   border: 1.5px solid #007ABF;
 }
+
+/* Rol empleado (verde) */
 .rol-empleado {
   background: #eafaf0;
   color: #15920a;
   border: 1.5px solid #15920a;
 }
 
-/* Botón de rol (extra) */
+/* ===== BOTÓN DE CAMBIO DE ROL ===== */
+/* Botón pequeño con icono para acciones de rol */
 .btn-rol {
   border: none;
   border-radius: 7px;
@@ -88,16 +143,37 @@
   transition: background 0.2s, transform 0.1s;
   background: #f0e8ff;
 }
-.btn-rol:hover { background: #7c3aed; transform: scale(1.08); }
 
-/* Modal: ancho máximo, color encabezado y gap body */
-.modal { max-width: 440px; }
-.modal-header { background: linear-gradient(135deg, var(--color-azul-principal) 0%, #004d8a 100%); }
-.modal-body { gap: 14px; }
+/* Hover del botón */
+.btn-rol:hover {
+  background: #7c3aed;
+  transform: scale(1.08);   /* Efecto de crecimiento */
+}
 
+/* ===== MODAL ===== */
+/* Ancho máximo del modal */
+.modal {
+  max-width: 440px;
+}
+
+/* Encabezado del modal con degradado azul */
+.modal-header {
+  background: linear-gradient(135deg, var(--color-azul-principal) 0%, #004d8a 100%);
+}
+
+/* Espaciado entre elementos del cuerpo */
+.modal-body {
+  gap: 14px;
+}
+
+/* ===== FORMULARIOS ===== */
+/* Estilo de focus para inputs y selects */
 .form-input:focus,
-.form-select:focus { border-color: var(--color-azul-principal); }
+.form-select:focus {
+  border-color: var(--color-azul-principal);
+}
 
+/* Estilo base para select */
 .form-select {
   width: 100%;
   border: 1.5px solid var(--color-borde-input);
@@ -112,10 +188,20 @@
   cursor: pointer;
 }
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 600px) {
-  .contenido { padding: 16px 14px 32px; max-width: 100%; }
-  .card-header { padding: 14px 16px; }
+  .contenido {
+    padding: 16px 14px 32px;
+    max-width: 100%;
+  }
+
+  .card-header {
+    padding: 14px 16px;
+  }
+
   .tabla thead th,
-  .tabla tbody td { padding: 10px 12px; }
+  .tabla tbody td {
+    padding: 10px 12px;
+  }
 }

@@ -1,14 +1,22 @@
-/* Ancho específico para esta vista */
-.contenido { padding: 16px 20px 40px; max-width: 800px; }
+/* ===== CONFIGURACIÓN GENERAL DE LA VISTA ===== */
+/* Define el ancho máximo y el espaciado del contenedor principal */
+.contenido {
+  padding: 16px 20px 40px;    /* Espaciado interno */
+  max-width: 800px;           /* Ancho máximo de la vista */
+}
 
-/* Card header — gradiente naranja */
-.card-header { background: linear-gradient(135deg, var(--color-card-naranja) 0%, #b84e10 100%); }
+/* ===== ENCABEZADO DE TARJETA ===== */
+/* Aplica un degradado naranja al encabezado */
+.card-header {
+  background: linear-gradient(135deg, var(--color-card-naranja) 0%, #b84e10 100%);
+}
 
-/* Botón nuevo — azul */
+/* ===== BOTÓN "NUEVO" ===== */
+/* Botón principal para crear nuevos registros */
 .btn-nuevo {
-  display: inline-flex;
+  display: inline-flex;                               /* Permite alinear icono + texto */
   align-items: center;
-  gap: 6px;
+  gap: 6px;                                           /* Espacio entre icono y texto */
   background: var(--color-azul-principal);
   color: var(--color-blanco);
   border: none;
@@ -19,32 +27,96 @@
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
-  box-shadow: 0 3px 10px rgba(0,122,191,0.35);
+  box-shadow: 0 3px 10px rgba(0,122,191,0.35);      /* Sombra */
 }
-.btn-nuevo:hover { background: var(--color-azul-hover); transform: translateY(-1px); }
-.btn-nuevo-icono { font-size: 1.1rem; font-weight: 900; }
 
-/* Badge — color naranja */
-.badge { background: var(--color-card-naranja); }
+/* Efecto hover del botón */
+.btn-nuevo:hover {
+  background: var(--color-azul-hover);     /* Cambio de color */
+  transform: translateY(-1px);             /* Efecto de elevación */
+}
 
-/* Tabla — encabezado naranja y filas */
-.tabla thead tr { background: var(--color-card-naranja); }
-.tabla thead th { padding: 14px 20px; }
-.tabla tbody tr:last-child { border-bottom: none; }
-.tabla tbody tr:nth-child(odd)  { background: #fff9f5; }
-.tabla tbody tr:nth-child(even) { background: var(--color-blanco); }
-.tabla tbody tr:hover { background: #fde8d8; }
-.tabla tbody td { padding: 13px 20px; }
+/* Icono dentro del botón */
+.btn-nuevo-icono {
+  font-size: 1.1rem;
+  font-weight: 900;
+}
 
-/* Modal: ancho máximo y color de encabezado */
-.modal { max-width: 440px; }
-.modal-header { background: linear-gradient(135deg, var(--color-card-naranja) 0%, #b84e10 100%); }
-.form-input:focus { border-color: var(--color-naranja); }
+/* ===== BADGE ===== */
 
-/* RESPONSIVE */
+/* Badge con color naranja */
+.badge {
+  background: var(--color-card-naranja);
+}
+
+/* ===== TABLA ===== */
+/* Encabezado de la tabla en color naranja */
+.tabla thead tr {
+  background: var(--color-card-naranja);
+}
+
+/* Espaciado de columnas del encabezado */
+.tabla thead th {
+  padding: 14px 20px;
+}
+
+/* Elimina borde en la última fila */
+.tabla tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Filas alternadas (efecto zebra) */
+.tabla tbody tr:nth-child(odd) {
+  background: #fff9f5;
+}
+.tabla tbody tr:nth-child(even) {
+  background: var(--color-blanco);
+}
+
+/* Efecto hover sobre filas */
+.tabla tbody tr:hover {
+  background: #fde8d8;
+}
+
+/* Espaciado en las celdas */
+.tabla tbody td {
+  padding: 13px 20px;
+}
+
+/* ===== MODAL ===== */
+/* Define ancho máximo del modal */
+.modal {
+  max-width: 440px;
+}
+
+/* Encabezado del modal con degradado naranja */
+.modal-header {
+  background: linear-gradient(135deg, var(--color-card-naranja) 0%, #b84e10 100%);
+}
+
+/* Estilo cuando un input está en foco */
+.form-input:focus {
+  border-color: var(--color-naranja);
+}
+
+/* ===== RESPONSIVE ===== */
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 600px) {
-  .contenido { padding: 16px 14px 32px; max-width: 100%; }
-  .card-header { padding: 14px 16px; }
+
+  /* El contenedor ocupa todo el ancho */
+  .contenido {
+    padding: 16px 14px 32px;
+    max-width: 100%;
+  }
+
+  /* Reduce padding del header */
+  .card-header {
+    padding: 14px 16px;
+  }
+
+  /* Reduce padding de tabla */
   .tabla thead th,
-  .tabla tbody td { padding: 10px 12px; }
+  .tabla tbody td {
+    padding: 10px 12px;
+  }
 }

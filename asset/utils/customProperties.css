@@ -1,33 +1,40 @@
 :root {
-    /* ===== COLORES ===== */
+    /* =========================================================
+       VARIABLES GLOBALES DEL SISTEMA (CUSTOM PROPERTIES)
+       Aquí se centralizan colores, tamaños, tipografías, etc.
+    ========================================================= */
 
-    /* Marca / Primarios */
-    --color-azul-oscuro: #1A1A2E;
-    --color-azul-principal: #007ABF;
-    --color-azul-focus: #0077e6;
-    --color-azul-hover: #0059c1;
-    --color-azul-claro: #1e90ff;
-    --color-azul-gradiente: #0087CE;
-    --color-naranja: #F66F27;
-    --color-verde-principal: #15920a;
-    --color-verde-divisor: #15600E;
-    --color-verde-lima: #9CCA3D;
-    --color-blanco: #ffffff;
-    --color-login: #ffffff;
+    /* ===================== COLORES ===================== */
+    /* Colores principales de la marca */
+    --color-azul-oscuro: #1A1A2E;       /* Azul oscuro corporativo */
+    --color-azul-principal: #007ABF;    /* Azul principal */
+    --color-azul-focus: #0077e6;        /* Azul al enfocar inputs */
+    --color-azul-hover: #0059c1;        /* Azul al hacer hover */
+    --color-azul-claro: #1e90ff;        /* Azul claro */
+    --color-azul-gradiente: #0087CE;    /* Azul para gradientes */
 
-    /* Textos */
-    --color-texto-oscuro: #1a1a1a;
-    --color-texto-input: #333333;
-    --color-texto-gris: #555555;
-    --color-texto-secundario: #7A7979;
-    --color-placeholder: #aaaaaa;
+    --color-naranja: #F66F27;           /* Naranja corporativo */
+    --color-verde-principal: #15920a;   /* Verde principal */
+    --color-verde-divisor: #15600E;     /* Verde para divisores */
+    --color-verde-lima: #9CCA3D;        /* Verde claro */
+    --color-blanco: #ffffff;            /* Blanco */
+    --color-login: #ffffff;             /* Fondo de formularios */
+    /* Colores de texto */
+    --color-texto-oscuro: #1a1a1a;      /* Texto principal */
+    --color-texto-input: #333333;       /* Texto en inputs */
+    --color-texto-gris: #555555;        /* Texto secundario */
+    --color-texto-secundario: #7A7979;  /* Texto menos importante */
+    --color-placeholder: #aaaaaa;       /* Placeholder de inputs */
 
-    /* ===== GRADIENTES ===== */
+    /* ===================== GRADIENTES ===================== */
+    /* Fondo para registro */
     --gradient-fondo-registro: linear-gradient(90deg, var(--color-naranja) 10%, var(--color-azul-gradiente) 90%);
+    /* Fondo para recuperar contraseña */
     --gradient-fondo-recuperar: linear-gradient(90deg, var(--color-verde-lima) 10%, var(--color-azul-gradiente) 90%);
 
-    /* ===== TIPOGRAFÍA ===== */
-    --texto-principal: Arial, Helvetica, sans-serif;
+    /* ===================== TIPOGRAFÍA ===================== */
+    --texto-principal: Arial, Helvetica, sans-serif;    /* Fuente base */
+    /* Tamaños de texto */
     --font-size-titulo: 1rem;
     --font-size-subtitulo: 1.1rem;
     --font-size-titulo-registro: 1.15rem;
@@ -37,72 +44,70 @@
     --font-size-input-sm: 0.88rem;
     --font-size-small: 0.9rem;
     --font-size-xsmall: 0.78rem;
-    --line-height-descripcion: 1.6;
+    --line-height-descripcion: 1.6;                     /* Altura de línea */
 
-    /* ===== DIMENSIONES ===== */
-    /* Width */
-    --width-principal: 100%;
-    --width-login: 680px;
+    /* ===================== DIMENSIONES ===================== */
+
+    /* Anchos */
+    --width-principal: 100%;                        /* Ancho total */
+    --width-login: 680px;                           /* Contenedor login */
     --width-registro: clamp(660px, 62vw, 920px);
     --width-recuperar: 660px;
-    --width-panel-logo: 45%;
+    --width-panel-logo: 45%;                        /* Panel izquierdo */
     --width-panel-logo-registro: 50%;
-    --width-panel-form: 55%;
+    --width-panel-form: 55%;                        /* Panel derecho */
     --width-panel-form-registro: 58%;
-    --width-divider: 2px;
-
-    /* Height */
+    --width-divider: 2px;                           /* Línea divisora */
+    /* Alturas */
     --height-principal: 100%;
     --min-height-login: 420px;
     --min-height-registro: 440px;
     --min-height-recuperar: 380px;
-
-    /* Logo */
+    /* Tamaños del logo */
     --size-logo-circle: 200px;
     --size-logo-circle-registro: 300px;
     --size-logo-circle-recuperar: 190px;
     --size-logo-circle-mobile: 140px;
     --size-logo-circle-mobile-sm: 130px;
 
-    /* ===== ESPACIADO ===== */
-    --padding-panel-v: 40px;
+
+    /* ===================== ESPACIADO ===================== */
+
+    --padding-panel-v: 40px;                     /* Padding vertical */
     --padding-panel-h-logo: 30px;
     --padding-panel-h-logo-registro: 24px;
     --padding-panel-h-form: 36px;
-    --padding-panel-v-form-registro: 36px;
-    --padding-panel-h-form-registro: 32px;
     --padding-input-v: 12px;
     --padding-input-v-lg: 15px;
     --padding-input-h: 20px;
     --padding-boton: 13px;
     --padding-boton-lg: 15px;
     --margin-input: 5px;
-    --gap-form: 14px;
+    --gap-form: 8px;                             /* Espacio entre inputs */
     --gap-form-sm: 12px;
     --gap-paneles: 24px;
     --margin-divider: 30px;
     --margin-divider-sm: 28px;
 
-    /* ===== BORDES ===== */
+    /* ===================== BORDES ===================== */
     --border-width: 2px;
     --border-radius-login: 16px;
     --border-radius-panel-form: 15px;
-    --border-radius-input: 50px;
+    --border-radius-input: 50px;        /* Inputs redondeados */
 
-    /* ===== SOMBRAS ===== */
+    /* ===================== SOMBRAS ===================== */
     --shadow-login: 0 24px 64px rgba(0, 0, 0, 0.5);
     --shadow-boton: 0 4px 14px rgba(30, 144, 255, 0.35);
     --shadow-boton-hover: 0 6px 20px rgba(30, 144, 255, 0.45);
     --shadow-input-focus: 0 0 0 3px rgba(30, 144, 255, 0.15);
 
-    /* ===== FILTROS ===== */
-    --filter-fondo: brightness(0.45) saturate(0.8);
+    /* ===================== FILTROS ===================== */
+    --filter-fondo: brightness(0.45) saturate(0.8);     /* Oscurece fondo */
 
-    /* ===== IMÁGENES ===== */
+    /* ===================== IMÁGENES ===================== */
     --img-fondo-serviarpe: url("../asset/imagenes/Fondo_Serviarpe_S.A.S.png");
 
-    /* ===== MENU PRINCIPAL ===== */
-
+    /* ===================== MENU PRINCIPAL ===================== */
     /* Sidebar */
     --color-sidebar-bg: #0e270b;
     --color-sidebar-border: #9cde89;
@@ -113,39 +118,32 @@
     --color-nav-activo-bg: #15630e;
     --color-verde-activo: #2ecc71;
     --color-sidebar-footer-texto: #ecf0f1;
-
     /* Cards resumen */
     --color-card-azul: #0088CE;
     --color-card-verde: #8FC240;
     --color-card-naranja: #F76927;
-
     /* General */
     --color-overlay: rgba(0, 0, 0, 0.45);
     --color-borde-card: #e8e8e8;
     --color-negro: #000000;
-
-    /* Sombras menu */
+    /* Sombras del menú */
     --shadow-topbar: 0 2px 8px rgba(0, 0, 0, 0.08);
     --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.08);
     --shadow-card-hover: 0 6px 20px rgba(0, 0, 0, 0.13);
     --shadow-card-resumen: 0 4px 12px rgba(0, 0, 0, 0.15);
-
-    /* Dimensiones menu */
+    /* Dimensiones */
     --width-sidebar: 260px;
     --height-topbar: 60px;
 
-    /* ===== LIBROS / TABLA ===== */
-
+    /* ===================== TABLAS Y LIBROS ===================== */
     /* Buscador */
     --color-borde-buscador: #d0d0d0;
     --color-icono-buscador: #888888;
     --shadow-buscador: 0 1px 4px rgba(0, 0, 0, 0.06);
-
     /* Tabla */
     --color-borde-tabla: #eeeeee;
     --color-tabla-hover: #f0f7ff;
-
-    /* Botones de acción */
+    /* Botones */
     --color-btn-editar-hover: #006aad;
     --color-btn-eliminar: #e74c3c;
     --color-btn-eliminar-hover: #c0392b;
@@ -154,17 +152,17 @@
     --color-btn-nuevo-hover: #1e8449;
     --shadow-btn-nuevo: 0 3px 10px rgba(39, 174, 96, 0.3);
 
-    /* ===== BUSCAR PERSONAL ===== */
+    /* ===================== BUSCAR PERSONAL ===================== */
     --shadow-suave: 0 2px 8px rgba(0, 0, 0, 0.06);
     --color-borde-input: #c0c0c0;
     --color-tabla-fila: #fdf3ee;
     --color-tabla-hover-salmon: #f5e6dc;
 
-    /* ===== PERFIL ===== */
+    /* ===================== PERFIL ===================== */
     --shadow-perfil: 0 4px 16px rgba(0, 0, 0, 0.10);
     --color-btn-logout-hover: #d4561e;
 
-    /* ===== EDITAR ===== */
+    /* ===================== EDITAR ===================== */
     --color-btn-cancelar: #6c757d;
     --color-btn-cancelar-hover: #5a6268;
     --shadow-btn-cancelar: 0 3px 10px rgba(108, 117, 125, 0.3);

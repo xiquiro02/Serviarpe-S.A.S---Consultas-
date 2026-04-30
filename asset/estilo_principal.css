@@ -1,65 +1,78 @@
-/* Fondo con imagen */
+/* ================================================= */
+/* FONDO PRINCIPAL CON IMAGEN                        */
+/* ================================================= */
 .fondo {
-  position: fixed;
-  inset: 0;
+  position: fixed;                                  /* Fija el fondo en toda la pantalla */
+  inset: 0;                                         /* Ocupa todo el viewport (top, right, bottom, left) */
   width: var(--width-principal);
   height: var(--height-principal);
-  background-image: var(--img-fondo-serviarpe);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: var(--filter-fondo);
-  z-index: 0;
+  background-image: var(--img-fondo-serviarpe);     /* Imagen de fondo */
+  background-size: cover;                           /* Ajusta la imagen al tamaño */
+  background-position: center;                      /* Centra la imagen */
+  background-repeat: no-repeat;                     /* Evita repetición */
+  filter: var(--filter-fondo);                      /* Aplica filtro (oscurecer/desenfoque) */
+  z-index: 0;                                       /* Se coloca detrás del contenido */
 }
 
+/* ================================================= */
+/* CONTENEDOR PRINCIPAL DEL LOGIN                    */
+/* ================================================= */
 .login {
   position: relative;
-  z-index: 1;
-  display: flex;
+  z-index: 1;                                         /* Se posiciona encima del fondo */
+  display: flex;                                      /* Layout en fila */
   flex-direction: row;
   background: var(--color-login);
   border-radius: var(--border-radius-login);
   overflow: hidden;
   width: var(--width-login);
   min-height: var(--min-height-login);
-  box-shadow: var(--shadow-login);
+  box-shadow: var(--shadow-login);                    /* Sombra del contenedor */
 }
 
-/* Panel izquierdo - Logo */
+/* ================================================= */
+/* PANEL IZQUIERDO - LOGO                            */
+/* ================================================= */
 .panel-logo {
   width: var(--width-panel-logo);
   background: var(--color-blanco);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center;                                /* Centrado vertical */
+  justify-content: center;                            /* Centrado horizontal */
   padding: var(--padding-panel-v) var(--padding-panel-h-logo);
 }
 
+/* Contenedor circular del logo */
 .logo-circle {
   width: var(--size-logo-circle);
   height: var(--size-logo-circle);
-  border-radius: 50%;
-  overflow: hidden;
+  border-radius: 50%;                     /* Forma circular */
+  overflow: hidden;                       /* Recorta la imagen */
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--color-blanco);
 }
 
+/* Imagen del logo */
 .logo-img {
   width: var(--width-principal);
   height: var(--height-principal);
-  object-fit: cover;
+  object-fit: cover;                      /* Ajusta la imagen sin deformarla */
 }
 
-/* Divisor vertical */
+/* ================================================= */
+/* DIVISOR ENTRE LOGO Y FORMULARIO                   */
+/* ================================================= */
 .divider {
   width: var(--width-divider);
   background-color: var(--color-verde-divisor);
   margin: var(--margin-divider) 0;
 }
 
-/* Panel derecho - Formulario */
+/* ================================================= */
+/* PANEL DERECHO - FORMULARIO                        */
+/* ================================================= */
 .panel-form {
   width: var(--width-panel-form);
   display: flex;
@@ -70,6 +83,7 @@
   background: var(--color-blanco);
 }
 
+/* Título principal */
 .title {
   font-size: var(--font-size-titulo);
   font-weight: 700;
@@ -79,6 +93,7 @@
   line-height: 1.4;
 }
 
+/* Subtítulo (Iniciar sesión) */
 .form-title {
   font-size: var(--font-size-subtitulo);
   font-weight: 700;
@@ -87,18 +102,22 @@
   margin-bottom: 24px;
 }
 
-/* Formulario */
+/* ================================================= */
+/* FORMULARIO                                        */
+/* ================================================= */
 .login-form {
   width: var(--width-principal);
   display: flex;
   flex-direction: column;
-  gap: var(--gap-form);
+  gap: var(--gap-form);               /* Espacio entre campos */
 }
 
+/* Grupo de inputs */
 .input-group {
   width: var(--width-principal);
 }
 
+/* Inputs */
 .input-group input {
   width: var(--width-principal);
   padding: var(--padding-input-v) var(--padding-input-h);
@@ -110,15 +129,19 @@
   background: var(--color-blanco);
 }
 
+/* Texto placeholder */
 .input-group input::placeholder {
   color: var(--color-placeholder);
 }
 
+/* Estado focus (cuando el usuario escribe) */
 .input-group input:focus {
   border-color: var(--color-azul-focus);
 }
 
-/* ¿Olvidó su contraseña? */
+/* ================================================= */
+/* ¿OLVIDÓ SU CONTRASEÑA?                    */
+/* ================================================= */
 .forgot-password {
   font-size: var(--font-size-xsmall);
   color: var(--color-texto-secundario);
@@ -132,11 +155,14 @@
   transition: color 0.2s;
 }
 
+/* Hover del enlace */
 .forgot-password a:hover {
   color: var(--color-azul-focus);
 }
 
-/* Botón Ingresar */
+/* ================================================= */
+/* BOTÓN INGRESAR                                    */
+/* ================================================= */
 .btn-ingresar {
   width: var(--width-principal);
   padding: var(--padding-boton);
@@ -148,6 +174,7 @@
   cursor: pointer;
 }
 
+/* Efecto hover del botón */
 .btn-ingresar:hover {
   background: var(--color-blanco);
   color: var(--color-azul-principal);
@@ -155,7 +182,9 @@
   box-shadow: var(--shadow-boton-hover);
 }
 
-/* ¿No tienes cuenta? */
+/* ================================================= */
+/* SECCIÓN REGISTRO                                  */
+/* ================================================= */
 .register {
   font-size: var(--font-size-small);
   color: var(--color-texto-gris);
@@ -170,34 +199,43 @@
   transition: color 0.2s;
 }
 
+/* Hover del enlace */
 .register a:hover {
   color: var(--color-azul-hover);
 }
 
-/* Responsive - Pantallas pequeñas */
+/* ================================================= */
+/* RESPONSIVE - PANTALLAS PEQUEÑAS                   */
+/* ================================================= */
 @media (max-width: 700px) {
+
+  /* Contenedor en columna */
   .login {
     flex-direction: column;
     width: 95vw;
     min-height: unset;
   }
 
+  /* Ajuste del panel del logo */
   .panel-logo {
     width: var(--width-principal);
     padding: 30px 20px 20px;
   }
 
+  /* Logo más pequeño en móvil */
   .logo-circle {
     width: var(--size-logo-circle-mobile);
     height: var(--size-logo-circle-mobile);
   }
 
+  /* Divisor horizontal */
   .divider {
     width: 80%;
     height: var(--border-width);
     margin: 0 auto;
   }
 
+  /* Ajuste del formulario */
   .panel-form {
     width: var(--width-principal);
     padding: 24px 28px 36px;

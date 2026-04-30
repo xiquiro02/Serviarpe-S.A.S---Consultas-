@@ -1,116 +1,163 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviarpe S.A.S - Registros Libro</title>
-  <link rel="stylesheet" href="../asset/utils/customProperties.css" />
-  <link rel="stylesheet" href="../asset/layout/sidebar.css" />
-  <link rel="stylesheet" href="../asset/layout/components.css" />
-  <link rel="stylesheet" href="../asset/css/estilos_Libros.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-</head>
-<body>
+  <html lang="es">  <!-- Documento HTML5 con idioma en español -->
+    <head>
+      <!-- Configuración de caracteres (permite tildes, ñ, etc.) -->
+      <meta charset="UTF-8" />
 
-  <!-- OVERLAY -->
-  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+      <!-- Hace que el diseño sea adaptable a dispositivos móviles -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
-      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
-    </div>
+      <!-- Título de la página -->
+      <title>Serviarpe S.A.S - Registros Libro</title>
 
-    <p class="sidebar-seccion">GENERAL</p>
-    <nav class="sidebar-nav">
-      <a href="menuPrincipal.html" class="nav-item">
-        <span class="nav-icon">🏠</span> Inicio
-      </a>
-      <a href="buscarPersonal.html" class="nav-item">
-        <span class="nav-icon">👤</span> Buscar personal
-      </a>
-    </nav>
+      <!-- ================= ESTILOS ================= -->
+      <!-- Variables globales (colores, tamaños, etc.) -->
+      <link rel="stylesheet" href="../asset/utils/customProperties.css" />
 
-    <p class="sidebar-seccion">LIBROS</p>
-    <nav class="sidebar-nav" id="sidebarLibros"></nav>
+      <!-- Estilos del sidebar (menú lateral) -->
+      <link rel="stylesheet" href="../asset/layout/sidebar.css" />
 
-    <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
-    <nav class="sidebar-nav admin-only">
-      <a href="administrarUsuarios.html" class="nav-item">
-        <span class="nav-icon">👥</span> Usuarios
-      </a>
-      <a href="administrarLibros.html" class="nav-item">
-        <span class="nav-icon">📚</span> Libros
-      </a>
-      <a href="administrarCajas.html" class="nav-item">
-        <span class="nav-icon">📦</span> Cajas
-      </a>
-      <a href="administrarYears.html" class="nav-item">
-        <span class="nav-icon">📅</span> Años
-      </a>
-    </nav>
+      <!-- Componentes reutilizables (botones, tablas, etc.) -->
+      <link rel="stylesheet" href="../asset/layout/components.css" />
 
-    <a href="perfil.html" class="sidebar-footer">
-      <span class="user-icon">👤</span>
-      <span class="user-nombre">Administrador</span>
-    </a>
-  </aside>
+      <!-- Estilos específicos de esta vista -->
+      <link rel="stylesheet" href="../asset/css/estilos_Libros.css" />
 
-  <!-- MAIN -->
-  <div class="main">
+      <!-- Fuente tipográfica -->
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    </head>
 
-    <header class="topbar">
-      <div class="topbar-center">
-        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
-        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+    <body>
+
+      <!-- ================= OVERLAY ================= -->
+      <!-- Fondo oscuro que aparece al abrir el menú en móviles. Permite cerrar el menú al hacer clic fuera del sidebar. -->
+      <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+
+      <!-- ================= SIDEBAR ================= -->
+      <!-- Menú lateral de navegación principal del sistema. -->
+      <aside class="sidebar" id="sidebar">
+
+        <!-- Encabezado con logo -->
+        <div class="sidebar-header">
+          <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
+          <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+        </div>
+
+        <!-- Sección general -->
+        <p class="sidebar-seccion">GENERAL</p>
+        <nav class="sidebar-nav">
+          <a href="menuPrincipal.html" class="nav-item">
+            <span class="nav-icon">🏠</span> Inicio
+          </a>
+          <a href="buscarPersonal.html" class="nav-item">
+            <span class="nav-icon">👤</span> Buscar personal
+          </a>
+        </nav>
+
+        <!-- Sección de libros (contenido dinámico desde JS) -->
+        <p class="sidebar-seccion">LIBROS</p>
+        <nav class="sidebar-nav" id="sidebarLibros"></nav>
+
+        <!-- Sección solo visible para administradores. Controlada desde JavaScript (rol administrador). -->
+        <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
+        <nav class="sidebar-nav admin-only">
+          <a href="administrarUsuarios.html" class="nav-item">
+            <span class="nav-icon">👥</span> Usuarios
+          </a>
+          <a href="administrarLibros.html" class="nav-item">
+            <span class="nav-icon">📚</span> Libros
+          </a>
+          <a href="administrarCajas.html" class="nav-item">
+            <span class="nav-icon">📦</span> Cajas
+          </a>
+          <a href="administrarYears.html" class="nav-item">
+            <span class="nav-icon">📅</span> Años
+          </a>
+        </nav>
+
+        <!-- Perfil del usuario -->
+        <a href="perfil.html" class="sidebar-footer">
+          <span class="user-icon">👤</span>
+          <span class="user-nombre">Administrador</span>
+        </a>
+
+      </aside>
+
+      <!-- ================= CONTENIDO PRINCIPAL ================= -->
+      <!-- Área donde se muestra la información de la página. -->
+      <div class="main">
+
+        <!-- Barra superior -->
+        <header class="topbar">
+          <div class="topbar-center">
+            <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+            <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+          </div>
+        </header>
+
+        <!-- Contenido de la vista -->
+        <main class="contenido">
+
+          <!-- Botón hamburguesa. Abre/cierra el sidebar. -->
+          <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+          </button>
+
+          <!-- Título dinámico de la página -->
+          <h2 class="pagina-titulo" id="pagina-titulo">Registros</h2>
+
+          <!-- Botón para regresar al menú principal -->
+          <a href="menuPrincipal.html" class="btn-volver"> &#8592; Volver </a>
+
+          <!-- ================= BUSCADOR ================= -->
+          <!-- Permite filtrar registros en la tabla en tiempo real. -->
+          <div class="buscador-wrapper">
+            <span class="buscador-icon">🔍</span>
+            <input 
+              type="text" 
+              class="buscador" 
+              id="buscador"
+              placeholder="Buscar por documento o nombre"
+              onkeyup="filtrarTabla()" 
+            />
+          </div>
+
+          <!-- ================= TABLA DE REGISTROS ================= -->
+          <!-- Se llena dinámicamente desde JavaScript. -->
+          <div class="tabla-wrapper">
+            <table class="tabla" id="tablaRegistros">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Cédula</th>
+                  <th>Cargo</th>
+                  <th>Posición</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <!-- Contenido generado dinámicamente -->
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <!-- Acción principal -->
+          <div class="acciones">
+            <a href="nuevoRegistro.html" class="btn-nuevo"> ➕ Nuevo registro </a>
+          </div>
+
+        </main>
       </div>
-    </header>
 
-    <main class="contenido">
+      <!-- ================= SCRIPTS ================= -->
+      <!-- Librería de alertas -->
+      <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+      <!-- Control del menú hamburguesa -->
+      <script src="../asset/js/hamburger.js"></script>
+      <!-- Lógica del sidebar (roles, navegación dinámica) -->
+      <script src="../asset/js/sidebar.js"></script>
+      <!-- Lógica principal de la vista (tabla, filtros, datos) -->
+      <script src="../asset/js/vistaLibros.js"></script>
 
-      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
-
-      <h2 class="pagina-titulo" id="pagina-titulo">Registros</h2>
-      <a href="menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
-
-      <div class="buscador-wrapper">
-        <span class="buscador-icon">🔍</span>
-        <input type="text" class="buscador" id="buscador"
-               placeholder="Buscar por documento o nombre"
-               onkeyup="filtrarTabla()" />
-      </div>
-
-      <div class="tabla-wrapper">
-        <table class="tabla" id="tablaRegistros">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Cédula</th>
-              <th>Cargo</th>
-              <th>Posición</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-
-      <div class="acciones">
-        <a href="nuevoRegistro.html" class="btn-nuevo">➕ Nuevo registro</a>
-      </div>
-
-    </main>
-  </div>
-
-  <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-  <script>if (typeof Swal === 'undefined') { var _s = require('sweetalert2'); window.Swal = _s.default || _s; }</script>
-  <script src="../asset/js/hamburger.js"></script>
-  <script src="../asset/js/sidebar.js"></script>
-  <script src="../asset/js/vistaLibros.js"></script>
-
-</body>
-</html>
+    </body>
+  </html>

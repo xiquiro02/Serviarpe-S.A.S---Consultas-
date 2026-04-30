@@ -1,113 +1,164 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviarpe S.A.S - Buscar Personal</title>
-  <link rel="stylesheet" href="../asset/utils/customProperties.css" />
-  <link rel="stylesheet" href="../asset/layout/sidebar.css" />
-  <link rel="stylesheet" href="../asset/layout/components.css" />
-  <link rel="stylesheet" href="../asset/css/estilos_buscarPersonal.css" />
-</head>
-<body>
 
-  <!-- OVERLAY -->
-  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+  <html lang="es"> <!-- Documento HTML5 en español -->
+    <head>
+      <!-- Configuración de caracteres (permite tildes, ñ, etc.) -->
+      <meta charset="UTF-8" />
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
-      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
-    </div>
+      <!-- Hace que el diseño sea adaptable a dispositivos móviles -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <p class="sidebar-seccion">GENERAL</p>
-    <nav class="sidebar-nav">
-      <a href="menuPrincipal.html" class="nav-item">
-        <span class="nav-icon">🏠</span> Inicio
-      </a>
-      <a href="buscarPersonal.html" class="nav-item active">
-        <span class="nav-icon">👤</span> Buscar personal
-      </a>
-    </nav>
+      <!-- Título -->
+      <title>Serviarpe S.A.S - Buscar Personal</title>
 
-    <p class="sidebar-seccion">LIBROS</p>
-    <nav class="sidebar-nav" id="sidebarLibros"></nav>
+      <!-- ================= ESTILOS ================= -->
+      <!-- Variables globales -->
+      <link rel="stylesheet" href="../asset/utils/customProperties.css" />
 
-    <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
-    <nav class="sidebar-nav admin-only">
-      <a href="administrarUsuarios.html" class="nav-item">
-        <span class="nav-icon">👥</span> Usuarios
-      </a>
-      <a href="administrarLibros.html" class="nav-item">
-        <span class="nav-icon">📚</span> Libros
-      </a>
-      <a href="administrarCajas.html" class="nav-item">
-        <span class="nav-icon">📦</span> Cajas
-      </a>
-      <a href="administrarYears.html" class="nav-item">
-        <span class="nav-icon">📅</span> Años
-      </a>
-    </nav>
+      <!-- Sidebar -->
+      <link rel="stylesheet" href="../asset/layout/sidebar.css" />
 
-    <a href="perfil.html" class="sidebar-footer">
-      <span class="user-icon">👤</span>
-      <span class="user-nombre">Administrador</span>
-    </a>
-  </aside>
+      <!-- Componentes reutilizables -->
+      <link rel="stylesheet" href="../asset/layout/components.css" />
 
-  <!-- MAIN -->
-  <div class="main">
+      <!-- Estilos específicos de esta vista -->
+      <link rel="stylesheet" href="../asset/css/estilos_buscarPersonal.css" />
+    </head>
 
-    <header class="topbar">
-      <div class="topbar-center">
-        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
-        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
-      </div>
-    </header>
+    <body>
 
-    <main class="contenido">
+      <!-- ================= OVERLAY ================= -->
+      <!-- Fondo oscuro para cerrar el menú lateral en móviles. -->
+      <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
 
-      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
+      <!-- ================= SIDEBAR ================= -->
+      <!-- Menú de navegación principal. -->
+      <aside class="sidebar" id="sidebar">
 
-      <a href="menuPrincipal.html" class="btn-volver">&#8592; Volver</a>
-
-      <div class="busqueda-card">
-        <h2 class="busqueda-titulo">Buscar personal</h2>
-        <div class="buscador-wrapper">
-          <span class="buscador-icon">🔍</span>
-          <input
-            type="text"
-            class="buscador"
-            id="buscador"
-            placeholder="Buscar por nombre"
-            onkeyup="filtrarTabla()" />
+        <div class="sidebar-header">
+          <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
+          <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
         </div>
+
+        <!-- Navegación -->
+        <p class="sidebar-seccion">GENERAL</p>
+        <nav class="sidebar-nav">
+
+          <a href="menuPrincipal.html" class="nav-item">
+            <span class="nav-icon">🏠</span> Inicio
+          </a>
+
+          <!-- Página actual -->
+          <a href="buscarPersonal.html" class="nav-item active">
+            <span class="nav-icon">👤</span> Buscar personal
+          </a>
+
+        </nav>
+
+        <!-- Libros dinámicos -->
+        <p class="sidebar-seccion">LIBROS</p>
+        <nav class="sidebar-nav" id="sidebarLibros"></nav>
+
+        <!-- Administración -->
+        <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
+        <nav class="sidebar-nav admin-only">
+          <a href="administrarUsuarios.html" class="nav-item">
+            <span class="nav-icon">👥</span> Usuarios
+          </a>
+          <a href="administrarLibros.html" class="nav-item">
+            <span class="nav-icon">📚</span> Libros
+          </a>
+          <a href="administrarCajas.html" class="nav-item">
+            <span class="nav-icon">📦</span> Cajas
+          </a>
+          <a href="administrarYears.html" class="nav-item">
+            <span class="nav-icon">📅</span> Años
+          </a>
+        </nav>
+
+        <!-- Perfil -->
+        <a href="perfil.html" class="sidebar-footer">
+          <span class="user-icon">👤</span>
+          <span class="user-nombre">Administrador</span>
+        </a>
+
+      </aside>
+
+      <!-- ================= CONTENIDO PRINCIPAL ================= -->
+      <div class="main">
+
+        <!-- Barra superior -->
+        <header class="topbar">
+          <div class="topbar-center">
+            <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+            <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+          </div>
+        </header>
+
+        <main class="contenido">
+
+          <!-- Botón hamburguesa -->
+          <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+          </button>
+
+          <!-- Navegación -->
+          <a href="menuPrincipal.html" class="btn-volver">
+            &#8592; Volver
+          </a>
+
+          <!-- ======================= BUSCADOR ========================== -->
+          <div class="busqueda-card">
+
+            <h2 class="busqueda-titulo">Buscar personal</h2>
+
+            <!-- Input de búsqueda en tiempo real -->
+            <div class="buscador-wrapper">
+              <span class="buscador-icon">🔍</span>
+
+              <input
+                type="text"
+                class="buscador"
+                id="buscador"
+                placeholder="Buscar por nombre"
+                onkeyup="filtrarTabla()" 
+              />
+            </div>
+
+          </div>
+
+          <!-- ======================= TABLA DE RESULTADOS ========================== -->->
+          <div class="tabla-wrapper">
+
+            <table class="tabla" id="tablaPersonal">
+
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Caja</th>
+                  <th>Ubicación</th>
+                  <th>Carpeta / Posición</th>
+                </tr>
+              </thead>
+
+              <!-- Datos generados dinámicamente -->
+              <tbody></tbody>
+
+            </table>
+
+          </div>
+
+        </main>
       </div>
 
-      <div class="tabla-wrapper">
-        <table class="tabla" id="tablaPersonal">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Caja</th>
-              <th>Ubicación</th>
-              <th>Carpeta / Posición</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
+      <!-- ================= SCRIPTS ================= -->
+      <!-- Control de menú -->
+      <script src="../asset/js/hamburger.js"></script>
+      <!-- Sidebar dinámico -->
+      <script src="../asset/js/sidebar.js"></script>
+      <!-- Lógica de búsqueda y render de tabla -->
+      <script src="../asset/js/buscarPersonal.js"></script>
 
-    </main>
-  </div>
-
-  <script src="../asset/js/hamburger.js"></script>
-  <script src="../asset/js/sidebar.js"></script>
-  <script src="../asset/js/buscarPersonal.js"></script>
-
-</body>
-</html>
+    </body>
+  </html>

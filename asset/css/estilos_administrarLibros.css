@@ -1,14 +1,22 @@
-/* Ancho específico para esta vista */
-.contenido { padding: 16px 20px 40px; max-width: 680px; }
+/* ===== CONFIGURACIÓN GENERAL DE LA VISTA ===== */
+/* Define el ancho y espaciado del contenedor principal */
+.contenido {
+  padding: 16px 20px 40px;    /* Espaciado interno (arriba, lados, abajo) */
+  max-width: 680px;           /* Limita el ancho máximo */
+}
 
-/* Card header — gradiente azul */
-.card-header { background: linear-gradient(135deg, var(--color-card-azul) 0%, #005f9e 100%); }
+/* ===== ENCABEZADO DE TARJETA ===== */
+/* Aplica un fondo con degradado azul al header */
+.card-header {
+  background: linear-gradient(135deg, var(--color-card-azul) 0%, #005f9e 100%);
+}
 
-/* Botón nuevo — naranja */
+/* ===== BOTÓN "NUEVO" ===== */
+/* Botón principal para crear nuevos elementos */
 .btn-nuevo {
-  display: inline-flex;
+  display: inline-flex;                                 /* Permite alinear icono y texto */
   align-items: center;
-  gap: 6px;
+  gap: 6px;                                             /* Espacio entre icono y texto */
   background: var(--color-naranja);
   color: var(--color-blanco);
   border: none;
@@ -19,50 +27,106 @@
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
-  box-shadow: 0 3px 10px rgba(246, 111, 39, 0.35);
+  box-shadow: 0 3px 10px rgba(246, 111, 39, 0.35);    /* Sombra */
 }
-.btn-nuevo:hover { background: #d95a18; transform: translateY(-1px); }
-.btn-nuevo-icono { font-size: 1.1rem; font-weight: 900; }
+
+/* Efecto hover del botón */
+.btn-nuevo:hover {
+  background: #d95a18;            /* Color más oscuro */
+  transform: translateY(-1px);      /* Pequeño efecto de elevación */
+}
+
+/* Icono dentro del botón */
+.btn-nuevo-icono {
+  font-size: 1.1rem;
+  font-weight: 900;
+}
 
 /* ===== LISTA DE LIBROS ===== */
+/* Contenedor de lista sin estilos por defecto */
 .lista {
-  list-style: none;
-  padding: 12px 0;
+  list-style: none;  /* Quita viñetas */
+  padding: 12px 0;   /* Espaciado vertical */
 }
 
+/* Cada elemento de la lista */
 .lista-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between;                     /* Separa contenido izquierda/derecha */
   padding: 14px 22px;
   border-bottom: 1px solid var(--color-borde-card);
   transition: background 0.15s;
 }
-.lista-item:last-child { border-bottom: none; }
-.lista-item:hover { background: #f0f7ff; }
 
+/* Elimina el borde del último elemento */
+.lista-item:last-child {
+  border-bottom: none;
+}
+
+/* Efecto hover */
+.lista-item:hover {
+  background: #f0f7ff;
+}
+
+/* Contenedor del lado izquierdo (icono + nombre) */
 .item-izq {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-.item-icono { font-size: 1.3rem; }
+
+/* Icono del ítem */
+.item-icono {
+  font-size: 1.3rem;
+}
+
+/* Nombre del ítem */
 .item-nombre {
   font-size: 0.92rem;
   font-weight: 600;
   color: var(--color-texto-oscuro);
 }
 
-.item-acciones { display: flex; gap: 8px; }
+/* Contenedor de botones/acciones */
+.item-acciones {
+  display: flex;
+  gap: 8px;
+}
 
-/* Modal: ancho máximo y color de encabezado */
-.modal { max-width: 420px; }
-.modal-header { background: linear-gradient(135deg, var(--color-card-azul) 0%, #005f9e 100%); }
-.form-input:focus { border-color: var(--color-azul-principal); }
+/* ===== MODAL ===== */
+/* Limita el ancho máximo del modal */
+.modal {
+  max-width: 420px;
+}
 
-/* RESPONSIVE */
+/* Encabezado del modal con degradado */
+.modal-header {
+  background: linear-gradient(135deg, var(--color-card-azul) 0%, #005f9e 100%);
+}
+
+/* Estilo cuando un input está en foco */
+.form-input:focus {
+  border-color: var(--color-azul-principal);
+}
+
+/* ===== RESPONSIVE ===== */
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 600px) {
-  .contenido { padding: 16px 14px 32px; max-width: 100%; }
-  .card-header { padding: 14px 16px; }
-  .lista-item { padding: 12px 16px; }
+  
+  /* El contenedor ocupa todo el ancho */
+  .contenido {
+    padding: 16px 14px 32px;
+    max-width: 100%;
+  }
+
+  /* Reduce padding del header */
+  .card-header {
+    padding: 14px 16px;
+  }
+
+  /* Reduce padding de cada ítem */
+  .lista-item {
+    padding: 12px 16px;
+  }
 }

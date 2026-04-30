@@ -1,7 +1,16 @@
 /* ===== COMPONENTES COMPARTIDOS =====
-   Admin card, Modal, Formulario, Tabla, Buscador, Badge, Acciones. */
+   Este archivo contiene estilos reutilizables en todo el sistema:
+   - Tarjetas administrativas (admin-card)
+   - Modal (ventanas emergentes)
+   - Formularios
+   - Tablas
+   - Buscador
+   - Badges
+   - Botones de acción
+*/
 
-/* ===== ADMIN CARD ===== */
+/* ===== ADMIN CARD ===== */ 
+/* Contenedor principal para secciones administrativas */
 .admin-card {
   background: var(--color-blanco);
   border-radius: 14px;
@@ -10,6 +19,7 @@
   overflow: hidden;
 }
 
+/* Encabezado de la tarjeta */
 .card-header {
   display: flex;
   align-items: center;
@@ -17,11 +27,28 @@
   padding: 18px 22px;
   border-bottom: 1px solid rgba(255,255,255,0.15);
 }
-.card-header-izq { display: flex; align-items: center; gap: 10px; }
-.card-icono { font-size: 1.4rem; }
-.card-titulo { font-size: 1.05rem; font-weight: 700; color: var(--color-blanco); }
 
-/* ===== BOTONES ICONO (editar / eliminar) ===== */
+/* Contenedor izquierdo del header */
+.card-header-izq { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+/* Icono del header */
+.card-icono { 
+  font-size: 1.4rem; 
+}
+
+/* Título del header */
+.card-titulo { 
+  font-size: 1.05rem; 
+  font-weight: 700; 
+  color: var(--color-blanco); 
+}
+
+/* ===== BOTONES DE ACCIÓN (editar / eliminar) ===== */ 
+/* Botones pequeños con iconos para acciones rápidas */
 .btn-editar,
 .btn-eliminar {
   border: none;
@@ -35,12 +62,27 @@
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
 }
-.btn-editar  { background: #e8f4ff; }
-.btn-editar:hover  { background: var(--color-azul-principal); transform: scale(1.08); }
-.btn-eliminar { background: #fdecea; }
-.btn-eliminar:hover { background: var(--color-btn-eliminar); transform: scale(1.08); }
 
-/* ===== MODAL ===== */
+/* Botón editar */
+.btn-editar  { 
+  background: #e8f4ff; 
+}
+.btn-editar:hover  { 
+  background: var(--color-azul-principal); 
+  transform: scale(1.08); 
+}
+
+/* Botón eliminar */
+.btn-eliminar { 
+  background: #fdecea; 
+}
+.btn-eliminar:hover { 
+  background: var(--color-btn-eliminar); 
+  transform: scale(1.08); 
+}
+
+/* ===== MODAL (VENTANA EMERGENTE) ===== */ 
+/* Se usa para crear o editar registros */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -50,8 +92,13 @@
   align-items: center;
   justify-content: center;
 }
-.modal-overlay.activo { display: flex; }
 
+/* Estado activo del modal */
+.modal-overlay.activo { 
+  display: flex; 
+}
+
+/* Contenedor principal del modal */
 .modal {
   background: var(--color-blanco);
   border-radius: 14px;
@@ -61,18 +108,28 @@
   animation: fadeUp 0.2s ease;
 }
 
+/* Animación de entrada del modal */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Encabezado del modal */
 .modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 22px;
 }
-.modal-titulo { font-size: 0.95rem; font-weight: 700; color: var(--color-blanco); }
+
+/* Título del modal */
+.modal-titulo { 
+  font-size: 0.95rem; 
+  font-weight: 700; 
+  color: var(--color-blanco); 
+}
+
+/* Botón de cerrar modal */
 .modal-cerrar {
   background: rgba(255,255,255,0.2);
   border: none;
@@ -87,9 +144,19 @@
   justify-content: center;
   transition: background 0.2s;
 }
-.modal-cerrar:hover { background: rgba(255,255,255,0.35); }
 
-.modal-body { padding: 22px 22px 10px; display: flex; flex-direction: column; }
+.modal-cerrar:hover { 
+  background: rgba(255,255,255,0.35); 
+}
+
+/* Contenido del modal */
+.modal-body { 
+  padding: 22px 22px 10px; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+/* Footer del modal (botones) */
 .modal-footer {
   display: flex;
   gap: 10px;
@@ -98,6 +165,7 @@
   border-top: 1px solid var(--color-borde-card);
 }
 
+/* Botón cancelar */
 .btn-cancelar {
   background: var(--color-btn-cancelar);
   color: var(--color-blanco);
@@ -110,8 +178,12 @@
   cursor: pointer;
   transition: background 0.2s;
 }
-.btn-cancelar:hover { background: var(--color-btn-cancelar-hover); }
 
+.btn-cancelar:hover { 
+  background: var(--color-btn-cancelar-hover); 
+}
+
+/* Botón guardar */
 .btn-guardar {
   background: var(--color-card-verde);
   color: var(--color-blanco);
@@ -125,12 +197,21 @@
   transition: background 0.2s;
   box-shadow: 0 3px 10px rgba(143, 194, 64, 0.35);
 }
-.btn-guardar:hover { background: #73a030; }
 
-/* ===== FORMULARIO ===== */
+.btn-guardar:hover { 
+  background: #73a030; 
+}
+
+/* ===== FORMULARIO ===== */ 
+/* Estilos generales para inputs y labels */
 .form-grupo,
-.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px; 
+}
 
+/* Etiquetas */
 .form-label {
   font-size: 0.82rem;
   font-weight: 700;
@@ -138,6 +219,7 @@
   display: block;
 }
 
+/* Campos de entrada */
 .form-input {
   width: 100%;
   border: 1.5px solid var(--color-borde-input);
@@ -150,9 +232,14 @@
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
-.form-input::placeholder { color: var(--color-placeholder); }
+
+/* Placeholder */
+.form-input::placeholder { 
+  color: var(--color-placeholder); 
+}
 
 /* ===== BADGE ===== */
+/* Indicador circular (ej: número o estado) */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -165,7 +252,8 @@
   color: var(--color-blanco);
 }
 
-/* ===== BUSCADOR ===== */
+/* ===== BUSCADOR ===== */ 
+/* Input con icono para búsqueda */
 .buscador-wrapper {
   display: flex;
   align-items: center;
@@ -176,7 +264,14 @@
   padding: 10px 16px;
   max-width: 100%;
 }
-.buscador-icon { font-size: 1rem; color: var(--color-icono-buscador); }
+
+/* Icono de búsqueda */
+.buscador-icon { 
+  font-size: 1rem; 
+  color: var(--color-icono-buscador); 
+}
+
+/* Campo de texto */
 .buscador {
   border: none;
   outline: none;
@@ -186,16 +281,25 @@
   width: 100%;
   background: transparent;
 }
-.buscador::placeholder { color: var(--color-placeholder); }
+
+/* Placeholder */
+.buscador::placeholder { 
+  color: var(--color-placeholder); 
+}
 
 /* ===== TABLA ===== */
-.tabla-wrapper { overflow-x: auto; }
+/* Estilos para tablas de datos */
+.tabla-wrapper { 
+  overflow-x: auto; 
+}
 
 .tabla {
   width: 100%;
   border-collapse: collapse;
   background: var(--color-blanco);
 }
+
+/* Encabezados */
 .tabla thead th {
   text-align: left;
   font-weight: 700;
@@ -204,12 +308,24 @@
   padding: 14px 18px;
   color: var(--color-blanco);
 }
-.tabla tbody tr { border-bottom: 1px solid var(--color-borde-card); transition: background 0.15s; }
+
+/* Filas */
+.tabla tbody tr { 
+  border-bottom: 1px solid var(--color-borde-card); 
+  transition: background 0.15s; 
+}
+
+/* Celdas */
 .tabla tbody td {
   padding: 13px 18px;
   color: var(--color-texto-input);
   vertical-align: middle;
 }
 
-/* ===== ACCIONES ===== */
-.acciones-td { display: flex; gap: 8px; align-items: center; }
+/* ===== ACCIONES ===== */ 
+/* Contenedor de botones dentro de la tabla */
+.acciones-td { 
+  display: flex; 
+  gap: 8px; 
+  align-items: center; 
+}

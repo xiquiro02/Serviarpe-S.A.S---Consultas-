@@ -1,45 +1,65 @@
-/* ===== ESTILOS COMPARTIDOS DE LAYOUT =====
-   Sidebar, overlay, topbar, hamburguesa y btn-volver.
-   Todos los archivos CSS de página importan este archivo. */
+/* =========================================================
+   ESTILOS COMPARTIDOS DE LAYOUT
+   Incluye: sidebar, overlay, topbar, contenido, botón hamburguesa y botón volver.
+========================================================= */
 
+/* Elimina márgenes y padding por defecto del navegador y asegura que el tamaño incluya bordes y padding */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* 
+  Configuración base del body:
+  - Fuente principal del sistema
+  - Fondo blanco
+  - Altura mínima de toda la pantalla
+*/
 body {
   font-family: var(--texto-principal);
   background: var(--color-blanco);
   min-height: 100vh;
 }
 
-/* OVERLAY */
-.overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: var(--color-overlay);
-  z-index: 100;
-}
-.overlay.activo { display: block; }
 
-/* SIDEBAR */
+/* ===================== OVERLAY ===================== */
+/* Capa oscura que aparece cuando se abre el sidebar */
+.overlay {
+  display: none;                      /* Oculto por defecto */
+  position: fixed;                    /* Fijo en toda la pantalla */
+  inset: 0;                           /* Ocupa todo el viewport */
+  background: var(--color-overlay);
+  z-index: 100;                       /* Debajo del sidebar */
+}
+
+/* Se activa cuando el menú está abierto */
+.overlay.activo { 
+  display: block; 
+}
+
+/* ===================== SIDEBAR ===================== */
+/* Menú lateral oculto inicialmente fuera de la pantalla */
 .sidebar {
   position: fixed;
   top: 0;
-  left: calc(-1 * var(--width-sidebar) - 20px);
+  left: calc(-1 * var(--width-sidebar) - 20px);     /* Oculto a la izquierda */
   width: var(--width-sidebar);
   height: 100vh;
   background: var(--color-sidebar-bg);
   z-index: 200;
   display: flex;
   flex-direction: column;
-  transition: left 0.3s ease;
-  overflow-y: auto;
+  transition: left 0.3s ease;                       /* Animación al abrir */
+  overflow-y: auto;                                 /* Scroll si hay mucho contenido */
 }
-.sidebar.abierto { left: 0; }
 
+/* Estado abierto del sidebar */
+.sidebar.abierto { 
+  left: 0; 
+}
+
+/* ===== Encabezado del sidebar ===== */
 .sidebar-header {
   display: flex;
   align-items: center;
@@ -48,12 +68,16 @@ body {
   background: var(--color-sidebar-bg);
   border-bottom: 1px solid var(--color-sidebar-border);
 }
+
+/* Logo del sidebar */
 .sidebar-header img {
   width: 38px;
   height: 38px;
   border-radius: 50%;
   object-fit: cover;
 }
+
+/* Nombre de la empresa */
 .sidebar-nombre {
   font-size: 0.72rem;
   font-weight: 700;
@@ -61,6 +85,7 @@ body {
   line-height: 1.3;
 }
 
+/* ===== Secciones del menú ===== */
 .sidebar-seccion {
   font-size: 0.68rem;
   font-weight: 700;
@@ -70,8 +95,13 @@ body {
   text-transform: uppercase;
 }
 
-.sidebar-nav { display: flex; flex-direction: column; }
+/* ===== Navegación ===== */
+.sidebar-nav { 
+  display: flex; 
+  flex-direction: column; 
+}
 
+/* Item del menú */
 .nav-item {
   display: flex;
   align-items: center;
@@ -83,20 +113,31 @@ body {
   text-decoration: none;
   border-left: 3px solid transparent;
 }
+
+/* Hover */
 .nav-item:hover {
   background: var(--color-nav-hover-bg);
   color: var(--color-nav-hover-texto);
   border-left-color: var(--color-verde-hover);
 }
+
+/* Item activo */
 .nav-item.active {
   background: var(--color-nav-activo-bg);
   color: var(--color-blanco);
   border-left-color: var(--color-verde-activo);
 }
-.nav-icon { font-size: 1rem; width: 22px; text-align: center; }
 
+/* Icono del menú */
+.nav-icon { 
+  font-size: 1rem; 
+  width: 22px; 
+  text-align: center; 
+}
+
+/* ===== Footer del sidebar ===== */
 .sidebar-footer {
-  margin-top: auto;
+  margin-top: auto;                                   /* Se va al fondo */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -106,6 +147,8 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Icono de usuario */
 .user-icon {
   font-size: 1.3rem;
   background: var(--color-sidebar-border);
@@ -116,16 +159,25 @@ body {
   align-items: center;
   justify-content: center;
 }
-.user-nombre { font-size: 0.82rem; font-weight: 600; color: var(--color-sidebar-footer-texto); }
 
-/* MAIN */
+/* Nombre del usuario */
+.user-nombre { 
+  font-size: 0.82rem; 
+  font-weight: 600; 
+  color: var(--color-sidebar-footer-texto); 
+}
+
+
+/* ===================== MAIN ===================== */
+/* Contenedor principal de la página */
 .main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* TOPBAR */
+/* ===================== TOPBAR ===================== */
+/* Barra superior fija (header) */
 .topbar {
   display: flex;
   align-items: center;
@@ -139,6 +191,8 @@ body {
   top: 0;
   z-index: 50;
 }
+
+/* Contenido centrado */
 .topbar-center {
   display: flex;
   align-items: center;
@@ -146,6 +200,8 @@ body {
   justify-content: center;
   position: relative;
 }
+
+/* Logo */
 .topbar-logo {
   width: 50px;
   height: 50px;
@@ -154,6 +210,8 @@ body {
   position: absolute;
   left: 0;
 }
+
+/* Título */
 .topbar-title {
   font-size: 1rem;
   font-weight: 700;
@@ -161,7 +219,9 @@ body {
   text-align: center;
 }
 
-/* CONTENIDO (base — cada página puede sobreescribir max-width) */
+
+/* ===================== CONTENIDO ===================== */
+/* Área principal donde va el contenido de cada página */
 .contenido {
   padding: 16px 20px 24px;
   max-width: 97%;
@@ -169,7 +229,8 @@ body {
   width: 100%;
 }
 
-/* HAMBURGUESA */
+/* ===================== HAMBURGUESA ===================== */
+/* Botón para abrir/cerrar el sidebar */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -184,7 +245,13 @@ body {
   padding: 8px;
   margin-bottom: 18px;
 }
-.hamburger:hover { background: var(--color-verde-hover); }
+
+/* Hover */
+.hamburger:hover { 
+  background: var(--color-verde-hover); 
+}
+
+/* Líneas del ícono */
 .hamburger span {
   display: block;
   width: 100%;
@@ -193,11 +260,20 @@ body {
   border-radius: 2px;
   transition: all 0.3s ease;
 }
-.hamburger.activo span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
-.hamburger.activo span:nth-child(2) { opacity: 0; }
-.hamburger.activo span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
-/* BOTÓN VOLVER */
+/* Animación a "X" */
+.hamburger.activo span:nth-child(1) { 
+  transform: translateY(7.5px) rotate(45deg); 
+}
+.hamburger.activo span:nth-child(2) { 
+  opacity: 0; 
+}
+.hamburger.activo span:nth-child(3) { 
+  transform: translateY(-7.5px) rotate(-45deg); 
+}
+
+/* ===================== BOTÓN VOLVER ===================== */
+/* Botón reutilizable para regresar a la página anterior */
 .btn-volver {
   display: inline-flex;
   align-items: center;
@@ -215,4 +291,8 @@ body {
   box-shadow: var(--shadow-btn-nuevo);
   margin-bottom: 18px;
 }
-.btn-volver:hover { background: var(--color-btn-nuevo-hover); }
+
+/* Hover */
+.btn-volver:hover { 
+  background: var(--color-btn-nuevo-hover); 
+}

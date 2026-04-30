@@ -1,44 +1,90 @@
-/* btn-volver más compacto en esta vista */
-.btn-volver { margin-bottom: 10px; }
-
-/* CAJA DE BÚSQUEDA */
-.busqueda-card {
-  background: var(--color-blanco);
-  border: 1px solid var(--color-borde-buscador);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin-bottom: 24px;
-  box-shadow: var(--shadow-suave);
+/* ===== AJUSTE BOTÓN VOLVER ===== */
+/* En esta vista se reduce el espacio inferior para hacerlo más compacto */
+.btn-volver {
+  margin-bottom: 10px;
 }
 
+
+/* ===== CAJA DE BÚSQUEDA ===== */ 
+/* Contenedor que agrupa el buscador y su título */
+.busqueda-card {
+  background: var(--color-blanco);                /* Fondo blanco */
+  border: 1px solid var(--color-borde-buscador);  /* Borde suave */
+  border-radius: 12px;                            /* Bordes redondeados */
+  padding: 20px 24px;                             /* Espaciado interno */
+  margin-bottom: 24px;                            /* Separación inferior */
+  box-shadow: var(--shadow-suave);                /* Sombra ligera */
+}
+
+/* Título dentro de la caja de búsqueda */
 .busqueda-titulo {
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-texto-oscuro);
-  margin-bottom: 14px;
+  margin-bottom: 14px;                /* Espacio debajo del título */
 }
 
-/* Buscador: borde diferente al base de components */
-.buscador-wrapper { border-color: var(--color-borde-input); }
 
-/* TABLA */
+/* ===== BUSCADOR ===== */
+/* Se modifica el borde respecto al estilo base definido en components */
+.buscador-wrapper {
+  border-color: var(--color-borde-input);
+}
+
+
+/* ===== TABLA ===== */
+/* Contenedor de la tabla */
 .tabla-wrapper {
-  border-radius: 10px;
-  border: 1px solid var(--color-borde-buscador);
-  box-shadow: var(--shadow-suave);
+  border-radius: 10px;                            /* Bordes redondeados */
+  border: 1px solid var(--color-borde-buscador);  /* Borde exterior */
+  box-shadow: var(--shadow-suave);                /* Sombra suave */
 }
-.tabla thead tr { background: var(--color-card-azul); }
-.tabla tbody tr:nth-child(odd)  { background: var(--color-tabla-fila); }
-.tabla tbody tr:nth-child(even) { background: var(--color-tabla-fila); }
-.tabla tbody tr:hover { background: var(--color-tabla-hover-salmon); }
 
-/* Badge — azul */
-.badge { background: var(--color-card-azul); }
+/* Cabecera de la tabla */
+.tabla thead tr {
+  background: var(--color-card-azul); /* Fondo azul */
+}
 
-/* RESPONSIVE */
+/* Filas impares */
+.tabla tbody tr:nth-child(odd) {
+  background: var(--color-tabla-fila);
+}
+
+/* Filas pares */
+.tabla tbody tr:nth-child(even) {
+  background: var(--color-tabla-fila);
+}
+
+/* Hover sobre filas */
+.tabla tbody tr:hover {
+  background: var(--color-tabla-hover-salmon);
+}
+
+
+/* ===== BADGE ===== */ 
+/* Indicador visual (por ejemplo ID o estado) */
+.badge {
+  background: var(--color-card-azul);   /* Azul por defecto */
+}
+
+
+/* ===== RESPONSIVE ===== */
+/* Ajustes para dispositivos móviles */
 @media (max-width: 600px) {
-  .contenido { padding: 16px 14px 24px; }
-  .busqueda-card { padding: 16px; }
+
+  /* Reduce padding general */
+  .contenido {
+    padding: 16px 14px 24px;
+  }
+
+  /* Reduce padding de la caja de búsqueda */
+  .busqueda-card {
+    padding: 16px;
+  }
+
+  /* Reduce padding de la tabla */
   .tabla thead th,
-  .tabla tbody td { padding: 10px 12px; }
+  .tabla tbody td {
+    padding: 10px 12px;
+  }
 }

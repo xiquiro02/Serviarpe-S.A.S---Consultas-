@@ -1,65 +1,96 @@
-/* btn-volver más compacto en esta vista */
-.btn-volver { margin-bottom: 10px; }
+/* ===== BOTÓN VOLVER ===== */
+/* En esta vista el botón es más compacto */
+.btn-volver {
+  margin-bottom: 10px;  /* Reduce espacio inferior */
+}
 
-/* TÍTULO DE PÁGINA */
+
+/* ===== TÍTULO DE PÁGINA ===== */
+/* Encabezado principal de la vista */
 .pagina-titulo {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--color-texto-oscuro);
-  text-align: center;
-  margin-bottom: 20px;
+  font-size: 1.4rem;                 /* Tamaño grande */
+  font-weight: 700;                  /* Negrita */
+  color: var(--color-texto-oscuro);  /* Color principal de texto */
+  text-align: center;                /* Centrado */
+  margin-bottom: 20px;               /* Separación inferior */
 }
 
-/* Buscador: padding y sombra propios de esta vista */
+
+/* ===== BUSCADOR ===== */
+/* Ajustes específicos para esta vista */
 .buscador-wrapper {
-  padding: 10px 14px;
-  margin-bottom: 18px;
-  box-shadow: var(--shadow-buscador);
+  padding: 10px 14px;                   /* Espaciado interno */
+  margin-bottom: 18px;                  /* Separación inferior */
+  box-shadow: var(--shadow-buscador);   /* Sombra suave */
 }
 
-/* TABLA */
+
+/* ===== TABLA =====
+   Contenedor y estilos de la tabla */
 .tabla-wrapper {
-  border-radius: 10px;
-  box-shadow: var(--shadow-card);
-  margin-bottom: 20px;
+  border-radius: 10px;               /* Bordes redondeados */
+  box-shadow: var(--shadow-card);    /* Sombra */
+  margin-bottom: 20px;               /* Espacio inferior */
 }
-.tabla thead tr { background: var(--color-card-azul); }
-.tabla tbody tr:hover { background: var(--color-tabla-hover); }
-.tabla tbody td { padding: 12px 16px; }
 
-/* Badge */
-.badge.azul { background: var(--color-card-azul); }
+/* Cabecera de la tabla */
+.tabla thead tr {
+  background: var(--color-card-azul); /* Fondo azul */
+}
 
-/* Botón Editar — texto completo (distinto al icono de admin) */
+/* Efecto hover en filas */
+.tabla tbody tr:hover {
+  background: var(--color-tabla-hover); /* Color al pasar el mouse */
+}
+
+/* Celdas */
+.tabla tbody td {
+  padding: 12px 16px; /* Espaciado interno */
+}
+
+/* ===== BOTÓN EDITAR (TEXTO COMPLETO) ===== */
+/* Versión diferente al botón icono */
 .btn-editar {
-  background: var(--color-card-azul);
-  color: var(--color-blanco);
+  background: var(--color-card-azul);             /* Fondo azul */
+  color: var(--color-blanco);                     /* Texto blanco */
   border: none;
   border-radius: 6px;
-  padding: 7px 14px;
+  padding: 7px 14px;                              /* Espaciado interno */
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  width: auto;
+  width: auto;                                    /* Ajusta al contenido */
   height: auto;
-  transition: background 0.2s, transform 0.1s;
-  white-space: nowrap;
+  transition: background 0.2s, transform 0.1s;    /* Animación */
+  white-space: nowrap;                            /* Evita salto de línea */
 }
-.btn-editar:hover { background: var(--color-btn-editar-hover); }
-.btn-editar:active { transform: scale(0.97); }
 
-/* BOTONES DE ACCIÓN */
+/* Hover botón editar */
+.btn-editar:hover {
+  background: var(--color-btn-editar-hover);
+}
+
+/* Click (efecto presión) */
+.btn-editar:active {
+  transform: scale(0.97);
+}
+
+
+/* ===== CONTENEDOR DE ACCIONES ===== */ 
+/* Agrupa botones (editar, eliminar, nuevo, etc.) */
 .acciones {
   display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  flex-wrap: wrap;
+  justify-content: flex-end; /* Alinea a la derecha */
+  gap: 12px;                 /* Espacio entre botones */
+  flex-wrap: wrap;           /* Permite bajar en pantallas pequeñas */
 }
 
+
+/* ===== BOTÓN ELIMINAR ===== */
 .btn-eliminar {
-  background: var(--color-btn-eliminar);
+  background: var(--color-btn-eliminar); /* Rojo */
   color: var(--color-blanco);
   border: none;
   border-radius: 8px;
@@ -73,11 +104,21 @@
   transition: background 0.2s, transform 0.1s;
   box-shadow: var(--shadow-btn-eliminar);
 }
-.btn-eliminar:hover { background: var(--color-btn-eliminar-hover); }
-.btn-eliminar:active { transform: scale(0.97); }
 
+/* Hover eliminar */
+.btn-eliminar:hover {
+  background: var(--color-btn-eliminar-hover);
+}
+
+/* Click eliminar */
+.btn-eliminar:active {
+  transform: scale(0.97);
+}
+
+
+/* ===== BOTÓN NUEVO ===== */
 .btn-nuevo {
-  background: var(--color-btn-nuevo);
+  background: var(--color-btn-nuevo);     /* Verde */
   color: var(--color-blanco);
   border: none;
   border-radius: 8px;
@@ -90,13 +131,40 @@
   transition: background 0.2s, transform 0.1s;
   box-shadow: var(--shadow-btn-nuevo);
 }
-.btn-nuevo:hover { background: var(--color-btn-nuevo-hover); }
-.btn-nuevo:active { transform: scale(0.97); }
 
-/* RESPONSIVE */
+/* Hover botón nuevo */
+.btn-nuevo:hover {
+  background: var(--color-btn-nuevo-hover);
+}
+
+/* Click botón nuevo */
+.btn-nuevo:active {
+  transform: scale(0.97);
+}
+
+
+/* ===== RESPONSIVE ===== */ 
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 600px) {
-  .contenido { padding: 16px 16px 24px; }
-  .pagina-titulo { font-size: 1.1rem; }
-  .acciones { justify-content: center; }
-  .tabla thead th, .tabla tbody td { padding: 10px 10px; }
+
+  /* Reduce padding del contenido */
+  .contenido {
+    padding: 16px 16px 24px;
+  }
+
+  /* Título más pequeño */
+  .pagina-titulo {
+    font-size: 1.1rem;
+  }
+
+  /* Botones centrados */
+  .acciones {
+    justify-content: center;
+  }
+
+  /* Reduce padding de la tabla */
+  .tabla thead th,
+  .tabla tbody td {
+    padding: 10px 10px;
+  }
 }

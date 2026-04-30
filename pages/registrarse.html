@@ -1,62 +1,131 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviarpe S.A.S - Registrarse</title>
-  <link rel="stylesheet" href="../asset/css/estilos_registrarse.css" />
-  <link rel="stylesheet" href="../asset/utils/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-</head>
-<body>
+  <html lang="es">  <!-- Documento HTML5 en español -->
+    <head>
+      <!-- Configuración de caracteres (permite tildes, ñ, etc.) -->
+      <meta charset="UTF-8" />
 
-  <div class="fondo"></div>
+      <!-- Hace que el diseño sea adaptable a dispositivos móviles -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <div class="login">
+      <!-- Título de la pestaña -->
+      <title>Serviarpe S.A.S - Registrarse</title>
 
-    <div class="panel-logo">
-      <div class="logo-circle">
-        <img src="../asset/imagenes/Logo_Serviarpe.png" alt="Serviarpe S.A.S ESP" class="logo-img" />
+      <!-- ================= ESTILOS ================= -->
+      <!-- Estilos específicos de la vista de registro -->
+      <link rel="stylesheet" href="../asset/css/estilos_registrarse.css" />
+
+      <!-- Estilos reutilizables (botones, inputs, etc.) -->
+      <link rel="stylesheet" href="../asset/utils/styles.css">
+
+      <!-- Fuente tipográfica -->
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    </head>
+
+    <body>
+
+      <!-- Fondo visual (imagen o degradado manejado por CSS) -->
+      <div class="fondo"></div>
+
+      <!-- ================= CONTENEDOR PRINCIPAL ================= -->
+      <!-- Estructura dividida en dos paneles: logo (izquierda) y formulario (derecha) -->
+      <div class="login">
+
+        <!-- ================= PANEL IZQUIERDO ================= -->
+        <!-- Muestra el logo -->
+        <div class="panel-logo">
+          <div class="logo-circle">
+            <img 
+              src="../asset/imagenes/Logo_Serviarpe.png" 
+              alt="Serviarpe S.A.S ESP" 
+              class="logo-img" 
+            />
+          </div>
+        </div>
+
+        <!-- Línea divisoria visual -->
+        <div class="divider"></div>
+
+        <!-- ================= PANEL DERECHO ================= -->
+        <!-- Formulario de registro de usuario -->
+        <div class="panel-form">
+
+          <!-- Título del formulario -->
+          <h3 class="form-title">Registrarse</h3>
+
+          <!-- Formulario de registro. Se captura el evento submit para validación y procesamiento en JS. -->
+          <form class="login-form" onsubmit="registrarse(event)">
+
+            <!-- Nombre completo -->
+            <div class="input-group">
+              <input 
+                type="text" 
+                id="inputNombre" 
+                placeholder="Nombre completo" 
+                autocomplete="off" 
+              />
+            </div>
+
+            <!-- Nombre de usuario -->
+            <div class="input-group">
+              <input 
+                type="text" 
+                id="inputUsuario" 
+                placeholder="Nombre de usuario" 
+                autocomplete="off" 
+              />
+            </div>
+
+            <!-- Correo electrónico -->
+            <div class="input-group">
+              <input 
+                type="email" 
+                id="inputCorreo" 
+                placeholder="Correo electrónico" 
+                autocomplete="off" 
+              />
+            </div>
+
+            <!-- Contraseña -->
+            <div class="input-group">
+              <input 
+                type="password" 
+                id="inputPassword" 
+                placeholder="Contraseña" 
+                autocomplete="off" 
+              />
+            </div>
+
+            <!-- Confirmación de contraseña -->
+            <div class="input-group">
+              <input 
+                type="password" 
+                id="inputConfirmar" 
+                placeholder="Confirmar Contraseña" 
+                autocomplete="off" 
+              />
+            </div>
+
+            <!-- Botón de envío -->
+            <!-- Ejecuta el registro validado desde registrarse.js -->
+            <button type="submit" class="btn-principal">  Crear Cuenta  </button>
+
+            <!-- Enlace de navegación -->
+            <div class="container-link">
+              <p class="link-inferior">
+                ← <a href="../index.html">Volver al inicio</a>
+              </p>
+            </div>
+
+          </form>
+        </div>
+
       </div>
-    </div>
 
-    <div class="divider"></div>
+      <!-- ================= SCRIPTS ================= -->
+      <!-- Librería para alertas visuales -->
+      <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+      <!-- Lógica del registro (validaciones, envío de datos, etc.) -->
+      <script src="../asset/js/registrarse.js"></script>
 
-    <div class="panel-form">
-      <h3 class="form-title">Registrarse</h3>
-
-      <form class="login-form" onsubmit="registrarse(event)">
-        <div class="input-group">
-          <input type="text" id="inputNombre" placeholder="Nombre completo" autocomplete="off" />
-        </div>
-        <div class="input-group">
-          <input type="text" id="inputUsuario" placeholder="Nombre de usuario" autocomplete="off" />
-        </div>
-        <div class="input-group">
-          <input type="email" id="inputCorreo" placeholder="Correo electrónico" autocomplete="off" />
-        </div>
-        <div class="input-group">
-          <input type="password" id="inputPassword" placeholder="Contraseña" autocomplete="off" />
-        </div>
-        <div class="input-group">
-          <input type="password" id="inputConfirmar" placeholder="Confirmar Contraseña" autocomplete="off" />
-        </div>
-
-        <button type="submit" class="btn-principal">Crear Cuenta</button>
-
-        <div class="container-link">
-          <p class="link-inferior">
-            ← <a href="../index.html">Volver al inicio</a>
-          </p>
-        </div>
-      </form>
-    </div>
-
-  </div>
-
-  <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-  <script>if (typeof Swal === 'undefined') { var _s = require('sweetalert2'); window.Swal = _s.default || _s; }</script>
-  <script src="../asset/js/registrarse.js"></script>
-
-</body>
-</html>
+    </body>
+  </html>

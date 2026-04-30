@@ -1,2 +1,8 @@
+/* 
+  Importación de archivos CSS del proyecto
+  Estos archivos contienen estilos globales reutilizables
+*/
 @import url(../utils/customProperties.css);
 @import url(../layout/base.css);
+@import url(../layout/components.css);
+@import url(../layout/sidebar.css);

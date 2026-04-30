@@ -1,7 +1,11 @@
-/* btn-volver va dentro de un header flex, sin margen inferior */
-.btn-volver { margin-bottom: 0; }
+/* ===== BOTÓN VOLVER ===== */ 
+/* Se elimina el margen inferior porque está dentro de un header flex */
+.btn-volver { 
+  margin-bottom: 0; 
+}
 
-/* ===== ENCABEZADO NUEVO REGISTRO ===== */
+/* ===== ENCABEZADO NUEVO REGISTRO ===== */ 
+/* Contenedor superior con título e icono */
 .nuevo-header {
   display: flex;
   align-items: center;
@@ -17,12 +21,14 @@
   gap: 12px;
 }
 
+/* Contenedor de icono + textos */
 .nuevo-header-info {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
+/* Icono circular del encabezado */
 .nuevo-icono {
   background: rgba(247, 105, 39, 0.12);
   border-radius: 50%;
@@ -35,6 +41,7 @@
   flex-shrink: 0;
 }
 
+/* Subtítulo (texto pequeño superior) */
 .nuevo-subtitulo {
   font-size: var(--font-size-xsmall);
   font-weight: 600;
@@ -44,13 +51,15 @@
   margin-bottom: 2px;
 }
 
+/* Título principal */
 .nuevo-titulo-text {
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-texto-oscuro);
 }
 
-/* ===== FORMULARIO ===== */
+/* ===== TARJETA DEL FORMULARIO ===== */
+/* Contenedor principal del formulario */
 .nuevo-card {
   background: var(--color-blanco);
   border-radius: 14px;
@@ -59,6 +68,7 @@
   border: 1px solid var(--color-borde-card);
 }
 
+/* Título de la sección del formulario */
 .nuevo-titulo {
   font-size: 1rem;
   font-weight: 700;
@@ -68,19 +78,22 @@
   margin-bottom: 24px;
 }
 
+/* Formulario general */
 .nuevo-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+/* Grid de campos (2 columnas) */
 .nuevo-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
-/* Overrides de formulario */
+/* ===== AJUSTES DE FORMULARIO ===== */
+/* Label con icono opcional */
 .form-label {
   font-size: var(--font-size-small);
   letter-spacing: 0.3px;
@@ -88,13 +101,20 @@
   align-items: center;
   gap: 8px;
 }
-.form-input { padding: 11px 14px; }
+
+/* Input con padding ajustado */
+.form-input { 
+  padding: 11px 14px; 
+}
+
+/* Estado focus personalizado */
 .form-input:focus {
   border-color: var(--color-card-azul);
   box-shadow: 0 0 0 3px rgba(0, 136, 206, 0.12);
 }
 
 /* ===== BOTONES ===== */
+/* Contenedor de acciones */
 .nuevo-acciones {
   display: flex;
   justify-content: flex-end;
@@ -103,7 +123,7 @@
   padding-top: 4px;
 }
 
-/* btn-cancelar actúa como "volver" — color verde */
+/* Botón cancelar (funciona como volver) */
 .btn-cancelar {
   background: var(--color-btn-nuevo);
   color: var(--color-blanco);
@@ -115,8 +135,12 @@
   align-items: center;
   box-shadow: var(--shadow-btn-nuevo);
 }
-.btn-cancelar:hover { background: var(--color-btn-nuevo-hover); }
 
+.btn-cancelar:hover { 
+  background: var(--color-btn-nuevo-hover); 
+}
+
+/* Botón crear / enviar formulario */
 .btn-crear {
   background: var(--color-card-azul);
   color: var(--color-blanco);
@@ -130,13 +154,39 @@
   transition: background 0.2s, transform 0.1s;
   box-shadow: var(--shadow-boton);
 }
-.btn-crear:hover { background: var(--color-azul-focus); }
-.btn-crear:active { transform: scale(0.97); }
+.btn-crear:hover { 
+  background: var(--color-azul-focus); 
+}
 
-/* RESPONSIVE */
+.btn-crear:active { 
+  transform: scale(0.97); 
+}
+
+/* ===== RESPONSIVE ===== */ 
+/* Adaptación a pantallas pequeñas */
 @media (max-width: 560px) {
-  .nuevo-grid { grid-template-columns: 1fr; }
-  .nuevo-header { flex-direction: column; align-items: flex-start; }
-  .nuevo-acciones { flex-direction: column; }
-  .btn-cancelar, .btn-crear { width: 100%; text-align: center; justify-content: center; }
+
+  /* Grid pasa a una sola columna */
+  .nuevo-grid { 
+    grid-template-columns: 1fr; 
+  }
+
+  /* Header en columna */
+  .nuevo-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Botones en columna */
+  .nuevo-acciones { 
+    flex-direction: column; 
+  }
+
+  /* Botones ocupan todo el ancho */
+  .btn-cancelar,
+  .btn-crear {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
 }

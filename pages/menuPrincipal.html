@@ -1,129 +1,157 @@
 <!DOCTYPE html>
 
-<html lang="es"> <!-- Define el idioma en español -->
-<head>
-  <meta charset="UTF-8" /> <!-- Permite caracteres especiales -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Hace que la página sea responsive -->
-  <title>Serviarpe S.A.S - Dashboard</title> <!-- Título de la pestaña -->
-  <link rel="stylesheet" href="../asset/utils/customProperties.css" />  <!-- Variables globales de estilos (colores, tamaños, etc.) -->
-  <link rel="stylesheet" href="../asset/layout/sidebar.css" />  <!-- Estilos del menú lateral -->
-  <link rel="stylesheet" href="../asset/css/estilos_menuPrincipal.css" /> <!-- Estilos específicos del dashboard -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />    <!-- Fuente desde Google Fonts -->
-</head>
+  <html lang="es"> <!-- Documento HTML5 en español -->
+  <head>
+    <!-- Configuración de caracteres (permite tildes, ñ, etc.) -->
+    <meta charset="UTF-8" />
 
-<body class="general"> <!-- Clase general para estilos globales -->
+    <!-- Hace que el diseño sea adaptable a dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ===== OVERLAY ===== -->
-  <div class="overlay" id="overlay" onclick="cerrarMenu()"></div> <!-- Fondo oscuro que aparece cuando el menú está abierto -->
+    <!-- Título -->
+    <title>Serviarpe S.A.S - Dashboard</title>
 
-  <!-- ===== SIDEBAR (MENÚ LATERAL) ===== -->
-  <aside class="sidebar" id="sidebar">
-    <!-- Encabezado del sidebar -->
-    <div class="sidebar-header">
-      <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
-      <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+    <!-- ================= ESTILOS ================= -->
+    <!-- Variables globales (colores, tamaños, etc.) -->
+    <link rel="stylesheet" href="../asset/utils/customProperties.css" />
+
+    <!-- Estilos del sidebar -->
+    <link rel="stylesheet" href="../asset/layout/sidebar.css" />
+
+    <!-- Estilos específicos del dashboard -->
+    <link rel="stylesheet" href="../asset/css/estilos_menuPrincipal.css" />
+
+    <!-- Fuente -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+
+  <!-- Clase general aplicada al body -->
+  <body class="general">
+
+    <!-- ================= OVERLAY ================= -->
+    <!-- Fondo oscuro que aparece cuando el menú lateral está abierto en móviles. -->
+    <div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+
+    <!-- ================= SIDEBAR ================= -->
+    <!-- Menú lateral de navegación del sistema. -->
+    <aside class="sidebar" id="sidebar">
+
+      <!-- Encabezado -->
+      <div class="sidebar-header">
+        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" />
+        <span class="sidebar-nombre">SERVIARPE S.A.S ESP</span>
+      </div>
+
+      <!-- Sección GENERAL -->
+      <p class="sidebar-seccion">GENERAL</p>
+      <nav class="sidebar-nav">
+
+        <!-- Página actual -->
+        <a href="#" class="nav-item active">
+          <span class="nav-icon">🏠</span> Inicio
+        </a>
+
+        <!-- Navegación -->
+        <a href="buscarPersonal.html" class="nav-item">
+          <span class="nav-icon">👤</span> Buscar personal
+        </a>
+      </nav>
+
+      <!-- Sección LIBROS (dinámica) -->
+      <p class="sidebar-seccion">LIBROS</p>
+      <nav class="sidebar-nav" id="sidebarLibros">
+        <!-- Se llena desde JS -->
+      </nav>
+
+      <!-- Sección ADMINISTRAR (solo admin) -->
+      <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
+      <nav class="sidebar-nav admin-only">
+
+        <a href="administrarUsuarios.html" class="nav-item">
+          <span class="nav-icon">👥</span> Usuarios
+        </a>
+
+        <a href="administrarLibros.html" class="nav-item">
+          <span class="nav-icon">📚</span> Libros
+        </a>
+
+        <a href="administrarCajas.html" class="nav-item">
+          <span class="nav-icon">📦</span> Cajas
+        </a>
+
+        <a href="administrarYears.html" class="nav-item">
+          <span class="nav-icon">📅</span> Años
+        </a>
+
+      </nav>
+
+      <!-- Perfil -->
+      <a href="perfil.html" class="sidebar-footer">
+        <span class="user-icon">👤</span>
+        <span class="user-nombre">Administrador</span>
+      </a>
+
+    </aside>
+
+    <!-- ================= CONTENIDO PRINCIPAL ================= -->
+    <div class="main">
+
+      <!-- Barra superior -->
+      <header class="topbar">
+        <div class="topbar-center">
+          <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />
+          <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>
+        </div>
+      </header>
+
+      <!-- CONTENIDO -->
+      <main class="contenido">
+
+        <!-- Botón hamburguesa -->
+        <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- ======================= RESUMEN ========================== -->
+        <div class="resumen">
+
+          <!-- Total de registros -->
+          <div class="card-resumen azul">
+            <span class="card-numero" id="numCarpetas">—</span>
+            <span class="card-label">Total de Personal Retirado</span>
+          </div>
+
+          <!-- Total de cajas -->
+          <div class="card-resumen verde">
+            <span class="card-numero" id="numCajas">—</span>
+            <span class="card-label">Total de Cajas</span>
+          </div>
+
+          <!-- Rango de años -->
+          <div class="card-resumen naranja">
+            <span class="card-numero" id="rangoAnios">—</span>
+            <span class="card-label">Años</span>
+          </div>
+
+        </div>
+
+        <!-- ======================= GRID DE LIBROS ========================== -->
+        <!-- Contenedor dinámico generado desde menuPrincipal.js -->
+        <div class="libros-grid" id="librosGrid">
+        </div>
+
+      </main>
     </div>
-    <!-- Sección GENERAL -->
-    <p class="sidebar-seccion">GENERAL</p>
-    <nav class="sidebar-nav">
-      <!-- Opción activa -->
-      <a href="#" class="nav-item active">
-        <span class="nav-icon">🏠</span> Inicio
-      </a>
-      <!-- Enlace a buscar personal -->
-      <a href="buscarPersonal.html" class="nav-item">
-        <span class="nav-icon">👤</span> Buscar personal
-      </a>
-    </nav>
-    <!-- Sección LIBROS -->
-    <p class="sidebar-seccion">LIBROS</p>
-    <nav class="sidebar-nav" id="sidebarLibros">
-    </nav>
-    <!-- Sección ADMINISTRAR -->
-    <p class="sidebar-seccion admin-only">ADMINISTRAR</p>
-    <nav class="sidebar-nav admin-only">
 
-      <!-- Gestión de usuarios -->
-      <a href="administrarUsuarios.html" class="nav-item">
-        <span class="nav-icon">👥</span> Usuarios
-      </a>
+    <!-- ================= SCRIPTS ================= -->
+    <!-- Control del menú -->
+    <script src="../asset/js/hamburger.js"></script>
+    <!-- Lógica del sidebar -->
+    <script src="../asset/js/sidebar.js"></script>
+    <!-- Lógica del dashboard (datos, métricas, render dinámico) -->
+    <script src="../asset/js/menuPrincipal.js"></script>
 
-      <!-- Gestión de libros -->
-      <a href="administrarLibros.html" class="nav-item">
-        <span class="nav-icon">📚</span> Libros
-      </a>
-
-      <!-- Gestión de cajas -->
-      <a href="administrarCajas.html" class="nav-item">
-        <span class="nav-icon">📦</span> Cajas
-      </a>
-
-      <!-- Gestión de años -->
-      <a href="administrarYears.html" class="nav-item">
-        <span class="nav-icon">📅</span> Años
-      </a>
-    </nav>
-    <!-- Footer del sidebar (perfil de usuario) -->
-    <a href="perfil.html" class="sidebar-footer">
-      <span class="user-icon">👤</span>
-      <span class="user-nombre">Administrador</span>
-      <!-- Aquí podrías luego poner el nombre dinámico -->
-    </a>
-  </aside>
-
-  <!-- ===== CONTENIDO PRINCIPAL ===== -->
-  <div class="main">
-
-    <!-- Encabezado superior -->
-    <header class="topbar">
-      <div class="topbar-center">
-        <img src="../asset/imagenes/logo_serviarpe.png" alt="Logo" class="topbar-logo" />  <!-- Logo -->
-        <h1 class="topbar-title">SERVIARPE S.A.S ESP</h1>  <!-- Título -->
-      </div>
-    </header>
-
-    <!-- CONTENIDO -->
-    <main class="contenido">
-
-      <!-- Botón hamburguesa (para abrir/cerrar menú) -->
-      <button class="hamburger" id="btnMenu" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <!-- Tarjetas de resumen -->
-      <div class="resumen">
-
-        <!-- Tarjeta azul -->
-        <div class="card-resumen azul">
-          <span class="card-numero" id="numCarpetas">—</span>
-          <span class="card-label">Total de Personal Retirado</span>
-        </div>
-
-        <!-- Tarjeta verde -->
-        <div class="card-resumen verde">
-          <span class="card-numero" id="numCajas">—</span>
-          <span class="card-label">Total de Cajas</span>
-        </div>
-
-        <!-- Tarjeta naranja -->
-        <div class="card-resumen naranja">
-          <span class="card-numero" id="rangoAnios">—</span>
-          <span class="card-label">Años</span>
-        </div>
-      </div>
-
-      <!-- Grid de libros -->
-      <div class="libros-grid" id="librosGrid">
-      </div>
-
-    </main>
-  </div>
-
-  <script src="../asset/js/hamburger.js"></script>
-  <script src="../asset/js/sidebar.js"></script>
-  <script src="../asset/js/menuPrincipal.js"></script>
-
-</body>
-</html>
+  </body>
+  </html>

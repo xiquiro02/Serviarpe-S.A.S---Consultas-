@@ -1,93 +1,123 @@
-/* TARJETAS RESUMEN */
+/* ===== TARJETAS RESUMEN ===== */
+/* Contenedor de tarjetas que muestran información rápida como estadísticas o conteos (ej: total usuarios, cajas, etc.) */
 .resumen {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
+  display: flex;               /* Organiza las tarjetas en fila */
+  gap: 14px;                   /* Espacio entre tarjetas */
+  margin-bottom: 28px;         /* Separación inferior */
+  flex-wrap: wrap;             /* Permite que bajen a otra línea en pantallas pequeñas */
 }
 
+/* Tarjeta individual de resumen */
 .card-resumen {
-  flex: 1;
-  min-width: 120px;
-  border-radius: 10px;
-  padding: 24px 16px;
+  flex: 1;                                  /* Todas las tarjetas ocupan el mismo espacio */
+  min-width: 120px;                         /* Ancho mínimo para evitar que se deformen */
+  border-radius: 10px;                      /* Bordes redondeados */
+  padding: 24px 16px;                       /* Espaciado interno */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-blanco);
-  text-align: center;
-  box-shadow: var(--shadow-card-resumen);
+  flex-direction: column;                   /* Contenido en columna */
+  align-items: center;                      /* Centrado horizontal */
+  justify-content: center;                  /* Centrado vertical */
+  color: var(--color-blanco);               /* Texto blanco */
+  text-align: center;                       /* Texto centrado */
+  box-shadow: var(--shadow-card-resumen);   /* Sombra */
 }
 
-.card-resumen.azul    { background: var(--color-card-azul); }
-.card-resumen.verde   { background: var(--color-card-verde); }
-.card-resumen.naranja { background: var(--color-card-naranja); }
+/* Variantes de color de las tarjetas */
+.card-resumen.azul    { 
+  background: var(--color-card-azul); 
+}
 
+.card-resumen.verde   { 
+  background: var(--color-card-verde); 
+}
+
+.card-resumen.naranja { 
+  background: var(--color-card-naranja); 
+}
+
+/* Número principal dentro de la tarjeta */
 .card-numero {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: 1.5rem;   /* Tamaño grande */
+  font-weight: 700;    /* Negrita */
+  line-height: 1.2;    /* Espaciado entre líneas */
 }
 
+/* Texto descriptivo debajo del número */
 .card-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  margin-top: 4px;
+  font-size: 0.72rem;  /* Texto pequeño */
+  font-weight: 600;    /* Semi-negrita */
+  margin-top: 4px;     /* Espacio respecto al número */
 }
 
-/* GRID DE LIBROS */
+
+/* ===== GRID DE LIBROS ===== */
+/* Contenedor que organiza las tarjetas de libros en forma de cuadrícula */
 .libros-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);  /* 2 columnas iguales */
+  gap: 16px;                              /* Espacio entre tarjetas */
 }
 
+/* Enlace que envuelve cada tarjeta */
 .link-libros {
-  text-decoration: none;
+  text-decoration: none;    /* Quita el subrayado del enlace */
 }
 
+/* Tarjeta individual de libro */
 .libro-card {
-  background: var(--color-blanco);
-  border-radius: 12px;
-  padding: 22px 16px;
+  background: var(--color-blanco);                /* Fondo blanco */
+  border-radius: 12px;                            /* Bordes redondeados */
+  padding: 22px 16px;                             /* Espaciado interno */
   display: flex;
-  align-items: center;
-  gap: 16px;
-  box-shadow: var(--shadow-card);
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  border: 1px solid var(--color-borde-card);
+  align-items: center;                            /* Centrado vertical */
+  gap: 16px;                                      /* Espacio entre imagen y texto */
+  box-shadow: var(--shadow-card);                 /* Sombra */
+  cursor: pointer;                                /* Cursor tipo botón */
+  transition: transform 0.2s, box-shadow 0.2s;    /* Animación suave */
+  border: 1px solid var(--color-borde-card);      /* Borde suave */
 }
 
+/* Efecto hover (cuando pasas el mouse) */
 .libro-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-3px);           /* Se eleva ligeramente */
+  box-shadow: var(--shadow-card-hover);  /* Sombra más fuerte */
 }
 
+/* Imagen del libro */
 .libro-img {
   width: 90px;
   height: 90px;
-  object-fit: contain;
+  object-fit: contain;  /* Mantiene proporción sin deformar */
 }
 
+/* Título del libro */
 .libro-titulo {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-negro);
 }
 
-/* RESPONSIVE */
+
+/* ===== RESPONSIVE ===== */ 
+/* Ajustes para pantallas pequeñas (celulares) */
 @media (max-width: 500px) {
+
+  /* El grid pasa a una sola columna */
   .libros-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Título del topbar más pequeño */
   .topbar-title {
     font-size: 0.82rem;
   }
+
+  /* Menor espacio entre tarjetas resumen */
   .resumen {
     gap: 10px;
   }
+
+  /* Número de las tarjetas más pequeño */
   .card-numero {
     font-size: 1.2rem;
   }

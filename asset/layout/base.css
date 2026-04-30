@@ -1,16 +1,20 @@
+/* ===== RESET GENERAL ===== */ 
+/* Se eliminan márgenes y paddings por defecto del navegador y se define box-sizing para un mejor control de tamaños */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: var(--texto-principal);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: var(--color-azul-oscuro);
-    position: relative;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== CONFIGURACIÓN DEL BODY ===== */ 
+/* Contenedor principal de toda la página */
+body {
+  font-family: var(--texto-principal);            /* Fuente global definida en variables */
+  height: 100vh;                                  /* Ocupa toda la altura de la pantalla */
+  display: flex;                                  /* Centrado del contenido (login u otros contenedores principales) */
+  align-items: center;                            /* Centra verticalmente */
+  justify-content: center;                        /* Centra horizontalmente */
+  overflow: hidden;                               /* Evita scroll innecesario */
+  background-color: var(--color-azul-oscuro);     /* Fondo principal */
+  position: relative;                             /* Permite posicionar elementos hijos (ej: fondo, overlays) */
+}

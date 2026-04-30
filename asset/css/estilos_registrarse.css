@@ -1,27 +1,30 @@
-/* Fondo */
+/* ===== FONDO ===== */
+/* Capa de fondo fija con gradiente */
 .fondo {
   position: fixed;
-  inset: 0;
+  inset: 0;                                         /* Ocupa toda la pantalla */
   width: var(--width-principal);
   height: var(--height-principal);
-  background: var(--gradient-fondo-registro);
-  z-index: 0;
+  background: var(--gradient-fondo-registro);       /* Gradiente definido en variables */
+  z-index: 0;                                       /* Se coloca detrás del contenido */
 }
 
-/* Caja Principal */
+/* ===== CONTENEDOR PRINCIPAL (LOGIN / REGISTRO) ===== */
+/* Caja que contiene logo + formulario */
 .login {
   position: relative;
-  z-index: 1;
+  z-index: 1;                               /* Encima del fondo */
   display: flex;
-  flex-direction: row;
+  flex-direction: row;                      /* Distribución horizontal */
   align-items: stretch;
-  gap: var(--gap-paneles);
+  gap: var(--gap-paneles);                  /* Espacio entre paneles */
   overflow: hidden;
   width: var(--width-registro);
   min-height: var(--min-height-registro);
 }
 
-/* Panel Logo */
+/* ===== PANEL LOGO ===== */ 
+/* Contenedor izquierdo donde va el logo */
 .panel-logo {
   width: var(--width-panel-logo-registro);
   display: flex;
@@ -30,6 +33,7 @@
   padding: var(--padding-panel-v) var(--padding-panel-h-logo-registro);
 }
 
+/* Círculo que contiene el logo */
 .logo-circle {
   width: var(--size-logo-circle-registro);
   height: var(--size-logo-circle-registro);
@@ -38,24 +42,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.15);        /* Fondo semitransparente */
 }
 
+/* Imagen del logo */
 .logo-img {
   width: var(--width-principal);
   height: var(--height-principal);
-  object-fit: cover;
+  object-fit: cover;                        /* Ajusta la imagen sin deformarla */
 }
 
-/* Divisor vertical */
+/* ===== DIVISOR ===== */ 
+/* Línea que separa logo y formulario */
 .divider {
   width: var(--width-divider);
   background-color: rgba(255, 255, 255, 0.5);
   margin: var(--margin-divider) 0;
-  flex-shrink: 0;
+  flex-shrink: 0;                                   /* Evita que se reduzca */
 }
 
-/* Panel Formulario */
+/* ===== PANEL FORMULARIO ===== */ 
+/* Contenedor derecho donde va el formulario */
 .panel-form {
   width: var(--width-panel-form-registro);
   display: flex;
@@ -67,6 +74,7 @@
   border-radius: var(--border-radius-panel-form);
 }
 
+/* Título del formulario */
 .form-title {
   font-size: var(--font-size-titulo-registro);
   font-weight: 700;
@@ -75,7 +83,8 @@
   margin-bottom: 20px;
 }
 
-/* Formulario */
+/* ===== FORMULARIO ===== */ 
+/* Contenedor de los inputs */
 .login-form {
   width: var(--width-principal);
   display: flex;
@@ -83,6 +92,7 @@
   gap: var(--gap-form-sm);
 }
 
+/* Inputs */
 .input-group input {
   width: var(--width-principal);
   padding: var(--padding-input-v-lg) var(--padding-input-h);
@@ -96,15 +106,18 @@
   background: var(--color-blanco);
 }
 
+/* Placeholder */
 .input-group input::placeholder {
   color: var(--color-placeholder);
 }
 
+/* Estado focus */
 .input-group input:focus {
   border-color: var(--color-azul-focus);
 }
 
-/* Botón */
+/* ===== BOTÓN PRINCIPAL ===== */
+/* Botón de acción (registrar / ingresar) */
 .btn-principal {
   width: var(--width-principal);
   padding: var(--padding-boton-lg);
@@ -118,6 +131,7 @@
   margin-top: 4px;
 }
 
+/* Hover del botón */
 .btn-principal:hover {
   background: var(--color-blanco);
   color: var(--color-azul-focus);
@@ -125,7 +139,8 @@
   box-shadow: var(--shadow-boton-hover);
 }
 
-/* Link inferior */
+/* ===== LINK INFERIOR ===== */
+/* Texto de navegación (ej: "¿Ya tienes cuenta?") */
 .link-inferior {
   font-size: var(--font-size-input);
   color: var(--color-verde-principal);
@@ -133,29 +148,34 @@
   margin-top: 15px;
 }
 
+/* Enlace dentro del texto */
 .link-inferior a {
   color: var(--color-verde-principal);
   font-weight: 600;
   text-decoration: none;
 }
 
+/* Hover del contenedor */
 .link-inferior:hover {
   color: var(--color-azul-focus);
 }
 
+/* Hover del enlace */
 .link-inferior a:hover {
   color: var(--color-azul-focus);
 }
 
+/* Contenedor para alinear links */
 .container-link {
   display: flex;
   justify-content: flex-end;
 }
 
+/* ===== RESPONSIVE ===== */
 /* Tablet (pantallas medianas) */
 @media (max-width: 900px) {
   .login {
-    width: 88vw;
+    width: 88vw;      /* Se adapta al ancho de pantalla */
   }
 
   .logo-circle {
@@ -164,15 +184,15 @@
   }
 }
 
-/* Mobile */
+/* Mobile (pantallas pequeñas) */
 @media (max-width: 680px) {
   body {
-    align-items: flex-start;
+    align-items: flex-start;      /* Evita que quede centrado verticalmente */
     padding: 20px 0;
   }
 
   .login {
-    flex-direction: column;
+    flex-direction: column;       /* Cambia a diseño vertical */
     gap: 0;
     width: 92vw;
     overflow: hidden;
@@ -192,7 +212,7 @@
 
   .divider {
     width: 75%;
-    height: var(--width-divider);
+    height: var(--width-divider);    /* Se vuelve horizontal */
     margin: 0 auto;
   }
 
