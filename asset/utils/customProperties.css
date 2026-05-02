@@ -77,6 +77,8 @@
     --padding-panel-h-logo: 30px;
     --padding-panel-h-logo-registro: 24px;
     --padding-panel-h-form: 36px;
+    --padding-panel-v-form-registro: 28px;
+    --padding-panel-h-form-registro: 28px;
     --padding-input-v: 12px;
     --padding-input-v-lg: 15px;
     --padding-input-h: 20px;
@@ -87,7 +89,7 @@
     --gap-form-sm: 12px;
     --gap-paneles: 24px;
     --margin-divider: 30px;
-    --margin-divider-sm: 28px;
+    --margin-divider-sm: 30px;
 
     /* ===================== BORDES ===================== */
     --border-width: 2px;

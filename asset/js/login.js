@@ -1,40 +1,55 @@
 // Importa el módulo ipcRenderer de Electron
-// Esto permite enviar y recibir mensajes entre el frontend y el backend. 
+// Permite comunicación entre el frontend (renderer) y el backend (main)
 const { ipcRenderer } = require('electron')
 
-function iniciarSesion() {    // Función que se ejecuta cuando el usuario hace clic en "Ingresar"
-
-  // Obtiene el valor del input con id "usuario"
-  // trim() elimina espacios en blanco al inicio y al final
-  const usuario  = document.getElementById('usuario').value.trim()
-
-  // Obtiene el valor del input de la contraseña
+// Función que se ejecuta cuando el usuario intenta iniciar sesión
+function iniciarSesion() {
+  // Obtiene el valor del campo "usuario" y elimina espacios innecesarios
+  const usuario = document.getElementById('usuario').value.trim()
+  // Obtiene el valor del campo "contraseña" y elimina espacios
   const password = document.getElementById('contrasena').value.trim()
 
-
-  // Valida si alguno de los campos está vacío
+  // ===== VALIDACIÓN DE CAMPOS =====
+  // Verifica que ambos campos tengan contenido
   if (!usuario || !password) {
-    Swal.fire({ icon: 'warning', title: 'Campos vacíos', text: 'Por favor llena todos los campos.', confirmButtonColor: '#007ABF' })
-    return
+
+    // Muestra una alerta si hay campos vacíos
+    Swal.fire({
+      icon: 'warning',
+      title: 'Campos vacíos',
+      text: 'Por favor llena todos los campos.',
+      confirmButtonColor: '#007ABF'
+    })
+
+    return // Detiene la ejecución
   }
 
-  // Envía un mensaje al proceso principal de Electron
-  // 'login' es el canal (nombre del evento)
-  // { usuario, password } son los datos que se envían
+  // ===== ENVÍO DE DATOS AL BACKEND =====
+  // Envía un evento llamado 'login' al proceso principal (main)
+  // Se envía un objeto con usuario y contraseña
   ipcRenderer.send('login', { usuario, password })
 }
 
-// Escucha una respuesta desde el proceso principal 'login-respuesta' es el canal por donde llega la respuesta
+
+// ===== RECEPCIÓN DE RESPUESTA DEL BACKEND =====
+// Escucha el evento 'login-respuesta' enviado desde el proceso principal
 ipcRenderer.on('login-respuesta', (event, respuesta) => {
-  // Verifica si el login fue exitoso
+  // Si el login fue exitoso
   if (respuesta.exito) {
-    // Guarda los datos del usuario en el navegador (localStorage)
-    // JSON.stringify convierte el objeto en texto para poder guardarlo
+    // Guarda los datos del usuario en el localStorage
+    // Se convierte a texto con JSON.stringify
     localStorage.setItem('usuario', JSON.stringify(respuesta.usuario))
 
-    window.location.href = 'pages/menuPrincipal.html'  // Redirige al usuario a la página principal (dashboard)
+    // Redirige al menú principal (dashboard)
+    window.location.href = 'pages/menuPrincipal.html'
 
   } else {
-    Swal.fire({ icon: 'error', title: 'Acceso denegado', text: respuesta.mensaje, confirmButtonColor: '#007ABF' })
+    // Si falla el login, muestra mensaje de error
+    Swal.fire({
+      icon: 'error',
+      title: 'Acceso denegado',
+      text: respuesta.mensaje,
+      confirmButtonColor: '#007ABF'
+    })
   }
 })
