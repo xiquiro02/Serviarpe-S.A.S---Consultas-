@@ -1,36 +1,44 @@
-const Database = require('better-sqlite3')  // Importa la librería better-sqlite3 para manejar SQLite
-const path = require('path')  // Importa path para manejar rutas del sistema de archivos
-const bcrypt = require('bcryptjs')  // Importa bcrypt para encriptar contraseñas
+// ================================ IMPORTACIÓN DE LIBRERÍAS ================================
+// Librería para trabajar con SQLite de forma rápida y sin promesas
+const Database = require('better-sqlite3')
+// Módulo para manejar rutas del sistema
+const path = require('path')
+// Librería para encriptar contraseñas
+const bcrypt = require('bcryptjs')
 
-// Crea o abre la base de datos llamada "datos.db"
-// __dirname → ruta actual del archivo
+
+// ================================ CREACIÓN / CONEXIÓN A LA BD ================================
+// Se crea o abre el archivo datos.db en la misma carpeta del proyecto
+// __dirname = ruta actual del archivo
 const db = new Database(path.join(__dirname, 'datos.db'))
 
-// Ejecuta múltiples sentencias SQL (crear tablas y triggers)
+
+// ================================ CREACIÓN DE TABLAS Y TRIGGERS ================================
+// db.exec permite ejecutar múltiples sentencias SQL de una sola vez
 db.exec(`
 
   -- ============================
   -- TABLA USUARIOS
   -- ============================
   CREATE TABLE IF NOT EXISTS usuarios (
-    id         INTEGER PRIMARY KEY AUTOINCREMENT, -- ID único autoincremental
+    id         INTEGER PRIMARY KEY AUTOINCREMENT, -- Identificador único
     nombre     TEXT NOT NULL,                     -- Nombre completo
-    usuario    TEXT NOT NULL UNIQUE,              -- Nombre de usuario (único)
-    correo     TEXT NOT NULL UNIQUE,              -- Correo electrónico (único)
-    foto       TEXT DEFAULT NULL,                 -- Ruta de foto (opcional)
-    password   TEXT NOT NULL,                     -- Contraseña (encriptada)
-    rol        TEXT DEFAULT 'empleado',           -- Rol (empleado o administrador)
-    created_at TEXT DEFAULT (datetime('now')),    -- Fecha de creación automática
-    updated_at TEXT DEFAULT (datetime('now'))     -- Fecha de actualización automática
+    usuario    TEXT NOT NULL UNIQUE,              -- Username único
+    correo     TEXT NOT NULL UNIQUE,              -- Correo único
+    foto       TEXT DEFAULT NULL,                 -- Foto (opcional)
+    password   TEXT NOT NULL,                     -- Contraseña encriptada
+    rol        TEXT DEFAULT 'empleado',           -- Rol del usuario
+    created_at TEXT DEFAULT (datetime('now')),    -- Fecha de creación
+    updated_at TEXT DEFAULT (datetime('now'))     -- Fecha de actualización
   );
 
-  -- Trigger para actualizar automáticamente el campo updated_at
+  -- Trigger: se ejecuta automáticamente cuando se actualiza un usuario
   CREATE TRIGGER IF NOT EXISTS actualizar_usuarios
   AFTER UPDATE ON usuarios
   BEGIN
     UPDATE usuarios 
-    SET updated_at = datetime('now') -- coloca la fecha actual
-    WHERE id = NEW.id;               -- solo en el registro actualizado
+    SET updated_at = datetime('now') -- Actualiza la fecha automáticamente
+    WHERE id = NEW.id;               -- Solo al registro modificado
   END;
 
 
@@ -38,13 +46,13 @@ db.exec(`
   -- TABLA LIBROS
   -- ============================
   CREATE TABLE IF NOT EXISTS libros (
-    id         INTEGER PRIMARY KEY AUTOINCREMENT, -- ID único
-    nombre     TEXT NOT NULL,                     -- Nombre del libro
-    created_at TEXT DEFAULT (datetime('now')),    -- Fecha de creación
-    updated_at TEXT DEFAULT (datetime('now'))     -- Fecha de actualización
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre     TEXT NOT NULL,
+    created_at TEXT DEFAULT (datetime('now')),
+    updated_at TEXT DEFAULT (datetime('now'))
   );
 
-  -- Trigger para actualizar fecha automáticamente
+  -- Trigger para actualizar fecha
   CREATE TRIGGER IF NOT EXISTS actualizar_libros
   AFTER UPDATE ON libros
   BEGIN
@@ -58,14 +66,14 @@ db.exec(`
   -- TABLA CAJAS
   -- ============================
   CREATE TABLE IF NOT EXISTS cajas (
-    id         INTEGER PRIMARY KEY AUTOINCREMENT, -- ID único
-    numero     TEXT NOT NULL,                     -- Número de la caja
-    ubicacion  TEXT,                              -- Ubicación física
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    numero     TEXT NOT NULL,   -- Número identificador
+    ubicacion  TEXT,            -- Ubicación física
     created_at TEXT DEFAULT (datetime('now')),
     updated_at TEXT DEFAULT (datetime('now'))
   );
 
-  -- Trigger para actualizar fecha automáticamente
+  -- Trigger de actualización automática
   CREATE TRIGGER IF NOT EXISTS actualizar_cajas
   AFTER UPDATE ON cajas
   BEGIN
@@ -79,13 +87,13 @@ db.exec(`
   -- TABLA AÑOS
   -- ============================
   CREATE TABLE IF NOT EXISTS anios (
-    id         INTEGER PRIMARY KEY AUTOINCREMENT, -- ID único
-    anio       TEXT NOT NULL,                     -- Año (ej: 2024)
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    anio       TEXT NOT NULL,   -- Año (ej: 2026)
     created_at TEXT DEFAULT (datetime('now')),
     updated_at TEXT DEFAULT (datetime('now'))
   );
 
-  -- Trigger para actualizar fecha automáticamente
+  -- Trigger para mantener updated_at actualizado
   CREATE TRIGGER IF NOT EXISTS actualizar_anios
   AFTER UPDATE ON anios
   BEGIN
@@ -99,14 +107,14 @@ db.exec(`
   -- TABLA PERSONAL
   -- ============================
   CREATE TABLE IF NOT EXISTS personal (
-    id         INTEGER PRIMARY KEY AUTOINCREMENT, -- ID único
-    nombre     TEXT NOT NULL,                     -- Nombre de la persona
-    cedula     TEXT NOT NULL UNIQUE,              -- Documento único
-    cargo      TEXT,                              -- Cargo o puesto
-    libro_id   INTEGER,                           -- Relación con libros
-    caja_id    INTEGER,                           -- Relación con cajas
-    anio_id    INTEGER,                           -- Relación con años
-    posicion   TEXT,                              -- Posición o ubicación
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre     TEXT NOT NULL,        -- Nombre de la persona
+    cedula     TEXT NOT NULL UNIQUE, -- Documento único
+    cargo      TEXT,                 -- Cargo o rol laboral
+    libro_id   INTEGER,              -- Relación con libro
+    caja_id    INTEGER,              -- Relación con caja
+    anio_id    INTEGER,              -- Relación con año
+    posicion   TEXT,                 -- Ubicación dentro del archivo
     created_at TEXT DEFAULT (datetime('now')),
     updated_at TEXT DEFAULT (datetime('now')),
 
@@ -127,46 +135,46 @@ db.exec(`
 
 
   -- ============================
-  -- TABLA TOKENS RECUPERACIÓN
+  -- TABLA TOKENS (RECUPERACIÓN)
   -- ============================
   CREATE TABLE IF NOT EXISTS reset_tokens (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
-    correo     TEXT NOT NULL,
-    token      TEXT NOT NULL,
-    expira_en  TEXT NOT NULL,
-    usado      INTEGER DEFAULT 0
+    correo     TEXT NOT NULL,   -- Correo del usuario
+    token      TEXT NOT NULL,   -- Código de verificación
+    expira_en  TEXT NOT NULL,   -- Fecha de expiración
+    usado      INTEGER DEFAULT 0 -- 0 = no usado, 1 = usado
   );
 
 `)
 
+// ================================
+// CREACIÓN DE ADMIN POR DEFECTO
+// ================================
 
-// ============================
-// CREAR ADMIN POR DEFECTO
-// ============================
-// Consulta si ya existe un usuario con rol administrador
+// Consulta si ya existe un usuario administrador
 const adminExiste = db.prepare(
   `SELECT COUNT(*) as total FROM usuarios WHERE rol = 'administrador'`
 ).get()
 
-// Si no existe ningún administrador
+// Si no existe ningún administrador en el sistema
 if (adminExiste.total === 0) {
 
-  // Encripta la contraseña "admin123"
+  // Se encripta la contraseña inicial
   const passwordEncriptada = bcrypt.hashSync('admin123', 10)
 
-  // Inserta el usuario administrador por defecto
+  // Se inserta el usuario administrador por defecto
   db.prepare(`
     INSERT INTO usuarios (nombre, usuario, correo, password, rol)
     VALUES (?, ?, ?, ?, ?)
   `).run(
-    'Administrador',                      // nombre
-    'admin',                              // usuario
-    'serviarpesasesp@gmail.com',          // correo
-    passwordEncriptada,                   // contraseña encriptada
-    'administrador'                       // rol
+    'Administrador',               // Nombre
+    'admin',                       // Usuario
+    'serviarpesasesp@gmail.com',   // Correo
+    passwordEncriptada,            // Password encriptado
+    'administrador'                // Rol
   )
 
-  // Mensajes en consola para informar credenciales
+  // Mensaje informativo en consola
   console.log('============================')
   console.log('Usuario admin creado')
   console.log('Usuario:  admin')
@@ -174,8 +182,10 @@ if (adminExiste.total === 0) {
   console.log('============================')
 }
 
-// Mensaje indicando que la base de datos está lista
+// ================================ MENSAJE FINAL ================================
+// Indica que la base de datos está lista para usarse
 console.log('Base de datos lista')
 
-// Exporta la conexión para usarla en otros archivos
+// ================================ EXPORTACIÓN ================================
+// Permite usar la conexión en otros archivos del proyecto
 module.exports = db

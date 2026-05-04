@@ -117,7 +117,6 @@ function guardarDatos(e) {
   }
 }
 
-
 // ================================ CAMBIAR CONTRASEÑA  ================================
 function cambiarContrasena(e) {
 
@@ -201,7 +200,6 @@ function cambiarContrasena(e) {
 function togglePass(inputId, btn) {
 
   const input = document.getElementById(inputId);
-
   // Verifica si está visible
   const visible = input.type === 'text';
 

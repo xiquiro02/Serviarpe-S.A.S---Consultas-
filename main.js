@@ -4,9 +4,9 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 // BrowserWindow → crea ventanas
 // ipcMain → recibe mensajes del frontend (ipcRenderer)
 
-const path = require('path')  // Importa path para manejar rutas
-const db = require('./database')  // Importa la base de datos (al requerirlo, ya se ejecuta y crea tablas)
-const auth = require('./backend/login_registro')  // Importa el módulo de autenticación (login y registro)
+const path = require('path')                                    // Importa path para manejar rutas
+const db = require('./database')                                // Importa la base de datos (al requerirlo, ya se ejecuta y crea tablas)
+const auth = require('./backend/login_registro')                // Importa el módulo de autenticación (login y registro)
 const recuperarPass = require('./backend/recuperarPassword')
 
 let mainWindow  // Variable global para la ventana principal
@@ -41,9 +41,7 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
 
-// ================================
-// LOGIN
-// ================================
+// ================================ LOGIN ================================
 // Escucha el evento 'login' desde el frontend (ipcRenderer)
 ipcMain.on('login', (event, datos) => {
   // Llama a la función login del backend
@@ -52,25 +50,19 @@ ipcMain.on('login', (event, datos) => {
   event.reply('login-respuesta', respuesta)
 })
 
-// ================================
-// REGISTRO
-// ================================
+// ================================ REGISTRO ================================
 ipcMain.on('registrar-usuario', (event, datos) => {
   const respuesta = auth.registrar(datos)
   event.reply('registro-respuesta', respuesta)
 })
 
-// ================================
-// RECUPERAR CONTRASEÑA - Paso 1: enviar código
-// ================================
+// ================================ RECUPERAR CONTRASEÑA - Paso 1: enviar código  ================================
 ipcMain.on('enviar-codigo-reset', async (event, datos) => {
   const respuesta = await recuperarPass.enviarCodigo(datos.correo)
   event.reply('codigo-reset-respuesta', respuesta)
 })
 
-// ================================
-// RECUPERAR CONTRASEÑA - Paso 2: verificar código y cambiar password
-// ================================
+// ================================ RECUPERAR CONTRASEÑA - Paso 2: verificar código y cambiar password ================================
 ipcMain.on('cambiar-password', (event, datos) => {
   const respuesta = recuperarPass.cambiarPassword(datos.correo, datos.codigo, datos.nuevaPassword)
   event.reply('cambiar-password-respuesta', respuesta)

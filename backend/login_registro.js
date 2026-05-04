@@ -3,9 +3,7 @@ const db = require('../database')
 // Importa la librería bcrypt para encriptar y comparar contraseñas
 const bcrypt = require('bcryptjs')
 
-// ================================
-// LOGIN
-// ================================
+// ================================ LOGIN ================================
 
 function login(datos) {   // Función para iniciar sesión
   try {
@@ -42,9 +40,7 @@ function login(datos) {   // Función para iniciar sesión
   }
 }
 
-// ================================
-// REGISTRO
-// ================================
+// ================================ REGISTRO ================================
 
 function registrar(datos) {   // Función para registrar un nuevo usuario
   try {
