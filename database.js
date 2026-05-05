@@ -109,7 +109,7 @@ db.exec(`
   CREATE TABLE IF NOT EXISTS personal (
     id         INTEGER PRIMARY KEY AUTOINCREMENT,
     nombre     TEXT NOT NULL,        -- Nombre de la persona
-    cedula     TEXT NOT NULL UNIQUE, -- Documento único
+    cedula     TEXT NOT NULL,        -- Documento único
     cargo      TEXT,                 -- Cargo o rol laboral
     libro_id   INTEGER,              -- Relación con libro
     caja_id    INTEGER,              -- Relación con caja
@@ -118,6 +118,7 @@ db.exec(`
     created_at TEXT DEFAULT (datetime('now')),
     updated_at TEXT DEFAULT (datetime('now')),
 
+    UNIQUE (cedula, libro_id),
     -- Relaciones (claves foráneas)
     FOREIGN KEY (libro_id) REFERENCES libros(id),
     FOREIGN KEY (caja_id)  REFERENCES cajas(id),
