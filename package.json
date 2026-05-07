@@ -26,6 +26,7 @@
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "better-sqlite3": "^12.9.0",
+    "mssql": "^12.5.2",
     "nodemailer": "^8.0.7",
     "sweetalert2": "^11.26.24"
   }
