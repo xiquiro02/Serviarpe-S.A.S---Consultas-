@@ -1,15 +1,17 @@
 import sql from "mssql";
 import "dotenv/config";
 
+const isAzure = process.env.DB_SERVER?.includes('.database.windows.net');
+
 const config = {
     server:   process.env.DB_SERVER || 'localhost',
     database: process.env.DB_NAME,
     user:     process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     options: {
-        instanceName:           process.env.DB_INSTANCE || 'SQLEXPRESS',
-        encrypt:                false,
-        trustServerCertificate: true,
+        ...(process.env.DB_INSTANCE ? { instanceName: process.env.DB_INSTANCE } : {}),
+        encrypt:                isAzure ? true : false,
+        trustServerCertificate: isAzure ? false : true,
     },
     pool: {
         max:              10,

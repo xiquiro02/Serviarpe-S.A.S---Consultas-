@@ -26,7 +26,7 @@ import { PersonalModel } from "../models/personalModel.js";
 
     export const getPersonalByLibro = async (req, res) => {
         try {
-            const { libro_id } = req.params;
+            const libro_id = req.params.id;
             const personal = await PersonalModel.findByLibro(libro_id);
             res.json(personal);
         } catch (error) {

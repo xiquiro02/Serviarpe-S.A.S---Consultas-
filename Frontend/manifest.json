@@ -1,0 +1,24 @@
+{
+  "name": "Serviarpe S.A.S ESP",
+  "short_name": "Serviarpe",
+  "description": "Sistema de gestión de personal y archivos físicos",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0e270b",
+  "theme_color": "#0e270b",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/asset/imagenes/Logo_Serviarpe.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/asset/imagenes/Logo_Serviarpe.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

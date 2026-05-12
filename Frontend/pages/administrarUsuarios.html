@@ -11,6 +11,10 @@
       <!-- Título -->
       <title>Serviarpe S.A.S - Administrar Usuarios</title>
 
+      <!-- PWA -->
+      <link rel="manifest" href="../manifest.json" />
+      <meta name="theme-color" content="#0e270b" />
+
       <!-- ================= ESTILOS ================= -->
       <link rel="stylesheet" href="../asset/utils/customProperties.css" />
       <link rel="stylesheet" href="../asset/layout/sidebar.css" />
@@ -198,10 +202,13 @@
       <!-- ================= SCRIPTS ================= -->
       <!-- Alertas -->
       <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+      <script src="../js/api.js"></script>
+      <script src="../services/libros.service.js"></script>
+      <script src="../services/usuarios.service.js"></script>
       <!-- Scripts de comportamiento -->
-      <script src="../asset/js/hamburger.js"></script>
-      <script src="../asset/js/sidebar.js"></script>
-      <script src="../asset/js/administrarUsuarios.js"></script>
+      <script src="../js/hamburger.js"></script>
+      <script src="../js/sidebar.js"></script>
+      <script src="../js/administrarUsuarios.js"></script>
 
     </body>
   </html>

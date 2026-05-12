@@ -10,6 +10,10 @@
       <!-- Título de la pestaña del navegador -->
       <title>Serviarpe S.A.S</title>
 
+      <!-- PWA -->
+      <link rel="manifest" href="manifest.json" />
+      <meta name="theme-color" content="#0e270b" />
+
       <!-- Hoja de estilos principal -->
       <link rel="stylesheet" href="asset/estilo_principal.css" />
 
@@ -96,8 +100,16 @@
       <!-- ================= SCRIPTS ================= -->
       <!-- Librería SweetAlert2 para alertas personalizadas -->
       <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+      <script src="services/auth.service.js"></script>
       <!-- Script principal del login -->
-      <script src="asset/js/login.js"></script>
+      <script src="js/login.js"></script>
+
+      <!-- Registro del Service Worker (PWA) -->
+      <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js');
+        }
+      </script>
 
     </body>
   </html>

@@ -11,6 +11,10 @@
       <!-- Título -->
       <title>Serviarpe S.A.S - Buscar Personal</title>
 
+      <!-- PWA -->
+      <link rel="manifest" href="../manifest.json" />
+      <meta name="theme-color" content="#0e270b" />
+
       <!-- ================= ESTILOS ================= -->
       <!-- Variables globales -->
       <link rel="stylesheet" href="../asset/utils/customProperties.css" />
@@ -153,12 +157,15 @@
       </div>
 
       <!-- ================= SCRIPTS ================= -->
+      <script src="../js/api.js"></script>
+      <script src="../services/libros.service.js"></script>
+      <script src="../services/personal.service.js"></script>
       <!-- Control de menú -->
-      <script src="../asset/js/hamburger.js"></script>
+      <script src="../js/hamburger.js"></script>
       <!-- Sidebar dinámico -->
-      <script src="../asset/js/sidebar.js"></script>
+      <script src="../js/sidebar.js"></script>
       <!-- Lógica de búsqueda y render de tabla -->
-      <script src="../asset/js/buscarPersonal.js"></script>
+      <script src="../js/buscarPersonal.js"></script>
 
     </body>
   </html>

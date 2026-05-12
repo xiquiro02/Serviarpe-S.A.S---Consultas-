@@ -10,6 +10,10 @@
       <!-- Título de la página -->
       <title>Serviarpe S.A.S - Registros Libro</title>
 
+      <!-- PWA -->
+      <link rel="manifest" href="../manifest.json" />
+      <meta name="theme-color" content="#0e270b" />
+
       <!-- ================= ESTILOS ================= -->
       <!-- Variables globales (colores, tamaños, etc.) -->
       <link rel="stylesheet" href="../asset/utils/customProperties.css" />
@@ -152,12 +156,15 @@
       <!-- ================= SCRIPTS ================= -->
       <!-- Librería de alertas -->
       <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+      <script src="../js/api.js"></script>
+      <script src="../services/libros.service.js"></script>
+      <script src="../services/personal.service.js"></script>
       <!-- Control del menú hamburguesa -->
-      <script src="../asset/js/hamburger.js"></script>
+      <script src="../js/hamburger.js"></script>
       <!-- Lógica del sidebar (roles, navegación dinámica) -->
-      <script src="../asset/js/sidebar.js"></script>
+      <script src="../js/sidebar.js"></script>
       <!-- Lógica principal de la vista (tabla, filtros, datos) -->
-      <script src="../asset/js/vistaLibros.js"></script>
+      <script src="../js/vistaLibros.js"></script>
 
     </body>
   </html>

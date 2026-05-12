@@ -11,6 +11,10 @@
     <!-- Título -->
     <title>Serviarpe S.A.S - Dashboard</title>
 
+    <!-- PWA -->
+    <link rel="manifest" href="../manifest.json" />
+    <meta name="theme-color" content="#0e270b" />
+
     <!-- ================= ESTILOS ================= -->
     <!-- Variables globales (colores, tamaños, etc.) -->
     <link rel="stylesheet" href="../asset/utils/customProperties.css" />
@@ -146,12 +150,17 @@
     </div>
 
     <!-- ================= SCRIPTS ================= -->
+    <script src="../js/api.js"></script>
+    <script src="../services/libros.service.js"></script>
+    <script src="../services/personal.service.js"></script>
+    <script src="../services/cajas.service.js"></script>
+    <script src="../services/anios.service.js"></script>
     <!-- Control del menú -->
-    <script src="../asset/js/hamburger.js"></script>
+    <script src="../js/hamburger.js"></script>
     <!-- Lógica del sidebar -->
-    <script src="../asset/js/sidebar.js"></script>
+    <script src="../js/sidebar.js"></script>
     <!-- Lógica del dashboard (datos, métricas, render dinámico) -->
-    <script src="../asset/js/menuPrincipal.js"></script>
+    <script src="../js/menuPrincipal.js"></script>
 
   </body>
   </html>

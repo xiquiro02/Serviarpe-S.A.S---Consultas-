@@ -10,6 +10,10 @@
       <!-- Título de la pestaña -->
       <title>Serviarpe S.A.S - Registrarse</title>
 
+      <!-- PWA -->
+      <link rel="manifest" href="../manifest.json" />
+      <meta name="theme-color" content="#0e270b" />
+
       <!-- ================= ESTILOS ================= -->
       <!-- Estilos específicos de la vista de registro -->
       <link rel="stylesheet" href="../asset/css/estilos_registrarse.css" />
@@ -124,8 +128,9 @@
       <!-- ================= SCRIPTS ================= -->
       <!-- Librería para alertas visuales -->
       <script src="../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+      <script src="../services/auth.service.js"></script>
       <!-- Lógica del registro (validaciones, envío de datos, etc.) -->
-      <script src="../asset/js/registrarse.js"></script>
+      <script src="../js/registrarse.js"></script>
 
     </body>
   </html>
